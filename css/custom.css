@@ -1,12 +1,74 @@
+/* Estilos de YouTube*/
+
+/*Etiquetas HTML*/
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serifS;
 }
 
+/* Estilo para las miniaturas de las tendencias*/
+
+main .body-grid .video-miniatura-tendencias {
+  margin: 10px 10px;
+  padding: 0;
+  width: 245px;
+  height: 140px;
+}
+
+main .body-grid a {
+  color: #000000;
+  text-decoration: none;
+}
+
+main .body-grid p {
+  font-size: 13px;
+}
+
+main .body-grid h4 {
+  font-weight: 400;
+}
+
+/*Fin estilo para las miniaturas de las tendencias*/
+
+/*Estilo para los banners de las subpaginas(musica,deportes,juegos)*/
+
+main .header-canal .banner-foto {
+  width: 100%;
+  height: 200px;
+}
+
+/*para el boton de suscribirse*/
+main .suscribirse {
+  border-radius: 2px;
+  padding: 10px 15px;
+  background-color: #ff0000;
+  font-weight: 500;
+  font-size: 17px;
+  margin: 30px 70px;
+  float: right;
+}
+
+/*fin estilo para los banners de las subpaginas(musica,deportes,juegos)*/
+
+/*estilo para el asset de las pagians internas*/
+main .img-size-asset {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+/*fin estilo para el asset de las paginas internas*/
+
+
+/*Clases CSS*/
+
 .bg-light {
   background-color: #ffffff !important;
 }
 
+.yt-background-color {
+  background-color: #fafafa;
+}
 .background-transparent {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 100px;
@@ -29,16 +91,16 @@ body {
   margin-bottom: 20px;
 }
 .main-landing {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
-.content-white{
+.content-white {
   background-color: #ffffff;
   border-radius: 50px;
 }
 
-.content-red{
-  background-color: #CC181E;
+.content-red {
+  background-color: #cc181e;
   color: #ffffff;
   border-radius: 50px;
 }
@@ -218,11 +280,9 @@ body {
   padding: 8px 8px;
 }
 
-.btn-danger2{
+.btn-danger2 {
   background-color: #ff0000;
 }
-
-
 
 .creator-box {
   width: 215px;
@@ -274,7 +334,7 @@ body {
   color: #888888;
 }
 
-.imagen-circular{
+.imagen-circular {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -284,7 +344,7 @@ body {
   box-shadow: 0px 2px 0.5px 0px #cfcfcfc9;
 }
 
-.float-right{
+.float-right {
   float: right;
 }
 
@@ -378,6 +438,9 @@ body {
   box-shadow: 1px -4px 20px 0px #555555;
 }
 
+
+/*ID's*/
+
 #link-acceso {
   color: red;
   text-decoration: none;
@@ -406,62 +469,15 @@ body {
   border: 0.5px solid #888888;
 }
 
-/* Estilo para las miniaturas de las tendencias*/
-
-main .body-grid .video-miniatura-tendencias {
-  margin: 10px 10px;
-  padding: 0;
-  width: 245px;
-  height: 140px;
-}
-
-
-main .body-grid a {
-  color: #000000;
+#info-h{
+  color: #007bff;
   text-decoration: none;
 }
 
-main .body-grid p {
-  font-size: 13px;
+#info-p{
+  font-size: inherit;
 }
-
-main .body-grid h4 {
-  font-weight: 400;
-}
-
-/*Fin estilo para las miniaturas de las tendencias*/
-
-/*Estilo para los banners de las subpaginas(musica,deportes,juegos)*/
-
-main .header-canal .banner-foto {
-  width: 100%;
-  height: 200px;
-}
-
-/*para el boton de suscribirse*/
-main .suscribirse {
-  border-radius: 2px;
-  padding: 10px 15px;
-  background-color: #ff0000;
-  font-weight: 500;
-  font-size: 17px;
-  margin: 30px 70px;
-  float: right;
-}
-
-/*fin estilo para los banners de las subpaginas(musica,deportes,juegos)*/
-
-/*estilo para el asset de las pagians internas*/
-main .img-size-asset {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-}
-/*fin estilo para el asset de las pagians internas*/
-
-/*estilo landing page*/
-
-/* CUSTOMIZE THE CAROUSEL */
+/*Estilo landing page*/
 
 /* Carousel base class */
 .carousel {
@@ -556,7 +572,5 @@ main footer h6 {
 /*fin estilo landing page*/
 
 /*Estilos para la pagina de explorar-html*/
-
-
 
 /*fin estilos para la pagina de explorar-html*/
