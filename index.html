@@ -6,7 +6,7 @@
     <title>YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
     <link href="css/estilo-inicio-google.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
@@ -146,23 +146,21 @@
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="configuracion.html" title="Configuracion">
+                        <a href="configuracion.html" title="Inicio">
                             <i class="btn btn-ligth fas fa-cog fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Configuración
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="#" title="Ayuda">
+                        <a href="#" title="Tendencias">
                             <i class="btn btn-ligth fas fa-question-circle fa-lg pt-3 pb-3 ml-2  mr-4"></i>
                             Ayuda
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="#" title="Enviar comentario">
+                        <a href="#" title="Historial">
                             <i class="btn btn-ligth fas fa-comment-alt fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
-                            <a data-toggle="modal" data-target="#modal-comentarios">
-                              Enviar Coment    
-                            </a>
+                            Enviar coment
                         </a>
                     </div>
                 </div>
@@ -210,46 +208,6 @@
                 </div>
 
             </aside>
-
-            <!--modal para enviar comentarios-->
-            <div class="modal" id="modal-comentarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Enviar Comentarios</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span> <!--&times es la x para cerrar el modal-->
-                          </button>
-                        </div>
-                        <div class="modal-body"> <!--Cuerpo del moodal donde ira el contenido-->
-                            <div class="text-area">
-                                <textarea placeholder="Describe el problema o comparte tus ideas" rows="6" cols="49">
-                                </textarea>
-                            </div>
-                                <div class="row">
-                                  <img class="img-enviar-comentario" src="img/banner-yt.jpg">
-                                </div>
-                              </div>
-      
-                              <div class="parrafo-informativo">
-                                  <p class="parrafo">
-                                    Accede a la <a href="modal-inicio-google.html">página de ayuda jurídica</a> para solicitar cambios en el contenido por
-                                    motivos legales. Tu opinión e <a href="#">información adicional</a> se enviarán a Google. 
-                                    Consulta la <a href="https://www.google.com/intl/es/policies/privacy/">Política de Privacidad</a>
-                                    y las <a href="https://www.google.com/intl/es/policies/terms/">Condiciones de Servicio.</a>
-                                  </p>
-                              </div>
-
-                              <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary">Enviar</button>
-                                </div>
-                        </div>
-
-                      </div>
-                    </div>
-            <!--fin modal para enviar comentarios-->
-
             <!--Seccion de videos de YouTube -->
             <main class="col-md-10 col-12  main ml-auto">
                 <div class="body-grid">
@@ -503,8 +461,8 @@
             </main>
         </div>
 
-        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery.jscrollpane.min.js"></script>
         <!--Instancia en caso que el navegador use webkit -->
         <!--Codigo insertado desde https://webdesign.tutsplus.com-->
