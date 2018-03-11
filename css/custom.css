@@ -7,6 +7,9 @@ body {
   background-color: #ffffff !important;
 }
 
+.yt-background-color{
+  background-color: #fafafa;
+}
 .background-transparent {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 100px;

@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
-<body>
+<body class="yt-background-color">
 
     <!--Barra de navegacion de YouTube -->
 
@@ -37,8 +37,8 @@
                         <span class="col-xl-7 col-lg-6 col-md-5 col-sm-4">
                             <div class="container" id="busqueda">
                                 <form class="form-inline">
-                                    <input type="text" placeholder="Buscar" class="form-control collapse collapse.show" id="search-box">
-                                    <button type="button" data-toggle="collapse" data-target="#search-box" aria-expanded="false" aria-controls="search-box" class="btn btn-light col-1"
+                                    <input type="text" placeholder="Buscar" class="form-control d-none d-sm-block col-md-10 collapse m-0" id="search-box">
+                                    <button type="button" data-toggle="collapse" data-target="#search-box" aria-expanded="false" aria-controls="search-box" class="btn btn-light col-1 "
                                         id="search-btn">
                                         <i class="fas fa-search fa-lg"></i>
                                     </button>
@@ -47,7 +47,7 @@
                         </span>
                         <span class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-xs-6 ml-5">
                             <form class="form-inline ml-auto">
-                                <button class="btn btn-light btn-circle end-btn" onclick="location.href='form-videos.html';">
+                                <button type="button" class="btn btn-light btn-circle end-btn" onclick="location.href='form-videos.html';">
                                     <i class="fas fa-upload fa-lg"></i>
                                 </button>
                                 <button class="btn btn-light btn-circle end-btn">
@@ -209,7 +209,7 @@
 
             </aside>
             <!--Seccion de videos de YouTube -->
-            <main class="col-md-10 col-12  main ml-auto">
+            <main class="col-md-10 col-12 item-center main ml-auto">
                 <div class="body-grid">
                     <div class="content-name">
                         Recomendados
