@@ -43,7 +43,7 @@
                         </span>
                         <span class="col-4 ml-5">
                             <form class="form-inline ml-auto">
-                                <button type="button" class="btn btn-light btn-circle end-btn" onclick="location.href='form-videos.html';">
+                                <button type="button" class="btn btn-light btn-circle end-btn" onclick="location.href='form-videos.html'">
                                     <i class="fas fa-upload fa-lg"></i>
                                 </button>
                                 <button class="btn btn-light btn-circle end-btn">
@@ -152,9 +152,11 @@
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="#" title="Historial">
+                        <a href="#" title="Enviar comentario">
                             <i class="btn btn-ligth fas fa-comment-alt fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
-                            Enviar coment
+                            <a data-toggle="modal" data-target="#modal-comentarios">
+                                Enviar Coment
+                            </a>
                         </a>
                     </div>
                 </div>
@@ -203,8 +205,53 @@
                 </div>
 
             </aside>
+
+            <!--modal para enviar comentarios-->
+            <div class="modal" id="modal-comentarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Enviar Comentarios</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <!--&times es la x para cerrar el modal-->
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Cuerpo del moodal donde ira el contenido-->
+                            <div class="text-area">
+                                <textarea placeholder="Describe el problema o comparte tus ideas" rows="6" cols="49">
+                                </textarea>
+                            </div>
+                            <div class="row">
+                                <img class="img-enviar-comentario" src="img/banner-yt.jpg">
+                            </div>
+                        </div>
+
+                        <div class="parrafo-informativo">
+                            <p class="parrafo">
+                                Accede a la
+                                <a href="modal-inicio-google.html">página de ayuda jurídica</a> para solicitar cambios en el contenido por motivos legales.
+                                Tu opinión e
+                                <a href="#">información adicional</a> se enviarán a Google. Consulta la
+                                <a href="https://www.google.com/intl/es/policies/privacy/">Política de Privacidad</a>
+                                y las
+                                <a href="https://www.google.com/intl/es/policies/terms/">Condiciones de Servicio.</a>
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--fin modal para enviar comentarios-->
+
             <!--Seccion de Videos de YouTube-->
-            <main class="col-md-10 col-12 item-center main ml-auto">
+            <main class="col-md-10 col-12 main ml-auto">
                 <div class="body-grid">
                     <div class="content-name">
                         Lo Mejor de YouTube
@@ -213,8 +260,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -225,8 +272,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -237,8 +284,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -249,8 +296,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -270,8 +317,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -282,8 +329,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -294,8 +341,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -306,8 +353,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -327,8 +374,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -339,8 +386,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -351,8 +398,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -363,8 +410,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -384,8 +431,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -396,8 +443,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -408,8 +455,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -420,8 +467,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -441,8 +488,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -453,8 +500,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -465,8 +512,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -477,8 +524,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -498,8 +545,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -510,8 +557,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -522,8 +569,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -534,8 +581,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -555,8 +602,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -567,8 +614,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -579,8 +626,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -591,8 +638,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -612,8 +659,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -624,8 +671,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -636,8 +683,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -648,8 +695,8 @@
                             </div>
                             <div class="col-lg-3 col-md-3">
                                 <div class="container-canal">
-                                    <div class="imagen ml-4">
-                                        <img class="imagen-circular" src="img/goku.jpg">
+                                    <div class="imagen">
+                                        <img class="imagen-circular ml-4" src="img/goku.jpg">
                                     </div>
                                     <div class="footer descripcion">
                                         <h6>Nombre del canal</h6>
@@ -664,6 +711,10 @@
             </main>
 
             </div>
+
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/bootstrap.js"></script>
+            <script src="js/jquery.jscrollpane.min.js"></script>
 
 </body>
 
