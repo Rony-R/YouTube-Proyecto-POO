@@ -613,3 +613,40 @@ main footer h6 {
 /*Estilos para la pagina de explorar-html*/
 
 /*fin estilos para la pagina de explorar-html*/
+
+/*Estilos para el formulario de subir videos*/
+
+#nombre-video{
+  width: 100%;
+}
+
+#txta-descripcion{
+  width: 100%;
+}
+
+#etiquetas-video{
+  width: 100%;
+}
+
+#btn-listo{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 100px;
+}
+
+#btn-compartir{
+  float: right;
+  margin-top: 8px;
+}
+
+.ck-box{
+  width: 50px;
+  margin-right: 1px;
+}
+
+.lista-checkbox{
+  background-color: lightgray;
+  padding: 5px;
+  height: 500px,
+}
+/*Fin estilos para el formulario de subir videos*/
