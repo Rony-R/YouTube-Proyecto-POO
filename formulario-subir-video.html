@@ -80,18 +80,28 @@
                             <label class="mt-4"><b>Estado de la Subida:</b></label>
                             <p>Lorem ipsum...</p>
                             <span>
-                                <p>Tu video se publicara en la siguiente página:</p>
-                                <a href="#">link del video</a>
+                                <p>Tu video se publicara en la siguiente página:
+                                     <a class="color-link" href="#">https://youtube/link del video</a>
+                                </p>
                             </span>
                         </div>
     
-                        <div class="lista-checkbox">
-                            <label><b>Preferencias</b></label> <hr>
-                            <input class="ck-box" type="checkbox"><label>opcion1</label><br>
-                            <input class="ck-box" type="checkbox"><label>opcion2</label><br>
-                            <input class="ck-box" type="checkbox"><label>opcion3</label><br>
-                            <input class="ck-box" type="checkbox"><label>opcion4</label><br>
-                            <input class="ck-box" type="checkbox"><label>opcion5</label><br>
+                        <div class="side-content">
+                            <div class="container-fluid">
+                                <p class="mt-3"><i class="fas fa-caret-right"></i><b class="lb-preferencias">Preferencias</b></p> 
+                            </div><hr class="hr-pref">
+                            <div class="lista-checkbox">
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Sugerencias de titulos y</label><br><label class="salto txt-13p">descripciones BOOST</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Contador de Simbolos</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Inspector de palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Borrar palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Copiar palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Arrastrar y soltar</label><br><label class="salto txt-13p">palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Traducir</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Etiquetas recomendadas</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Ménus Emoji</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Puntuación SEO y</label><br><label class="salto txt-13p">lista de control</label><br>
+                            </div>
                         </div>
     
                     </div>
@@ -134,14 +144,55 @@
                                         <option value="3">Privado</option>
                                         <option value="4">Programado</option>
                                     </select>
+                                    <button id="btn-compartir" class="btn btn-light">Compartir</button>
                                 </form>
 
-                                <div>
-                                    <button id="btn-compartir" class="btn btn-light">Compartir</button>
+                                <div class="side-content2">
+
+                                    <div>
+                                        <p>Lorem ipsum etc...</p>
+                                    </div><hr class="hr-ref">
+                                    <div>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum a quia, quasi commodi ipsa impedit, dolore numquam modi neque, quisquam illo. Ex natus distinctio praesentium voluptatum vel non odio.</p>
+                                    </div><hr class="hr-ref">
+                                    <div>
+                                        <p class="sm-text"><b>¡Con vidIQ Boost podemos ayudarle a mejorar el rendimiento de su video!</b></p>
+                                        <a class="color-link" href="#"><p class="sm-text">Más Informacion acerca de <b>vidIQ Boost</b></p></a>
+                                        <p class="btn-boost"><button class="btn btn-primary btn-boost2">Suscribirse a Boost</button></p>
+                                    </div>
+
+                                    <div>
+                                        <p><i class="fas fa-times x-roja"></i>Almenos una tarjeta<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Almenos una pantalla final<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Subtitulos (manual)<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Obtención de ingresos activada<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Añadido a una lista de reproducción<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Compartido en Twitter<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Compartido en Facebook<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Respondido al comentario reciente<i class="fas fa-arrow-right flechita"></i></p>
+                                    </div>
+
                                 </div>
     
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-subida">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <label><b>MINIATURAS DEL VIDEO</b><i class="fas fa-question-circle"></i></label>
+                        <div class="miniaturas">
+                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                        </div>
+                    </div>
+                    <div class="boton-miniatura col-lg-3">
+                        <button id="miniatura-personalizada" class="btn btn-light"><b>Miniatura Personalizada</b></button>
+                        <p>Tamaño máximo del archivo: 2MB</p>
                     </div>
                 </div>
             </div>

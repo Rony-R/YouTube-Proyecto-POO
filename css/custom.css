@@ -641,12 +641,80 @@ main footer h6 {
 
 .ck-box{
   width: 50px;
-  margin-right: 1px;
+  height: 14px;
+  margin: 3px 3px;
+}
+
+.side-content{
+  background-color: #E6E6E6;
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+.side-content2{
+  padding: 5px;
+  border: 1px solid gray;
+  margin-top: 60px;
 }
 
 .lista-checkbox{
-  background-color: lightgray;
-  padding: 5px;
-  height: 500px,
+  margin-top: 10px;
+}
+
+.hr-pref{
+  margin: 0px;
+}
+
+.btn-boost{
+  text-align: center;
+}
+
+.color-link{
+  color: -webkit-link !important;
+}
+
+.btn-boost2{
+  height: 30px;
+  padding: 3px 13px 3px 13px;
+}
+
+.x-roja{
+  color: red;
+  margin-right: 10px;
+}
+
+.flechita{
+  margin-left: 10px;
+}
+
+.footer-subida{
+  margin-top: 40px;
+}
+
+.miniatura-subida{
+  width: 30%;
+  height: 30%;
+}
+
+.salto{
+  margin-left: 57px;
+}
+
+.txt-13p{
+  font-size: 13px;
+}
+
+#miniatura-personalizada{
+  border: 1px solid black;
+  float: left;
+}
+
+.lb-preferencias{
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.fa-caret-right{
+  width: 10%;
 }
 /*Fin estilos para el formulario de subir videos*/
