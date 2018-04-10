@@ -50,29 +50,47 @@
             <!--Columna para el formulario!!!-->
             <div class="col-xl-6 col-lg-4 col-sm-4 col-12">
                <div class="formulario">
+
+                <!--NOMBRE-->
                 <label><strong>Nombre</strong></label> <br>
                 <div class="row">
                   <div class="col-xl-6 col-lg-4 col-sm-4 col-12">
-                    <input type="text" id="txt-nombre" name="txt-nombre" placeholder="Nombre">
+                    <input class="form-control" type="text" id="txt-nombre" name="txt-nombre" placeholder="Nombre">
+                    <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
                   </div>
-                  <div class="col-xl-6 col-lg-4 col-sm-4 col-12"txt>
-                    <input type="text" id="txt-apellido" name="-apellido" placeholder="Apellido">
+                  <div class="col-xl-6 col-lg-4 col-sm-4 col-12">
+                    <input class="form-control" type="text" id="txt-apellido" name="txt-apellido" placeholder="Apellido">
+                    <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
                   </div>
                 </div>
 
-                <label><strong>Tu dirección de correo electrónico</strong></label> <br>
-                <input class="in"  type="email" name="txt-email" id="txt-email" placeholder="ejemplo@email.com"> <br>
+                <!--CORREO-->
+                <div class="input-correo">
+                  <label><strong>Tu dirección de correo electrónico</strong></label> <br>
+                  <input class="form-control"  type="email" name="txt-email" id="txt-email" placeholder="ejemplo@email.com" onkeydown="validarEmail(this);">
+                  <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
+                </div> 
 
-                <label><strong>Contraseña</strong></label> <br>
-                <input class="in" type="password" name="txt-passsword"> <br>
-                <label><strong>Confirma tu contraseña</strong></label> <br>
-                <input class="in" type="password" name="txt-passsword"> <br>
+                <!--CONTRASEÑA-->
+                <div class="contra1">
+                  <label><strong>Contraseña</strong></label> <br>
+                  <input class="form-control" type="password" name="txt-password" id="txt-password1" onkeydown="validarContrasena(this);">
+                  <div class="valid-feedback">Correcto</div>
+                  <div class="invalid-feedback">Debe tener más de 8 caracteres</div>
+                </div>
+
+                <div class="contra2">
+                  <label><strong>Confirma tu contraseña</strong></label> <br>
+                  <input class="form-control" type="password" name="txt-password" id="txt-password2" onkeydown="validarContrasena(this);">
+                  <div class="valid-feedback">Correcto</div>
+                  <div class="invalid-feedback">Debe tener más de 8 caracteres</div>
+                </div>
 
                 <label><strong>Fecha de Nacimiento</strong></label> <br>
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3">
                         <select id="dia" class="form-control">
-                          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                          <option>Día</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                           <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
                           <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
                           <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
@@ -80,35 +98,37 @@
                           <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
                           <option>31</option>
                         </select>
-                      </div>
+                    </div>
                       
-                      <div class="col-xl-4 col-lg-4 col-md-4">
-                        <select id="mes" class="form-control">
-                          <option>Enero</option><option>Febreo</option><option>Marzo</option><option>Abril</option>
-                          <option>Mayo</option><option>Junio</option><option>Julio</option><option>Agosto</option>
-                          <option>Septiembre</option><option>Octubre</option><option>Noviembre</option><option>Diciembre</option>
-                        </select>
-                      </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                      <select id="mes" class="form-control">
+                        <option>Mes</option><option>Enero</option><option>Febreo</option><option>Marzo</option><option>Abril</option>
+                        <option>Mayo</option><option>Junio</option><option>Julio</option><option>Agosto</option>
+                        <option>Septiembre</option><option>Octubre</option><option>Noviembre</option><option>Diciembre</option>
+                      </select>
+                    </div>
       
-                      <div class="col-xl-2 col-lg-2 col-md-2">
-                        <input type="text" id="agno" placeholder="año">
-                      </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2">
+                      <input class="form-control" type="text" id="agno" placeholder="Año">
+                    </div>
                 </div>
 
-                <label><strong>Sexo</strong></label> <br>
-                <select name="slc-sexo" id="slc-sexo" >
+                <label><strong>Sexo</strong></label> 
+                <select name="slc-sexo" id="slc-sexo" class="form-control">
                     <option>Selecciona tu género</option>
                     <option value="1">Mujer</option>
                     <option value="2">Hombre</option>
                     <option value="3">Otro</option>
                     <option value="4">Prefiero no decirlo</option>
-                </select> <br>
+                </select>
+                <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
 
-                  <label><strong>Teléfono móvil</strong></label> <br>
-                  <input type="text" name="txt-telefono" id="txt-telefono"> <br>
+                <label><strong>Teléfono móvil</strong></label> 
+                <input class="form-control" type="text" name="txt-telefono" id="txt-telefono">
+                <div class="invalid-feedback">No puedes dejar este campo en blanco.</div> 
 
-                  <label><strong>Ubicación</strong></label> <br>
-                  <select name="slc-sexo" id="slc-sexo" >
+                  <label><strong>Ubicación</strong></label> 
+                  <select class="form-control" name="slc-ubicacion" id="slc-ubicacion">
                       <option>País</option>
                       <option value="1">Honduras</option>
                       <option value="2">CostaRica</option>
@@ -120,11 +140,27 @@
                       <option value="8">México</option>
                       <option value="9">EEUU</option>
                       <option value="10">Guatemala</option>
-                  </select> <br>
+                  </select>
+
+                  <button id="btn-sig-paso" class="btn btn-sm btn-primary fl-r">Siguiente Paso</button>
+
                 </div>
               </div>
             </div>
       </div>
+
+      <div class="footer">
+        <hr>
+        <div>
+            <a class="mr-15 txt-14">Google</a>
+            <a class="mr-15 txt-14" href="https://policies.google.com/terms?hl=es&gl=hn">Privacidad y Condiciones</a>
+            <a class="txt-14" href="https://support.google.com/accounts?hl=es#topic=3382296">Ayuda</a>
+        </div>
+      </div>
+
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/controlador.js"></script>
 
  </body>
 </html>
