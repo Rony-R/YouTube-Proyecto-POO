@@ -19,7 +19,7 @@
           <img class="logo" src="img/logo-google.png">
         </a>
         <span class="boton-iniciarsesion">
-          <button class="btn btn-primary" type="submit">Iniciar Sesion</button>
+          <button class="btn btn-primary" type="submit" onclick="location.href='modal-inicio-google.html';">Iniciar Sesion</button>
         </span>
         <hr>
       </div>
@@ -27,6 +27,7 @@
 
      <h1>Crea tu cuenta de Google</h1>
 
+     <!--Columna para las fotos-->
       <div class="container">
           <div class="row">
             <div class="col-xl-6 col-lg-4 col-sm-4">
@@ -66,27 +67,27 @@
 
                 <!--CORREO-->
                 <div class="input-correo">
-                  <label><strong>Tu dirección de correo electrónico</strong></label> <br>
+                  <label class="mt-10"><strong>Tu dirección de correo electrónico</strong></label> <br>
                   <input class="form-control"  type="email" name="txt-email" id="txt-email" placeholder="ejemplo@email.com" onkeydown="validarEmail(this);">
                   <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
                 </div> 
 
                 <!--CONTRASEÑA-->
                 <div class="contra1">
-                  <label><strong>Contraseña</strong></label> <br>
+                  <label class="mt-10"><strong>Contraseña</strong></label> <br>
                   <input class="form-control" type="password" name="txt-password" id="txt-password1" onkeydown="validarContrasena(this);">
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Debe tener más de 8 caracteres</div>
                 </div>
 
                 <div class="contra2">
-                  <label><strong>Confirma tu contraseña</strong></label> <br>
+                  <label class="mt-10"><strong>Confirma tu contraseña</strong></label> <br>
                   <input class="form-control" type="password" name="txt-password" id="txt-password2" onkeydown="validarContrasena(this);">
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Debe tener más de 8 caracteres</div>
                 </div>
 
-                <label><strong>Fecha de Nacimiento</strong></label> <br>
+                <label class="mt-10"><strong>Fecha de Nacimiento</strong></label> <br>
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3">
                         <select id="dia" class="form-control">
@@ -113,7 +114,7 @@
                     </div>
                 </div>
 
-                <label><strong>Sexo</strong></label> 
+                <label class="mt-10"><strong>Sexo</strong></label> 
                 <select name="slc-sexo" id="slc-sexo" class="form-control">
                     <option>Selecciona tu género</option>
                     <option value="1">Mujer</option>
@@ -123,11 +124,11 @@
                 </select>
                 <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
 
-                <label><strong>Teléfono móvil</strong></label> 
+                <label class="mt-10"><strong>Teléfono móvil</strong></label> 
                 <input class="form-control" type="text" name="txt-telefono" id="txt-telefono">
                 <div class="invalid-feedback">No puedes dejar este campo en blanco.</div> 
 
-                  <label><strong>Ubicación</strong></label> 
+                  <label class="mt-10"><strong>Ubicación</strong></label> 
                   <select class="form-control" name="slc-ubicacion" id="slc-ubicacion">
                       <option>País</option>
                       <option value="1">Honduras</option>
@@ -142,7 +143,9 @@
                       <option value="10">Guatemala</option>
                   </select>
 
-                  <button id="btn-sig-paso" class="btn btn-sm btn-primary fl-r">Siguiente Paso</button>
+                  <span>
+                    <button id="btn-sig-paso" class="btn btn-sm btn-primary fl-r">Siguiente Paso</button>
+                  </span>
 
                 </div>
               </div>

@@ -55,6 +55,7 @@ h1{
     border-radius: 0;
     background-color: #f1f1f1;
     width: 400px;
+    height: 710px;
     padding: 25px;
     margin-right: 40px;
     margin-left: 40px;
@@ -141,5 +142,9 @@ b, strong {
 
 .txt-14{
     font-size: 14px;
+}
+
+.mt-10{
+    margin-top: 10px !important;
 }
 /*aqui termina la modificacion del input de la fecha*/
