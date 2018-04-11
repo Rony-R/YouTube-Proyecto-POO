@@ -19,12 +19,12 @@ function validarEmail(correo)
 	if (patron.test(String(correo.value).toLowerCase()))
 	{
     	correo.classList.remove("is-invalid");
-    	correo.classList.add("is-valid");
+        correo.classList.add("is-valid");
     }
 	else
 	{
     	correo.classList.remove("is-valid");
-    	correo.classList.add("is-invalid");
+        correo.classList.add("is-invalid");
     }
 }
 
@@ -111,4 +111,19 @@ var validarCampoVacio = function(id)
 $("#btn-sig-paso").click(function(){
     validar();
     $("#btn-sig-paso").attr("disabled","disabled");
+});
+
+$("#btn-siguiente").click(function(){
+
+    //alert($("#correo-usuario").val());
+    if($("#correo-usuario").val() == "")
+    {
+        $("#btn-siguiente").attr("href", "modal-inicio-google.html"); //cambiando la propiedad href del anchor
+    }
+    else
+    {
+        $("#btn-siguiente").attr("href", "contrasena-inicio-google.html");
+        //$("#nombre-usuario").html($("#correo-usuario").val());
+    }
+
 });
