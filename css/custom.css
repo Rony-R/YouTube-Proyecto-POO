@@ -718,3 +718,62 @@ main footer h6 {
   width: 10%;
 }
 /*Fin estilos para el formulario de subir videos*/
+
+/*Estilos para el modal de ayuda*/
+
+#input-ayuda{
+  margin: 0px !important;
+}
+
+.buscar-ayuda{
+  margin-top: 10px;
+}
+
+.modal-header{
+  padding-bottom: 0 !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.header-ayuda{
+  background-color: #757575;
+}
+
+.elemento-blanco{
+  color: white;
+}
+
+.i-ayuda{
+  color: #0080FF;
+}
+
+.texto-gris{
+  color: #585858;
+}
+
+.hr-ayuda{
+  margin-top: 3px;
+}
+
+.txt-18{
+  font-size: 18px;
+}
+
+.txt-15{
+  font-size: 15px;
+}
+
+.link-negro{
+  color: #000000;
+}
+
+.link-negro:hover{
+  color: #000000;
+  text-decoration: none;
+}
+
+.btn-ayuda{
+  border: 1px solid gray;
+}
+
+/*Fin estilos para el modal de ayuda*/
