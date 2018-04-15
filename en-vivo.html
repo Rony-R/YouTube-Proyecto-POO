@@ -146,18 +146,16 @@
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="#" title="Tendencias">
+                        <a data-toggle="modal" data-target="#modal-ayuda" title="Ayuda">
                             <i class="btn btn-ligth fas fa-question-circle fa-lg pt-3 pb-3 ml-2  mr-4"></i>
                             Ayuda
                         </a>
                     </div>
                     <div class="entrada">
-                            <a href="#" title="Enviar comentario">
-                                    <i class="btn btn-ligth fas fa-comment-alt fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
-                                    <a data-toggle="modal" data-target="#modal-comentarios">
-                                      Enviar Coment    
-                                    </a>
-                                </a>
+                        <a data-toggle="modal" data-target="#modal-comentarios" title="Enviar comentario">
+                            <i class="btn btn-ligth fas fa-comment-alt fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
+                            Enviar Coment
+                        </a>
                     </div>
                 </div>
                 <div class="border-bottom pt-2 pb-2">
@@ -245,6 +243,118 @@
                     </div>
             <!--fin modal para enviar comentarios-->
 
+            <!--Modal de Ayuda-->
+            <div class="modal" id="modal-ayuda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <h5 class="modal-title">Ayuda</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span> <!--&times es la x para cerrar el modal--> 
+                                    </button>
+                                </div>
+                                <div class="row buscar-ayuda">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <button id="serch-ayuda" class="btn btn-light btn-ayuda" type="button">
+                                            <i class="fas fa-search fa-lg"></i>
+                                          </button>
+                                        </div>
+                                        <input id="input-ayuda" type="text" class="form-control" placeholder="Buscar en la Ayuda">
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <!--Cuerpo del moodal donde ira el contenido-->
+                            <div class="seccion-ayuda-1">
+                                <label class="texto-gris txt-18">Ponte en contacto con nosotros</label>
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="fas fa-exclamation-circle i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <label class="txt-18">¿Necesitas más Ayuda?</label>
+                                    </span>
+                                </div><hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="fas fa-comment-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" data-toggle="modal" data-target="#modal-comentarios" data-dismiss="modal"><label class="txt-18">Enviar Comentarios</label></a>
+                                    </span> 
+                                </div><hr class="hr-ayuda">
+                            </div>
+                            <div class="seccion-ayuda-2">
+                                <label class="texto-gris txt-18">Populares</label>
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="fas fa-eraser i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="historial.html"><label class="txt-18">Borrar el historial de reproducciones</label></a>
+                                    </span> 
+                                </div><hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#"><label class="txt-18">Obtener ingresos con tus video</label></a>
+                                    </span> 
+                                </div><hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#"><label class="txt-18">Subir videos</label></a>
+                                    </span> 
+                                </div><hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#"><label class="txt-18">Iniciar y cerrar sesion de YouTube</label></a>
+                                    </span> 
+                                </div><hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#"><label class="txt-18">Quitar contenido recomendado de la página principal</label></a>
+                                    </span> 
+                                </div><hr class="hr-ayuda">
+
+                                <div class="row">
+                                    <span class="col-lg-11">
+                                        <a href="#"><label class="txt-15">ELIMINAR TODOS LOS ARTICULOS</label></a>
+                                    </span>
+                                    <span class="col-lg-1">
+                                        <i class="far fa-share-square i-ayuda"></i>
+                                    </span> 
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <!--<div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Enviar</button>
+                        </div>-->
+                    </div>
+
+                </div>
+            </div>
+            <!--Fin modal de Ayuda-->
+
             <main class="col-md-10 col-12  main ml-auto">
                 <div class="header-canal">
                     <div class="banner">
@@ -269,11 +379,11 @@
                                   </div>
                         <div class="footer">
                           <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-light">INICIO</button>
-                            <button type="button" class="btn btn-light">VÍDEOS</button>
-                            <button type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
-                            <button type="button" class="btn btn-light">CANALES</button>
-                            <button type="button" class="btn btn-light">MÁS INFORMACION</button>
+                            <button onclick="location.href='en-vivo.html'" type="button" class="btn btn-light">INICIO</button>
+                            <button onclick="location.href='videos.html'" type="button" class="btn btn-light">VÍDEOS</button>
+                            <button onclick="location.href='playlists.html'" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
+                            <button onclick="location.href='canales.html'" type="button" class="btn btn-light">CANALES</button>
+                            <button onclick="location.href='about.html'" type="button" class="btn btn-light">MÁS INFORMACION</button>
                           </div>
                         </div>
                     </div>
