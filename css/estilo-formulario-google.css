@@ -1,9 +1,8 @@
-/*color del encabezado*/
+
 .encabezado-google{
     background-color: #f1f1f1;
 }
 
-/*estilo del logo google en el encabezado*/
 .encabezado-google .logo{
     height: 36px;
     width: 112px;
@@ -11,14 +10,12 @@
     margin-left: 20px;
 }
 
-/*estilo del boton en el encabezado*/
 .encabezado-google .btn-primary{
     margin-top: 17px;
     margin-right: 20px;
     float: right;
 }
 
-/*Para el encabezado: Crea tu centa google*/ 
 h1{
     text-align: center;
     font-family: 'Open Sans', arial;
@@ -29,7 +26,6 @@ h1{
     margin-bottom: 50px;
 }
 
-/*Para el texto debajo de la imagnes */
 .container p{
     text-align: center;
     font-family: 'Open Sans', arial;
@@ -38,31 +34,28 @@ h1{
     margin-bottom: 30px;
 }
 
-/*imagen de las apps de google*/
 .container .logo-strip{
     margin-top: 20px;
 }
 
-/*imganes de los dispositivos*/
 .container .devices{
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
-/*modifica el tamaño de la caja "gris" que contiene al formulario*/
 .container .formulario{
     box-sizing: border-box;
     border-radius: 0;
     background-color: #f1f1f1;
     width: 400px;
-    height: 710px;
+    height: auto;
     padding: 25px;
     margin-right: 40px;
     margin-left: 40px;
     margin-bottom: 30px;
+    overflow: hidden;
 }
 
-/*es para los h2 que estan encima de las imagenes apps google y los dispositivos*/
 .container .side-info h2{
     text-align: center;
     font-family: 'Open Sans', Arial;
@@ -72,7 +65,6 @@ h1{
     margin-bottom: 15px;
 }
 
-/*le da tamaño a correo y las contraseñas*/
 .container .formulario .in{ 
     width: 100%;
 }
@@ -93,7 +85,6 @@ h1{
     font-size: 13px;
 }
 
-/*modifica los inputs de la fecha*/
 .container #dia{
     margin: 5px 5px;
     border-radius: 0;
@@ -147,4 +138,3 @@ b, strong {
 .mt-10{
     margin-top: 10px !important;
 }
-/*aqui termina la modificacion del input de la fecha*/

@@ -21,8 +21,11 @@
               <p>Acceder a YouTube</p>
               
               <div class="input-body">
-                  <input class="form-control" id="correo-usuario" type="mail" placeholder="correo electrónico o teléfono" onkeydown="validarEmail(this);"><br><br>
-                  <div class="input-body-2">
+                  <div class="input-correo">
+                    <input class="form-control" id="txt-email" type="mail" placeholder="correo electrónico o teléfono" onkeydown="validarEmail(this);">
+                    <div id="div-validacion" class="invalid-feedback"></div>
+                  </div>
+                  <div class="input-body-2 mt-40">
                       <a href="#">¿Has olvidado tu correo electrónico?</a>
                       <div class="row botones">
                           <div class="dropdown">
@@ -36,7 +39,7 @@
                             </ul>
     
                           </div>
-                        <span class="col-lg-6"><a id="btn-siguiente" href="" class="btn btn-primary float-right">SIGUIENTE</a id="btn-siguiente"></span>
+                        <span class="col-lg-6"><a id="btn-siguiente" href="" class="btn btn-primary float-right">SIGUIENTE</a></span>
                       </div>
                   </div>
               </div>

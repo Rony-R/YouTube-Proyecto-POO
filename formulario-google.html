@@ -57,11 +57,11 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-4 col-sm-4 col-12">
                     <input class="form-control" type="text" id="txt-nombre" name="txt-nombre" placeholder="Nombre">
-                    <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
+                    <div class="invalid-feedback">No puedes dejar este campo vacio.</div>
                   </div>
                   <div class="col-xl-6 col-lg-4 col-sm-4 col-12">
                     <input class="form-control" type="text" id="txt-apellido" name="txt-apellido" placeholder="Apellido">
-                    <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
+                    <div class="invalid-feedback">No puedes dejar este campo vacio.</div>
                   </div>
                 </div>
 
@@ -69,7 +69,7 @@
                 <div class="input-correo">
                   <label class="mt-10"><strong>Tu dirección de correo electrónico</strong></label> <br>
                   <input class="form-control"  type="email" name="txt-email" id="txt-email" placeholder="ejemplo@email.com" onkeydown="validarEmail(this);">
-                  <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
+                  <div class="invalid-feedback">No puedes dejar este campo vacio.</div>
                 </div> 
 
                 <!--CONTRASEÑA-->
@@ -110,7 +110,11 @@
                     </div>
       
                     <div class="col-xl-2 col-lg-2 col-md-2">
-                      <input class="form-control" type="text" id="agno" placeholder="Año">
+                      <select id="agno" class="form-control">
+                        <option>Año</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
+                        <option>1995</option><option>1996</option><option>1997</option><option>1998</option>
+                        <option>1999</option><option>2000</option><option>2001</option><option>2002</option>
+                      </select>
                     </div>
                 </div>
 
@@ -122,11 +126,11 @@
                     <option value="3">Otro</option>
                     <option value="4">Prefiero no decirlo</option>
                 </select>
-                <div class="invalid-feedback">No puedes dejar este campo en blanco.</div>
+                <div class="invalid-feedback">No puedes dejar este campo vacio.</div>
 
                 <label class="mt-10"><strong>Teléfono móvil</strong></label> 
                 <input class="form-control" type="text" name="txt-telefono" id="txt-telefono">
-                <div class="invalid-feedback">No puedes dejar este campo en blanco.</div> 
+                <div class="invalid-feedback">No puedes dejar este campo vacio.</div> 
 
                   <label class="mt-10"><strong>Ubicación</strong></label> 
                   <select class="form-control" name="slc-ubicacion" id="slc-ubicacion">
@@ -135,12 +139,11 @@
                       <option value="2">CostaRica</option>
                       <option value="3">El Salvador</option>
                       <option value="4">Nicaragua</option>
-                      <option value="5">Nicaragua</option>
+                      <option value="5">Guatemala</option>
                       <option value="6">Panamá</option>
                       <option value="7">Belice</option>
                       <option value="8">México</option>
                       <option value="9">EEUU</option>
-                      <option value="10">Guatemala</option>
                   </select>
 
                   <span>

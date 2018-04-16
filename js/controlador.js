@@ -25,7 +25,9 @@ function validarEmail(correo)
 	{
     	correo.classList.remove("is-valid");
         correo.classList.add("is-invalid");
+        document.getElementById("div-validacion").innerHTML = "Correo Invalido.";
     }
+
 }
 
 function validar()
@@ -61,69 +63,97 @@ var validarCampoVacio = function(id)
 		    return true;
         }
     }
-
-    if(id == "dia")
+    else
     {
-        if($("#"+id).val() == "Día")
+        if(id == "dia")
         {
-            $("#"+id).removeClass('is-valid');
-		    $("#"+id).addClass('is-invalid');
-		    return false;   
+            if($("#"+id).val() == "Día")
+            {
+                $("#"+id).removeClass('is-valid');
+		        $("#"+id).addClass('is-invalid');
+		        return false;   
+            }
+            else
+            {
+                $("#"+id).removeClass('is-invalid');
+		        $("#"+id).addClass('is-valid');
+		    return true;
+            }
         }
         else
         {
-            $("#"+id).removeClass('is-invalid');
-		    $("#"+id).addClass('is-valid');
-		    return true;
+            if(id == "mes")
+            {
+                if($("#"+id).val() == "Mes")
+                {
+                    $("#"+id).removeClass('is-valid');
+		            $("#"+id).addClass('is-invalid');
+		            return false;   
+                }
+                else
+                {
+                    $("#"+id).removeClass('is-invalid');
+		            $("#"+id).addClass('is-valid');
+		            return true;
+                }
+            }
+            else
+            {
+                if(id == "agno")
+                {
+                    if($("#"+id).val() == "Año")
+                    {
+                        $("#"+id).removeClass('is-valid');
+                        $("#"+id).addClass('is-invalid');
+                        return false;   
+                    }
+                    else
+                    {
+                        $("#"+id).removeClass('is-invalid');
+                        $("#"+id).addClass('is-valid');
+                        return true;
+                    }
+                }
+                else
+                {
+                    if ($("#"+id).val() == "")
+	                {
+		                $("#"+id).removeClass('is-valid');
+		                $("#"+id).addClass('is-invalid');
+		                return false;
+	                }
+	                else
+	                {
+		                $("#"+id).removeClass('is-invalid');
+		                $("#"+id).addClass('is-valid');
+		                return true;
+                    }
+                }
+            }
         }
-    }
-
-    if(id == "mes")
-    {
-        if($("#"+id).val() == "Mes")
-        {
-            $("#"+id).removeClass('is-valid');
-		    $("#"+id).addClass('is-invalid');
-		    return false;   
-        }
-        else
-        {
-            $("#"+id).removeClass('is-invalid');
-		    $("#"+id).addClass('is-valid');
-		    return true;
-        }
-    }
-	
-	if ($("#"+id).val() == "")
-	{
-		$("#"+id).removeClass('is-valid');
-		$("#"+id).addClass('is-invalid');
-		return false;
-	}
-	else
-	{
-		$("#"+id).removeClass('is-invalid');
-		$("#"+id).addClass('is-valid');
-		return true;
     }
 };
 
 $("#btn-sig-paso").click(function(){
     validar();
     $("#btn-sig-paso").attr("disabled","disabled");
+
+    $("#btn-sig-paso").attr("disabled",false);
 });
+
 
 $("#btn-siguiente").click(function(){
 
-    //alert($("#correo-usuario").val());
-    if($("#correo-usuario").val() == "")
+    validar();
+
+    if($("#txt-email").val() == "")
     {
-        $("#btn-siguiente").attr("href", "modal-inicio-google.html"); //cambiando la propiedad href del anchor
+        $("#btn-siguiente").attr("href", "#"); //cambiando la propiedad href del anchor
+        $("#div-validacion").html("No puedes dejar este campo vacio.");
     }
     else
     {
         $("#btn-siguiente").attr("href", "contrasena-inicio-google.html");
-        //$("#nombre-usuario").html($("#correo-usuario").val());
     }
 
 });
