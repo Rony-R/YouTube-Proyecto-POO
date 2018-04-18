@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link href="css/estilo-inicio-google.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
     <link rel="icon" type="image/png" href="img/favicon.png">
@@ -67,76 +66,54 @@
     </nav>
 
     <!--Contenido del formulario-->
+    <main class="contenido-subida contenido-principal item-center main ml-auto mt-5">
 
-        <main class="contenido-principal item-center main ml-auto mt-5">
-                <div class="body-grid">
-            <div class="row">
-                <!--Barra Lateral-->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="contenido-lateral">
-                        <img class="img-fluid" src="img/rectangulo-vacio.png">
-
+        <div class="contenido">
+            <div class="upload-box2 mt-3">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <span class="rectangulo-video">
+                            <img class="img-fluid" src="img/rectangulo-vacio.png">
+                        </span>
                         <div class="proceso-subida">
-                            <label class="mt-4"><b>Estado de la Subida:</b></label>
-                            <p>Lorem ipsum...</p>
+                            <label class="mt-3 txt-13p"><b>Estado de la Subida:</b></label>
+                            <p class="txt-13p">Tu video se esta subiendo</p>
                             <span>
-                                <p>Tu video se publicara en la siguiente página:
-                                     <a class="color-link" href="#">https://youtube/link del video</a>
+                                <p class="txt-13p">Tu video se publicara en la siguiente página:
+                                     <a class="link-yt txt-13p" href="#">https://youtube/link del video</a>
                                 </p>
                             </span>
                         </div>
-    
-                        <div class="side-content">
-                            <div class="container-fluid">
-                                <p class="mt-3"><i class="fas fa-caret-right"></i><b class="lb-preferencias">Preferencias</b></p> 
-                            </div><hr class="hr-pref">
-                            <div class="lista-checkbox">
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Sugerencias de titulos y</label><br><label class="salto txt-13p">descripciones BOOST</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Contador de Simbolos</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Inspector de palabras clave</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Borrar palabras clave</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Copiar palabras clave</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Arrastrar y soltar</label><br><label class="salto txt-13p">palabras clave</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Traducir</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Etiquetas recomendadas</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Ménus Emoji</label><br>
-                                <input class="ck-box" type="checkbox"><label class="txt-13p">Puntuación SEO y</label><br><label class="salto txt-13p">lista de control</label><br>
+                    </div>
+                    <div class="col-lg-9 col-md-9">
+                        <div class="row barra-progreso-boton">
+                            <div class="col-lg-10">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <button id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
-    
-                    </div>
-                </div>
-                <!--Formulario-->
-                <div class="col-lg-8 col-sm-8">
-                    <div class="row">
-                        <div class="estado de carga col-lg-10">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%; height: 20px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            
+                        <div class="paginas-internas">
+                            <div class="btn-group mt-3" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-light">Información Básica</button>
+                                <button type="button" class="btn btn-light">Traducciones</button>
+                                <button type="button" class="btn btn-light">Configuración Avanzada</button>
                             </div>
                         </div>
-                        <div class="col-lg-2">
-                            <button id="btn-listo" class="btn btn-primary">Listo</button>
-                        </div>
-                    </div>
-                    <div class="paginas-internas">
-                        <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-light">Información Básica</button>
-                            <button type="button" class="btn btn-light">Traducciones</button>
-                            <button type="button" class="btn btn-light">Configuración Avanzada</button>
-                        </div>
-                    </div>
-                    <div class="formulario-video">
+            
                         <div class="row">
-                            <div class="col-lg-6 col-sm-6 inputs-subir-video">
+                            <div class="col-lg-7">
                                 <form>
-                                    <input class="form-control" type="text" id="nombre-video" name="txt-nombre-video" placeholder="Título del Video">
-                                    <textarea class="form-control" name="txta-descripcion" id="txta-descripcion" placeholder="Descripción"></textarea>
-                                    <input class="form-control" type="text" id="etiquetas-video" name="txt-etiquetas-video" placeholder="Etiquetas(ej: gatitos comedia terror)">
+                                    <input class="form-control input-espacio" type="text" id="nombre-video" name="txt-nombre-video" placeholder="Título del Video">
+                                    <textarea class="form-control input-espacio" name="txta-descripcion" id="txta-descripcion" placeholder="Descripción"></textarea>
+                                    <input class="form-control input-espacio" type="text" id="etiquetas-video" name="txt-etiquetas-video" placeholder="Etiquetas(ej: gatitos comedia terror)">
                                 </form>
-    
                             </div>
-                            <div class="col-lg-6 col-sm-6 extras-subir-video">
-
+                            <div class="col-lg-5">
                                 <form>
                                     <select class="form-control mt-3" name="slc-accesos" id="slc-accesos">
                                         <option value="1">Público</option>
@@ -144,72 +121,129 @@
                                         <option value="3">Privado</option>
                                         <option value="4">Programado</option>
                                     </select>
-                                    <button id="btn-compartir" class="btn btn-light">Compartir</button>
                                 </form>
-
-                                <div class="side-content2">
-
-                                    <div>
-                                        <p>Lorem ipsum etc...</p>
-                                    </div><hr class="hr-ref">
-                                    <div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum a quia, quasi commodi ipsa impedit, dolore numquam modi neque, quisquam illo. Ex natus distinctio praesentium voluptatum vel non odio.</p>
-                                    </div><hr class="hr-ref">
-                                    <div>
-                                        <p class="sm-text"><b>¡Con vidIQ Boost podemos ayudarle a mejorar el rendimiento de su video!</b></p>
-                                        <a class="color-link" href="#"><p class="sm-text">Más Informacion acerca de <b>vidIQ Boost</b></p></a>
-                                        <p class="btn-boost"><button class="btn btn-primary btn-boost2">Suscribirse a Boost</button></p>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <img class="img-fluid mt-4" src="img/user-icon.png">
                                     </div>
-
-                                    <div>
-                                        <p><i class="fas fa-times x-roja"></i>Almenos una tarjeta<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Almenos una pantalla final<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Subtitulos (manual)<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Obtención de ingresos activada<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Añadido a una lista de reproducción<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Compartido en Twitter<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Compartido en Facebook<i class="fas fa-arrow-right flechita"></i></p>
-                                        <p><i class="fas fa-times x-roja"></i>Respondido al comentario reciente<i class="fas fa-arrow-right flechita"></i></p>
+                                    <div class="col-lg-9">
+                                        <form>
+                                            <textarea class="form-control input-espacio" name="txta-msj-usuario" id="txta-msj-usuario" placeholder="Añade un mensaje a tu video."></textarea>
+                                        </form>
                                     </div>
-
                                 </div>
-    
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footer-subida">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <label><b>MINIATURAS DEL VIDEO</b><i class="fas fa-question-circle"></i></label>
-                        <div class="miniaturas">
-                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
-                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
-                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <label class="txt-13p"><b>MINIATURAS DEL VIDEO </b><i class="fas fa-question-circle"></i></label>
+                                    <div class="miniaturas">
+                                        <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                                        <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                                        <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                                    </div>
+                                </div>
+                                <div class="boton-miniatura col-lg-3">
+                                    <button id="miniatura-personalizada" class="btn btn-light btn-sm    "><b>Miniatura Personalizada</b></button>
+                                    <p class="txt-13p">Tamaño máximo del archivo: 2MB</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="boton-miniatura col-lg-3">
-                        <button id="miniatura-personalizada" class="btn btn-light"><b>Miniatura Personalizada</b></button>
-                        <p>Tamaño máximo del archivo: 2MB</p>
+            
                     </div>
                 </div>
             </div>
+        </div>
+               
+    </main>
 
-          </div>
-        </main>
+    <footer class="container-fluid no-padding p-2">
+        <hr class="hr-footer">
+            <div class="row mt-3 border-bottom no-gutters">
+                <div class="col-2">
+                    <div class="footer-logo">
+                        <img src="img/yt-logo-2.png" alt="" class="logo">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <form class="form-inline">
+                        <select class=" btn btn-outline-secondary btn-sm mr-3" name="slc-idioma" id="" title="Idioma">
+                            <option value="1">Español</option>
+                            <option value="2">No listado</option>
+                            <option value="3">Privado</option>
+                            <option value="4">Programado</option>
+                        </select>
+                        <select class="mr-3 btn btn-outline-secondary btn-sm" name="slc-pais" id="" title="Pais">
+                            <option value="1">Honduras</option>
+                            <option value="2">No listado</option>
+                            <option value="3">Privado</option>
+                            <option value="4">Programado</option>
+                        </select>
+                        <select class="mr-3 btn btn-outline-secondary btn-sm" name="slc-modo" id="" title="Modo">
+                            <option value="1">Modo restringido: Desactivado</option>
+                            <option value="2">Modo restringido: Activado </option>
+                        </select>
+                        <button class="btn btn-outline-secondary btn-sm mr-3">
+                            <i class="fas fa-hourglass fa-sm"></i> &nbsp; Historial</button>
+                        <button class="btn btn-outline-secondary btn-sm mr-3">
+                            <i class="fas fa-question-circle fa-sm "></i> &nbsp;Ayuda</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row p-2 ml-1">
+                <div class="col-12">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">Acerca de</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">Prensa</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">Derechos de autor</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">Creadores</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">Publicidad</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">Desarrolladores</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="list-links">+Youtube</a>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="footer-links bold-0">Condiciones</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="footer-links bold-0">Privacidad</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="footer-links bold-0">Politica y seguridad</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="footer-links bold-0">Enviar comentarios</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="footer-links bold-0">Prueba nuevas funciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
 
-    <!--Fin Contenido del formulario-->
 
-
-    
-
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/jquery.jscrollpane.min.js"></script>
-        <!--Instancia en caso que el navegador use webkit -->
-        <!--Codigo insertado desde https://webdesign.tutsplus.com-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.jscrollpane.min.js"></script>
+    <!--Instancia en caso que el navegador use webkit -->
+    <!--Codigo insertado desde https://webdesign.tutsplus.com-->
 
 </body>
 

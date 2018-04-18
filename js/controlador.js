@@ -20,14 +20,16 @@ function validarEmail(correo)
 	{
     	correo.classList.remove("is-invalid");
         correo.classList.add("is-valid");
+        document.getElementById("div-validacion").innerHTML = "Correo valido.";
+        return true;
     }
 	else
 	{
     	correo.classList.remove("is-valid");
         correo.classList.add("is-invalid");
         document.getElementById("div-validacion").innerHTML = "Correo Invalido.";
+        return false;
     }
-
 }
 
 function validar()
@@ -141,19 +143,28 @@ $("#btn-sig-paso").click(function(){
     $("#btn-sig-paso").attr("disabled",false);
 });
 
-
 $("#btn-siguiente").click(function(){
 
-    validar();
+    //validar();
+    var mail = $("#txt-email").val();
 
     if($("#txt-email").val() == "")
     {
-        $("#btn-siguiente").attr("href", "#"); //cambiando la propiedad href del anchor
+        $("#txt-email").removeClass('is-valid');
+		$("#txt-email").addClass('is-invalid');
         $("#div-validacion").html("No puedes dejar este campo vacio.");
     }
     else
     {
-        $("#btn-siguiente").attr("href", "contrasena-inicio-google.html");
+        $("#nombre-usuario").html($("#txt-email").val());
+
+        $("#Pagina-inicio").removeClass('display-block');
+        $("#Pagina-inicio").addClass('display-none');
+
+        $("#Pagina-Contrasena").removeClass('display-none');
+        $("#Pagina-Contrasena").addClass('display-block');
     }
 
+    console.log(mail);
+    console.log($("#div-validacion").html());
 });
