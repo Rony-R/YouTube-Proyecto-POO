@@ -486,21 +486,14 @@ main .img-size-asset {
   font-weight: bold;
 }
 
-#busqueda {
-  width: 720px;
-  height: 32px;
-  margin: 0px 0px 0px 70px;
-  padding: 0px 0px;
-}
 
 #search-box {
-  width: 80%;
+  width: 500px;
 }
 
-#search-btn {
-  width: 5%;
+.search-btn {
+  width: 20px;
   margin: 0px 2px;
-  text-align: center;
   border-radius: 50%;
 }
 
