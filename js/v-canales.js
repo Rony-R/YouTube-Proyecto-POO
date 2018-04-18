@@ -2,10 +2,10 @@ $(document).ready(function() {
   $.ajax({
     url: "ajax/estructura-video.php",
     success: function(respuesta) {
-      $("#vd-recomendados").append(respuesta);
-      $("#vd-canal-1").append(respuesta);
-      $("#vd-canal-2").append(respuesta);
-      $("#vd-canal-3").append(respuesta);
+      $("#yt-video-canal").append(respuesta);
+      $("#yt-video-canal-1").append(respuesta);
+      $("#yt-video-canal-2").append(respuesta);
+      $("#yt-video-canal-3").append(respuesta);
     }
   });
   $.ajax({
