@@ -616,12 +616,20 @@ main footer h6 {
 
 /*Estilos para el formulario de subir videos*/
 
-#nombre-video{
+#titulo-video{
   width: 100%;
   height: 35px;
 }
 
-#txta-descripcion{
+#txta-descripcion1{
+  width: 100%;
+}
+
+#txta-descripcion2{
+  width: 100%;
+}
+
+#txta-descripcion3{
   width: 100%;
 }
 
@@ -653,8 +661,16 @@ main footer h6 {
   height: 30%;
 }
 
+.txt-11p{
+  font-size: 11px;
+}
+
 .txt-13p{
   font-size: 13px;
+}
+
+.txt-14p{
+  font-size: 14px;
 }
 
 .fa-caret-right{
@@ -679,6 +695,90 @@ main footer h6 {
 
 .contenido-subida{
   background-color: #E6E6E6;
+}
+
+.display-none{
+  display: none;
+}
+
+.display-block{
+  display: block;
+}
+
+.display-run-in{
+  display: run-in;
+}
+
+#btn-idioma{
+  border: 1px solid black;
+  height: 34px;
+  padding: 5px 5px;
+}
+
+#slc-idiomas{
+  height: 34px;
+  padding: 5px 5px;
+}
+
+#slc-idioma2{
+  width: 50%;
+}
+
+.no-pd-left{
+  padding-left: 0px;
+}
+
+.no-pd-right{
+  padding-right: 0px;
+}
+
+.custom-chk{
+  height: 15px;
+  width: 15px;
+}
+
+#slc-comentarios{
+  width: 53%;
+}
+
+#slc-derechos{
+  width: 255px;
+}
+
+#slc-motivos{
+  width: 255px;
+}
+
+#slc-mostrar{
+  width: 80%;
+}
+
+#slc-categoria{
+  width: 200px;
+}
+
+#input-buscar{
+  width: 69%;
+}
+
+#input-fecha-grabacion{
+  width: 69%;
+}
+
+#btn-buscar{
+  border: 1px solid black;
+}
+
+#btn-hoy{
+  border: 1px solid black;
+}
+
+#miniatura-personalizada{
+  border: 1px solid black;
+}
+
+.no-margin{
+  margin: 0px;
 }
 
 /*Fin estilos para el formulario de subir videos*/

@@ -168,3 +168,106 @@ $("#btn-siguiente").click(function(){
     console.log(mail);
     console.log($("#div-validacion").html());
 });
+
+$("#infoBasica").click(function(){
+    $("#pagina1").removeClass('display-none');
+    $("#pagina1").addClass('display-run-in')
+
+    $("#pagina2").removeClass('display-run-in');
+    $("#pagina2").addClass('display-none')
+
+    $("#pagina3").removeClass('display-run-in');
+    $("#pagina3").addClass('display-none')
+});
+
+$("#traducciones").click(function(){
+    $("#pagina2").removeClass('display-none');
+    $("#pagina2").addClass('display-run-in')
+
+    $("#pagina1").removeClass('display-run-in');
+    $("#pagina1").addClass('display-none')
+
+    $("#pagina3").removeClass('display-run-in');
+    $("#pagina3").addClass('display-none')
+});
+
+$("#configAvanzada").click(function(){
+    $("#pagina3").removeClass('display-none');
+    $("#pagina3").addClass('display-inline')
+
+    $("#pagina1").removeClass('display-run-in');
+    $("#pagina1").addClass('display-none')
+
+    $("#pagina2").removeClass('display-run-in');
+    $("#pagina2").addClass('display-none')
+});
+
+/**************************************************/
+
+$("#infoBasica2").click(function(){
+    $("#pagina1").removeClass('display-none');
+    $("#pagina1").addClass('display-run-in')
+
+    $("#pagina2").removeClass('display-run-in');
+    $("#pagina2").addClass('display-none')
+
+    $("#pagina3").removeClass('display-run-in');
+    $("#pagina3").addClass('display-none')
+});
+
+$("#traducciones2").click(function(){
+    $("#pagina2").removeClass('display-none');
+    $("#pagina2").addClass('display-run-in')
+
+    $("#pagina1").removeClass('display-run-in');
+    $("#pagina1").addClass('display-none')
+
+    $("#pagina3").removeClass('display-run-in');
+    $("#pagina3").addClass('display-none')
+});
+
+$("#configAvanzada2").click(function(){
+    $("#pagina3").removeClass('display-none');
+    $("#pagina3").addClass('display-inline')
+
+    $("#pagina1").removeClass('display-run-in');
+    $("#pagina1").addClass('display-none')
+
+    $("#pagina2").removeClass('display-run-in');
+    $("#pagina2").addClass('display-none')
+});
+
+/***************************************************/
+
+$("#infoBasica3").click(function(){
+    $("#pagina1").removeClass('display-none');
+    $("#pagina1").addClass('display-run-in')
+
+    $("#pagina2").removeClass('display-run-in');
+    $("#pagina2").addClass('display-none')
+
+    $("#pagina3").removeClass('display-run-in');
+    $("#pagina3").addClass('display-none')
+});
+
+$("#traducciones3").click(function(){
+    $("#pagina2").removeClass('display-none');
+    $("#pagina2").addClass('display-run-in')
+
+    $("#pagina1").removeClass('display-run-in');
+    $("#pagina1").addClass('display-none')
+
+    $("#pagina3").removeClass('display-run-in');
+    $("#pagina3").addClass('display-none')
+});
+
+$("#configAvanzada3").click(function(){
+    $("#pagina3").removeClass('display-none');
+    $("#pagina3").addClass('display-inline')
+
+    $("#pagina1").removeClass('display-run-in');
+    $("#pagina1").addClass('display-none')
+
+    $("#pagina2").removeClass('display-run-in');
+    $("#pagina2").addClass('display-none')
+});
