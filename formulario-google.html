@@ -68,8 +68,8 @@
                 <!--CORREO-->
                 <div class="input-correo">
                   <label class="mt-10"><strong>Tu dirección de correo electrónico</strong></label> <br>
-                  <input class="form-control"  type="email" name="txt-email" id="txt-email" placeholder="ejemplo@email.com" onkeydown="validarEmail(this);">
-                  <div class="invalid-feedback">No puedes dejar este campo vacio.</div>
+                  <input class="form-control"  type="mail" name="txt-email" id="txt-email" placeholder="ejemplo@email.com" onkeydown="validarEmail('txt-email');">
+                  <div id="validacion-correo" class="invalid-feedback"></div>
                 </div> 
 
                 <!--CONTRASEÑA-->

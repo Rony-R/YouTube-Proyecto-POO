@@ -13,20 +13,20 @@ function validarContrasena(etiqueta)
 	}
 }
 
-function validarEmail(correo) 
+function validarEmail(id)
 {
     var patron = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	if (patron.test(String(correo.value).toLowerCase()))
-	{
-    	correo.classList.remove("is-invalid");
-        correo.classList.add("is-valid");
+    if(patron.test($("#"+id).val()))
+    {
+        $("#"+id).addClass("is-valid");
+        $("#"+id).removeClass("is-invalid");
         document.getElementById("div-validacion").innerHTML = "Correo valido.";
         return true;
     }
-	else
-	{
-    	correo.classList.remove("is-valid");
-        correo.classList.add("is-invalid");
+    else
+    {
+        $("#"+id).addClass("is-invalid");
+        $("#"+id).removeClass("is-valid");
         document.getElementById("div-validacion").innerHTML = "Correo Invalido.";
         return false;
     }
@@ -122,13 +122,13 @@ var validarCampoVacio = function(id)
 	                {
 		                $("#"+id).removeClass('is-valid');
 		                $("#"+id).addClass('is-invalid');
-		                return false;
+		                return true;
 	                }
 	                else
 	                {
 		                $("#"+id).removeClass('is-invalid');
 		                $("#"+id).addClass('is-valid');
-		                return true;
+		                return false;
                     }
                 }
             }
@@ -137,16 +137,31 @@ var validarCampoVacio = function(id)
 };
 
 $("#btn-sig-paso").click(function(){
+
     validar();
     $("#btn-sig-paso").attr("disabled","disabled");
 
     $("#btn-sig-paso").attr("disabled",false);
+
+    if(validarCampoVacio("txt-email"))
+    {
+        $("#validacion-correo").html("No puedes dejar esta campo vacio.");
+    }
+    else
+    {
+        if(validarEmail("txt-email"))
+        {
+            $("#validacion-correo").html("Correo Valido");   
+        }
+        else
+        {
+            $("#validacion-correo").html("Correo Invalido");
+        }
+    }
+
 });
 
 $("#btn-siguiente").click(function(){
-
-    //validar();
-    var mail = $("#txt-email").val();
 
     if($("#txt-email").val() == "")
     {
@@ -156,17 +171,23 @@ $("#btn-siguiente").click(function(){
     }
     else
     {
-        $("#nombre-usuario").html($("#txt-email").val());
+        if(validarEmail("txt-email"))
+        {
+            $("#nombre-usuario").html($("#txt-email").val());
 
-        $("#Pagina-inicio").removeClass('display-block');
-        $("#Pagina-inicio").addClass('display-none');
+            $("#Pagina-inicio").removeClass('display-block');
+            $("#Pagina-inicio").addClass('display-none');
 
-        $("#Pagina-Contrasena").removeClass('display-none');
-        $("#Pagina-Contrasena").addClass('display-block');
+            $("#Pagina-Contrasena").removeClass('display-none');
+            $("#Pagina-Contrasena").addClass('display-block');
+        }
+        else
+        {
+            $("#"+id).addClass("is-invalid");
+            $("#"+id).removeClass("is-valid");
+            $("#div-validacion").html("Correo Invalido.");
+        }
     }
-
-    console.log(mail);
-    console.log($("#div-validacion").html());
 });
 
 $("#infoBasica").click(function(){
