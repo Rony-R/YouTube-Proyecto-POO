@@ -621,3 +621,231 @@ main footer h6 {
 /*Estilos para la pagina de explorar-html*/
 
 /*fin estilos para la pagina de explorar-html*/
+
+/*Estilos para el formulario de subir videos*/
+
+#titulo-video{
+  width: 100%;
+  height: 35px;
+}
+
+#txta-descripcion1{
+  width: 100%;
+}
+
+#txta-descripcion2{
+  width: 100%;
+}
+
+#txta-descripcion3{
+  width: 100%;
+}
+
+#etiquetas-video{
+  width: 100%;
+  height: 35px;
+}
+
+#btn-publicar{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 100px;
+}
+
+.hr-pref{
+  margin: 0px;
+}
+
+.progress{
+  height: 26px;
+}
+
+.link-yt:hover{
+  text-decoration: none;
+}
+
+.miniatura-subida{
+  width: 30%;
+  height: 30%;
+}
+
+.txt-11p{
+  font-size: 11px;
+}
+
+.txt-13p{
+  font-size: 13px;
+}
+
+.txt-14p{
+  font-size: 14px;
+}
+
+.fa-caret-right{
+  width: 10%;
+}
+
+.upload-box2{
+  width: 1050px;
+  height: auto;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 0.5px 0px #cfcfcfc9;
+}
+
+.input-espacio{
+  margin: 15px 15px 15px 0px;
+}
+
+.hr-footer{
+  margin: 0px;
+}
+
+.contenido-subida{
+  background-color: #E6E6E6;
+}
+
+.display-none{
+  display: none;
+}
+
+.display-block{
+  display: block;
+}
+
+.display-run-in{
+  display: run-in;
+}
+
+#btn-idioma{
+  border: 1px solid black;
+  height: 34px;
+  padding: 5px 5px;
+}
+
+#slc-idiomas{
+  height: 34px;
+  padding: 5px 5px;
+}
+
+#slc-idioma2{
+  width: 50%;
+}
+
+.no-pd-left{
+  padding-left: 0px;
+}
+
+.no-pd-right{
+  padding-right: 0px;
+}
+
+.custom-chk{
+  height: 15px;
+  width: 15px;
+}
+
+#slc-comentarios{
+  width: 53%;
+}
+
+#slc-derechos{
+  width: 255px;
+}
+
+#slc-motivos{
+  width: 255px;
+}
+
+#slc-mostrar{
+  width: 80%;
+}
+
+#slc-categoria{
+  width: 200px;
+}
+
+#input-buscar{
+  width: 69%;
+}
+
+#input-fecha-grabacion{
+  width: 69%;
+}
+
+#btn-buscar{
+  border: 1px solid black;
+}
+
+#btn-hoy{
+  border: 1px solid black;
+}
+
+#miniatura-personalizada{
+  border: 1px solid black;
+}
+
+.no-margin{
+  margin: 0px;
+}
+
+/*Fin estilos para el formulario de subir videos*/
+
+/*Estilos para el modal de ayuda*/
+
+#input-ayuda{
+  margin: 0px !important;
+}
+
+.buscar-ayuda{
+  margin-top: 10px;
+}
+
+.modal-header{
+  padding-bottom: 0 !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.header-ayuda{
+  background-color: #757575;
+}
+
+.elemento-blanco{
+  color: white;
+}
+
+.i-ayuda{
+  color: #0080FF;
+}
+
+.texto-gris{
+  color: #585858;
+}
+
+.hr-ayuda{
+  margin-top: 3px;
+}
+
+.txt-18{
+  font-size: 18px;
+}
+
+.txt-15{
+  font-size: 15px;
+}
+
+.link-negro{
+  color: #000000;
+}
+
+.link-negro:hover{
+  color: #000000;
+  text-decoration: none;
+}
+
+.btn-ayuda{
+  border: 1px solid gray;
+}
+
+/*Fin estilos para el modal de ayuda*/
