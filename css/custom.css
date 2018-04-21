@@ -391,6 +391,21 @@ main .img-size-asset {
   color: red;
 }
 
+.video-links {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.video-links:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.video-descripcion{
+  font-size: 0.8rem;
+}
+
 /*Codigo incrustado desde https://mladenplavsic.github.io/bootstrap-navbar-sidebar/#*/
 @media (min-width: 768px) {
   .navbar-fixed-left {
@@ -486,21 +501,13 @@ main .img-size-asset {
   font-weight: bold;
 }
 
-#busqueda {
-  width: 720px;
-  height: 32px;
-  margin: 0px 0px 0px 70px;
-  padding: 0px 0px;
-}
-
 #search-box {
-  width: 80%;
+  width: 500px;
 }
 
-#search-btn {
-  width: 5%;
+.search-btn {
+  width: 20px;
   margin: 0px 2px;
-  text-align: center;
   border-radius: 50%;
 }
 

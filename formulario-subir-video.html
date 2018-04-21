@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>YouTube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link href="css/estilo-inicio-google.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body class="yt-background-color">
+
+    <!--Barra de navegacion de YouTube -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top barra">
+        <div class="row no-gutters">
+            <span class="col-1">
+                <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#barraNav" aria-expanded="true" aria-controls="barraNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </span>
+            <span class="col-11">
+                <span class="row">
+                    <div class="navbar-nav">
+                        <span class="col-1 no-padding pb-1">
+                            <a class="nav-item nav-link active" href="index.html">
+                                <div class="logo-container align-middle">
+                                    <img src="img/yt-logo-2.png" alt="" class="logo">
+                                </div>
+                            </a>
+                        </span>
+                        <span class="col-xl-7 col-lg-6 col-md-5 col-sm-4">
+                            <div class="container" id="busqueda">
+                                <form class="form-inline">
+                                    <input type="text" placeholder="Buscar" class="form-control collapse collapse.show m-0" id="search-box">
+                                    <button type="button" data-toggle="collapse" data-target="#search-box" aria-expanded="false" aria-controls="search-box" class="btn btn-light col-1"
+                                        id="search-btn">
+                                        <i class="fas fa-search fa-lg"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </span>
+                        <span class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-xs-6 ml-5">
+                            <form class="form-inline ml-auto">
+                                <button type="button" class="btn btn-light btn-circle end-btn" onclick="location.href='form-videos.html';">
+                                    <i class="fas fa-upload fa-lg"></i>
+                                </button>
+                                <button class="btn btn-light btn-circle end-btn">
+                                    <i class="fas fa-th fa-lg"></i>
+                                </button>
+                                <button class="btn btn-light btn-circle end-btn">
+                                    <i class="fas fa-ellipsis-v fa-lg"></i>
+                                </button>
+                                <a href="modal-inicio-google.html" class="btn btn-outline-danger end-btn btn-sm mt-1">
+                                    ACCEDER
+                                </a>
+                            </form>
+                        </span>
+                    </div>
+                </span>
+            </span>
+        </div>
+    </nav>
+
+    <!--Contenido del formulario-->
+
+        <main class="contenido-principal item-center main ml-auto mt-5">
+                <div class="body-grid">
+            <div class="row">
+                <!--Barra Lateral-->
+                <div class="col-lg-4 col-sm-4">
+                    <div class="contenido-lateral">
+                        <img class="img-fluid" src="img/rectangulo-vacio.png">
+
+                        <div class="proceso-subida">
+                            <label class="mt-4"><b>Estado de la Subida:</b></label>
+                            <p>Lorem ipsum...</p>
+                            <span>
+                                <p>Tu video se publicara en la siguiente página:
+                                     <a class="color-link" href="#">https://youtube/link del video</a>
+                                </p>
+                            </span>
+                        </div>
+    
+                        <div class="side-content">
+                            <div class="container-fluid">
+                                <p class="mt-3"><i class="fas fa-caret-right"></i><b class="lb-preferencias">Preferencias</b></p> 
+                            </div><hr class="hr-pref">
+                            <div class="lista-checkbox">
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Sugerencias de titulos y</label><br><label class="salto txt-13p">descripciones BOOST</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Contador de Simbolos</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Inspector de palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Borrar palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Copiar palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Arrastrar y soltar</label><br><label class="salto txt-13p">palabras clave</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Traducir</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Etiquetas recomendadas</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Ménus Emoji</label><br>
+                                <input class="ck-box" type="checkbox"><label class="txt-13p">Puntuación SEO y</label><br><label class="salto txt-13p">lista de control</label><br>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+                <!--Formulario-->
+                <div class="col-lg-8 col-sm-8">
+                    <div class="row">
+                        <div class="estado de carga col-lg-10">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%; height: 20px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <button id="btn-listo" class="btn btn-primary">Listo</button>
+                        </div>
+                    </div>
+                    <div class="paginas-internas">
+                        <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-light">Información Básica</button>
+                            <button type="button" class="btn btn-light">Traducciones</button>
+                            <button type="button" class="btn btn-light">Configuración Avanzada</button>
+                        </div>
+                    </div>
+                    <div class="formulario-video">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 inputs-subir-video">
+                                <form>
+                                    <input class="form-control" type="text" id="nombre-video" name="txt-nombre-video" placeholder="Título del Video">
+                                    <textarea class="form-control" name="txta-descripcion" id="txta-descripcion" placeholder="Descripción"></textarea>
+                                    <input class="form-control" type="text" id="etiquetas-video" name="txt-etiquetas-video" placeholder="Etiquetas(ej: gatitos comedia terror)">
+                                </form>
+    
+                            </div>
+                            <div class="col-lg-6 col-sm-6 extras-subir-video">
+
+                                <form>
+                                    <select class="form-control mt-3" name="slc-accesos" id="slc-accesos">
+                                        <option value="1">Público</option>
+                                        <option value="2">Oculto</option>
+                                        <option value="3">Privado</option>
+                                        <option value="4">Programado</option>
+                                    </select>
+                                    <button id="btn-compartir" class="btn btn-light">Compartir</button>
+                                </form>
+
+                                <div class="side-content2">
+
+                                    <div>
+                                        <p>Lorem ipsum etc...</p>
+                                    </div><hr class="hr-ref">
+                                    <div>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam laborum a quia, quasi commodi ipsa impedit, dolore numquam modi neque, quisquam illo. Ex natus distinctio praesentium voluptatum vel non odio.</p>
+                                    </div><hr class="hr-ref">
+                                    <div>
+                                        <p class="sm-text"><b>¡Con vidIQ Boost podemos ayudarle a mejorar el rendimiento de su video!</b></p>
+                                        <a class="color-link" href="#"><p class="sm-text">Más Informacion acerca de <b>vidIQ Boost</b></p></a>
+                                        <p class="btn-boost"><button class="btn btn-primary btn-boost2">Suscribirse a Boost</button></p>
+                                    </div>
+
+                                    <div>
+                                        <p><i class="fas fa-times x-roja"></i>Almenos una tarjeta<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Almenos una pantalla final<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Subtitulos (manual)<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Obtención de ingresos activada<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Añadido a una lista de reproducción<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Compartido en Twitter<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Compartido en Facebook<i class="fas fa-arrow-right flechita"></i></p>
+                                        <p><i class="fas fa-times x-roja"></i>Respondido al comentario reciente<i class="fas fa-arrow-right flechita"></i></p>
+                                    </div>
+
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-subida">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <label><b>MINIATURAS DEL VIDEO</b><i class="fas fa-question-circle"></i></label>
+                        <div class="miniaturas">
+                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                            <img class="miniatura-subida" src="img/rectangulo-vacio.png">
+                        </div>
+                    </div>
+                    <div class="boton-miniatura col-lg-3">
+                        <button id="miniatura-personalizada" class="btn btn-light"><b>Miniatura Personalizada</b></button>
+                        <p>Tamaño máximo del archivo: 2MB</p>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </main>
+
+    <!--Fin Contenido del formulario-->
+
+
+    
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.jscrollpane.min.js"></script>
+        <!--Instancia en caso que el navegador use webkit -->
+        <!--Codigo insertado desde https://webdesign.tutsplus.com-->
+
+</body>
+
+</html>
