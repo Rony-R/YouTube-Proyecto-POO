@@ -14,52 +14,116 @@
 
     <!--Barra de navegacion de YouTube -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top barra">
-        <div class="row no-gutters">
-            <span class="col-1">
-                <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#barraNav" aria-expanded="true" aria-controls="barraNav">
-                    <span class="navbar-toggler-icon"></span>
+    <nav class="navbar  navbar-light bg-light fixed-top barra">
+
+        <form class="form-inline mb-1 w-100">
+            <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="nav-item nav-link active ml-4" href="index.html" id="yt-brand">
+                <div class="logo-container align-middle">
+                    <img src="img/yt-logo-2.png" alt="" class="logo">
+                </div>
+            </a>
+            <button type="button" class="btn btn-light d-none" id="btn-atras">
+                <i class="fas fa-arrow-left fa-lg"></i>
+            </button>
+            <input type="text" placeholder="Buscar" class="form-control m-0 d-none d-lg-block ml-5" id="search-box">
+            <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video"
+                id="btn-up">
+                <i class="fas fa-upload fa-lg"></i>
+            </button>
+            <div class="dropdown">
+                <button class="btn btn-light btn-circle end-btn" type="button" id="btn-apps" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" title="Apps de Youtube">
+                    <i class="fas fa-th fa-lg"></i>
                 </button>
-            </span>
-            <span class="col-11">
-                <span class="row">
-                    <div class="navbar-nav">
-                        <span class="col-1 no-padding pb-1">
-                            <a class="nav-item nav-link active" href="index.html">
-                                <div class="logo-container align-middle">
-                                    <img src="img/yt-logo-2.png" alt="" class="logo">
-                                </div>
-                            </a>
-                        </span>
-                        <span class="col-xl-7 col-lg-6 col-md-5 col-sm-4">
-                            <div class="container" id="busqueda">
-                                <form class="form-inline">
-                                    <input type="text" placeholder="Buscar" class="form-control collapse collapse.show" id="search-box">
-                                    <button type="button" data-toggle="collapse" data-target="#search-box" aria-expanded="false" aria-controls="search-box" class="btn btn-light col-1"
-                                        id="search-btn">
-                                        <i class="fas fa-search fa-lg"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </span>
-                        <span class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-xs-6 ml-5 mt-1">
-                            <form class="form-inline ml-auto">
-                                <button type="button" class="btn btn-light btn-circle end-btn" onclick="location.href='form-videos.html'">
-                                    <i class="fas fa-upload fa-lg"></i>
-                                </button>
-                                <button class="btn btn-light btn-circle end-btn ml-6">
-                                    <i class="fas fa-bell fa-lg"></i>
-                                </button>
-                                <button class="btn btn-light end-btn">
-                                    <i class="fas fa-user fa-lg"></i>
-                                </button>
-                            </form>
-                        </span>
-                    </div>
-                </span>
-            </span>
-        </div>
+                <!-- Menu de dropdown de las apps de YouTube-->
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btn-apps">
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-tv.png" class=" ml-2 mr-3"> YouTube TV
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-gaming.png" class=" ml-2 mr-3"> YouTube Gaming
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-music.png" class=" ml-2 mr-3"> YouTube Music
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-kids.png" class=" ml-2 mr-3"> YouTube Kids
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Academia de Creadores
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Youtube para Artistas
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    title="Configruacion">
+                    <i class="fas fa-ellipsis-v fa-lg"></i>
+                </button>
+                <!--Menu dropdown de las configuraciones de YT-->
+                <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.html">
+                        <div class="pl-2 pr-4">
+                            <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                        <div class="pl-2 pr-4 dropdown-toggle">
+                            Idioma: Español
+                        </div>
+                    </button>
+                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                        <div class="pl-2 pr-4 dropdown-toggle">
+                            Ubicacion: Estados Unidos
+                        </div>
+                    </button>
+                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                        <div class="pl-2 pr-4 dropdown-toggle">
+                            Modo Restringido: Desactivado
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <button  type="button" class="btn btn-light end-btn  mt-1"
+                id="btn-login">
+                <i class="fas fa-lg fa-user"></i>
+            </button>
+        </form>
     </nav>
+
 
     <!--Cuerpo de Youtube -->
     <div class="container-fluid no-padding mt-5">
