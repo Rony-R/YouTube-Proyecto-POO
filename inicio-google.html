@@ -24,7 +24,8 @@
                 <div class="input-body">
                     <div class="input-correo">
                       <input class="form-control" id="txt-email" type="mail" placeholder="correo electrónico o teléfono" onkeydown="validarEmail('txt-email');">
-                      <div id="div-validacion" class="invalid-feedback"></div>
+                      <div class="valid-feedback">Correo Valido</div>
+                      <div id="div-validacion" class="invalid-feedback">Correo Invalido</div>
                     </div>
                     <div class="input-body-2 mt-40">
                         <a href="#">¿Has olvidado tu correo electrónico?</a>
@@ -58,7 +59,7 @@
                 <p id="nombre-usuario"></p>
                 
                 <div class="input-body">
-                    <input class="form-control" type="password" placeholder="Introduce tu contraseña" onkeydown="validarContrasena(this);">
+                    <input id="contra-inicio-google" class="form-control" type="password" placeholder="Introduce tu contraseña" onkeydown="validarContrasena(this);">
                     <div class="valid-feedback">Correcto</div>
                     <div class="invalid-feedback">Debe tener más de 8 caracteres</div><br><br><br>
                     <div class="row">

@@ -4,7 +4,7 @@ function validarContrasena(etiqueta)
 	if (etiqueta.value.length<8)
 	{
 		etiqueta.classList.remove("is-valid");
-		etiqueta.classList.add("is-invalid");
+        etiqueta.classList.add("is-invalid");
 	}
 	else
 	{
@@ -20,14 +20,12 @@ function validarEmail(id)
     {
         $("#"+id).addClass("is-valid");
         $("#"+id).removeClass("is-invalid");
-        document.getElementById("div-validacion").innerHTML = "Correo valido.";
         return true;
     }
     else
     {
         $("#"+id).addClass("is-invalid");
         $("#"+id).removeClass("is-valid");
-        document.getElementById("div-validacion").innerHTML = "Correo Invalido.";
         return false;
     }
 }
@@ -56,13 +54,13 @@ var validarCampoVacio = function(id)
         {
             $("#"+id).removeClass('is-valid');
 		    $("#"+id).addClass('is-invalid');
-		    return false;   
+		    return true;   
         }
         else
         {
             $("#"+id).removeClass('is-invalid');
 		    $("#"+id).addClass('is-valid');
-		    return true;
+		    return false;
         }
     }
     else
@@ -73,13 +71,13 @@ var validarCampoVacio = function(id)
             {
                 $("#"+id).removeClass('is-valid');
 		        $("#"+id).addClass('is-invalid');
-		        return false;   
+		        return true;   
             }
             else
             {
                 $("#"+id).removeClass('is-invalid');
 		        $("#"+id).addClass('is-valid');
-		    return true;
+		    return false;
             }
         }
         else
@@ -90,13 +88,13 @@ var validarCampoVacio = function(id)
                 {
                     $("#"+id).removeClass('is-valid');
 		            $("#"+id).addClass('is-invalid');
-		            return false;   
+		            return true;   
                 }
                 else
                 {
                     $("#"+id).removeClass('is-invalid');
 		            $("#"+id).addClass('is-valid');
-		            return true;
+		            return false;
                 }
             }
             else
@@ -107,13 +105,13 @@ var validarCampoVacio = function(id)
                     {
                         $("#"+id).removeClass('is-valid');
                         $("#"+id).addClass('is-invalid');
-                        return false;   
+                        return true;   
                     }
                     else
                     {
                         $("#"+id).removeClass('is-invalid');
                         $("#"+id).addClass('is-valid');
-                        return true;
+                        return false;
                     }
                 }
                 else
@@ -138,14 +136,22 @@ var validarCampoVacio = function(id)
 
 $("#btn-sig-paso").click(function(){
 
-    validar();
-    $("#btn-sig-paso").attr("disabled","disabled");
+    validar(); //Verificando si estan vacios!!!
 
-    $("#btn-sig-paso").attr("disabled",false);
+    if($("#txt-password1").val() != $("#txt-password2").val())
+    {
+        $("#txt-password1").removeClass('is-valid');
+        $("#txt-password1").addClass('is-invalid');
+        $("#txt-password2").removeClass('is-valid');
+        $("#txt-password2").addClass('is-invalid');
+
+        $("#validacion-contrasena1").html("Las contraseñas no coinciden");
+        $("#validacion-contrasena2").html("Las contraseñas no coinciden");
+    }
 
     if(validarCampoVacio("txt-email"))
     {
-        $("#validacion-correo").html("No puedes dejar esta campo vacio.");
+        $("#validacion-correo").html("No puedes dejar este campo vacio.");
     }
     else
     {
@@ -158,6 +164,24 @@ $("#btn-sig-paso").click(function(){
             $("#validacion-correo").html("Correo Invalido");
         }
     }
+
+    var parametros = 'usuario='+$("#txt-nombre").val()+$("#txt-apellido").val()+"&"+
+                      'correo='+$("#txt-email").val()+"&"+'contraseña='+$("#txt-password2").val()+"&"+
+                      'nacimiento='+$("#dia").val()+"/"+$("#mes").val()+"/"+$("#agno").val()+"&"+
+                      'genero='+$("#slc-sexo").val()+"&"+
+                      'telefono='+$("#txt-telefono").val()+"&"+
+                      'ubicacion='+$("#slc-ubicacion").val();
+    console.log("Se enviara esto al php: " + parametros); 
+    
+    $.ajax({
+        url: 'Ajax/procesar-google.php',
+        method: 'POST',
+        data: parametros,
+        succes: function(respuesta)
+        {
+
+        }
+    });
 
 });
 
@@ -183,112 +207,66 @@ $("#btn-siguiente").click(function(){
         }
         else
         {
-            $("#"+id).addClass("is-invalid");
-            $("#"+id).removeClass("is-valid");
+            $("#txt-email").addClass("is-invalid");
+            $("#txt-email").removeClass("is-valid");
             $("#div-validacion").html("Correo Invalido.");
         }
     }
 });
 
-$("#infoBasica").click(function(){
-    $("#pagina1").removeClass('display-none');
-    $("#pagina1").addClass('display-run-in')
+$("#btn-siguiente2").click(function(){
 
-    $("#pagina2").removeClass('display-run-in');
-    $("#pagina2").addClass('display-none')
+    var datos = 'usuario='+$("#nombre-usuario").html()+"&"+'contraseña='+$("#contra-inicio-google").val();
+    console.log("Se enviara esto al php: "+ datos);
 
-    $("#pagina3").removeClass('display-run-in');
-    $("#pagina3").addClass('display-none')
+    $.ajax({
+        url: 'Ajax/procesar-inicio-google.php',
+        method: 'POST',
+        data: datos,
+        succes: function(respuesta)
+        {
+
+        }
+    });
+
 });
 
-$("#traducciones").click(function(){
-    $("#pagina2").removeClass('display-none');
-    $("#pagina2").addClass('display-run-in')
+function botonesCategorias(id)
+{
+    if(id == 'infoBasica')
+    {
+        $("#pagina1").removeClass('display-none');
+        $("#pagina1").addClass('display-run-in')
 
-    $("#pagina1").removeClass('display-run-in');
-    $("#pagina1").addClass('display-none')
+        $("#pagina2").removeClass('display-run-in');
+        $("#pagina2").addClass('display-none')
 
-    $("#pagina3").removeClass('display-run-in');
-    $("#pagina3").addClass('display-none')
-});
+        $("#pagina3").removeClass('display-run-in');
+        $("#pagina3").addClass('display-none')
+    }
+    else
+    {
+        if(id == 'traducciones')
+        {
+            $("#pagina2").removeClass('display-none');
+            $("#pagina2").addClass('display-run-in')
 
-$("#configAvanzada").click(function(){
-    $("#pagina3").removeClass('display-none');
-    $("#pagina3").addClass('display-inline')
+            $("#pagina1").removeClass('display-run-in');
+            $("#pagina1").addClass('display-none')
 
-    $("#pagina1").removeClass('display-run-in');
-    $("#pagina1").addClass('display-none')
+            $("#pagina3").removeClass('display-run-in');
+            $("#pagina3").addClass('display-none')
+        }
+        else
+        {
+            $("#pagina3").removeClass('display-none');
+            $("#pagina3").addClass('display-inline')
 
-    $("#pagina2").removeClass('display-run-in');
-    $("#pagina2").addClass('display-none')
-});
+            $("#pagina1").removeClass('display-run-in');
+            $("#pagina1").addClass('display-none')
 
-/**************************************************/
-
-$("#infoBasica2").click(function(){
-    $("#pagina1").removeClass('display-none');
-    $("#pagina1").addClass('display-run-in')
-
-    $("#pagina2").removeClass('display-run-in');
-    $("#pagina2").addClass('display-none')
-
-    $("#pagina3").removeClass('display-run-in');
-    $("#pagina3").addClass('display-none')
-});
-
-$("#traducciones2").click(function(){
-    $("#pagina2").removeClass('display-none');
-    $("#pagina2").addClass('display-run-in')
-
-    $("#pagina1").removeClass('display-run-in');
-    $("#pagina1").addClass('display-none')
-
-    $("#pagina3").removeClass('display-run-in');
-    $("#pagina3").addClass('display-none')
-});
-
-$("#configAvanzada2").click(function(){
-    $("#pagina3").removeClass('display-none');
-    $("#pagina3").addClass('display-inline')
-
-    $("#pagina1").removeClass('display-run-in');
-    $("#pagina1").addClass('display-none')
-
-    $("#pagina2").removeClass('display-run-in');
-    $("#pagina2").addClass('display-none')
-});
-
-/***************************************************/
-
-$("#infoBasica3").click(function(){
-    $("#pagina1").removeClass('display-none');
-    $("#pagina1").addClass('display-run-in')
-
-    $("#pagina2").removeClass('display-run-in');
-    $("#pagina2").addClass('display-none')
-
-    $("#pagina3").removeClass('display-run-in');
-    $("#pagina3").addClass('display-none')
-});
-
-$("#traducciones3").click(function(){
-    $("#pagina2").removeClass('display-none');
-    $("#pagina2").addClass('display-run-in')
-
-    $("#pagina1").removeClass('display-run-in');
-    $("#pagina1").addClass('display-none')
-
-    $("#pagina3").removeClass('display-run-in');
-    $("#pagina3").addClass('display-none')
-});
-
-$("#configAvanzada3").click(function(){
-    $("#pagina3").removeClass('display-none');
-    $("#pagina3").addClass('display-inline')
-
-    $("#pagina1").removeClass('display-run-in');
-    $("#pagina1").addClass('display-none')
-
-    $("#pagina2").removeClass('display-run-in');
-    $("#pagina2").addClass('display-none')
-});
+            $("#pagina2").removeClass('display-run-in');
+            $("#pagina2").addClass('display-none')
+        }
+    }
+}

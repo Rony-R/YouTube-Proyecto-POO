@@ -27,9 +27,9 @@
 
      <h1>Crea tu cuenta de Google</h1>
 
-     <!--Columna para las fotos-->
       <div class="container">
           <div class="row">
+            <!--Columna para las fotos-->
             <div class="col-xl-6 col-lg-4 col-sm-4">
               <div class="side-info">
                 <h2>Solo necesitas una cuenta</h2>
@@ -77,14 +77,14 @@
                   <label class="mt-10"><strong>Contraseña</strong></label> <br>
                   <input class="form-control" type="password" name="txt-password" id="txt-password1" onkeydown="validarContrasena(this);">
                   <div class="valid-feedback">Correcto</div>
-                  <div class="invalid-feedback">Debe tener más de 8 caracteres</div>
+                  <div id="validacion-contrasena1" class="invalid-feedback">Debe tener más de 8 caracteres</div>
                 </div>
 
                 <div class="contra2">
                   <label class="mt-10"><strong>Confirma tu contraseña</strong></label> <br>
                   <input class="form-control" type="password" name="txt-password" id="txt-password2" onkeydown="validarContrasena(this);">
                   <div class="valid-feedback">Correcto</div>
-                  <div class="invalid-feedback">Debe tener más de 8 caracteres</div>
+                  <div id="validacion-contrasena2" class="invalid-feedback">Debe tener más de 8 caracteres</div>
                 </div>
 
                 <label class="mt-10"><strong>Fecha de Nacimiento</strong></label> <br>
@@ -152,6 +152,7 @@
 
                 </div>
               </div>
+              <!--Fin columna para el formulario-->
             </div>
       </div>
 
