@@ -186,7 +186,6 @@ $("#btn-sig-paso").click(function(){
 });
 
 $("#btn-siguiente").click(function(){
-
     if($("#txt-email").val() == "")
     {
         $("#txt-email").removeClass('is-valid');
