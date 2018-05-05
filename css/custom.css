@@ -12,8 +12,8 @@ body {
 main .body-grid .video-miniatura-tendencias {
   margin: 10px 10px;
   padding: 0;
-  width: 245px;
-  height: 140px;
+  width: 250px;
+  height: 190px;
 }
 
 main .body-grid a {
@@ -355,6 +355,7 @@ main .img-size-asset {
   color: #000000;
   font-weight: bold;
   text-decoration: none;
+  text-align: justify;
 }
 
 .video-text {
@@ -482,6 +483,11 @@ main .img-size-asset {
   font-weight: normal;
 }
 
+.img-comentarios{
+  width: 40px;
+  height: 40px;
+}
+
 .modal-body {
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -490,6 +496,7 @@ main .img-size-asset {
 .modal .modal-content {
   width: 400px;
 }
+
 
 /*fin estilos para el modal de enviar comentarios*/
 
