@@ -463,248 +463,28 @@
                             <div class="content-name">
                                 Listas de Reproducción Creadas
                             </div>
-                            <div class="row border-bottom">
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="row border-bottom" id="vd-recomendados">
+
                             </div>
                             <div class="content-name">
                                 Canal # 1
                             </div>
-                            <div class="row border-bottom">
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="row border-bottom" id="vd-canal-1">
+
                             </div>
 
                             <div class="content-name">
                                 Canal # 2
                             </div>
-                            <div class="row border-bottom">
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="row border-bottom" id="vd-canal-2">
+
                             </div>
 
                             <div class="content-name">
                                 Canal # 3
                             </div>
-                            <div class="row border-bottom">
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <a href="#">
-                                        <div class="video-miniatura">
-                                            <img class="img-fluid" src="img/miniatura.jpg">
-                                            <div class="descripcion">
-                                                <a href="#" class="video-title">Titulo del Video</a>
-                                                <br>
-                                                <p class="yt-color video-text">Nombre del canal
-                                                    <br>numero visualizaciones
-                                                    <br>Tiempo desde que subio el video</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="row border-bottom" id="vd-canal-3">
+
                             </div>
                         </div>
                     </div>
@@ -712,11 +492,12 @@
 
             </div>
 
-            <script src="js/jquery-3.3.1.min.js"></script>
-            <script src="js/bootstrap.js"></script>
-            <script src="js/jquery.jscrollpane.min.js"></script>
-            <script src="js/menu.js"></script>
-            <script src="js/barra.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/controlador.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/videos.js"></script>
+        <script src="js/barra.js"></script>
 
 </body>
 

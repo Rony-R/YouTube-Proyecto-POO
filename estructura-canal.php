@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> En Vivo - YouTube</title>
+    <title>Música - YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/custom.css">
@@ -16,108 +16,114 @@
     <!--Barra de navegacion de YouTube -->
     <nav class="navbar  navbar-light bg-light fixed-top barra">
 
-            <form class="form-inline mb-1 w-100">
-                <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="nav-item nav-link active ml-4" href="index.html" id="yt-brand">
-                    <div class="logo-container align-middle">
-                        <img src="img/yt-logo-2.png" alt="" class="logo">
-                    </div>
-                </a>
-                <input type="text" placeholder="Buscar" class="form-control m-0 d-none d-lg-block ml-5" id="search-box">
-                <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
-                    <i class="fas fa-search fa-lg"></i>
-                </button>
-                <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video" id="btn-up">
-                    <i class="fas fa-upload fa-lg"></i>
-                </button>
-                <div class="dropdown">
-                    <button class="btn btn-light btn-circle end-btn" type="button" id="btn-apps" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" title="Apps de Youtube">
-                        <i class="fas fa-th fa-lg"></i>
-                    </button>
-                    <!-- Menu de dropdown de las apps de YouTube-->
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btn-apps">
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <img src="img\assets\yt-tv.png" class=" ml-2 mr-3"> YouTube TV
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <img src="img\assets\yt-gaming.png" class=" ml-2 mr-3"> YouTube Gaming
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <img src="img\assets\yt-music.png" class=" ml-2 mr-3"> YouTube Music
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <img src="img\assets\yt-kids.png" class=" ml-2 mr-3"> YouTube Kids
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Academia de Creadores
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Youtube para Artistas
-                            </div>
-                        </a>
-                    </div>
+        <form class="form-inline mb-1 w-100">
+            <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="nav-item nav-link active ml-4" href="index.html" id="yt-brand">
+                <div class="logo-container align-middle">
+                    <img src="img/yt-logo-2.png" alt="" class="logo">
                 </div>
-                <div class="dropdown">
-                    <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        title="Configruacion">
-                        <i class="fas fa-ellipsis-v fa-lg"></i>
-                    </button>
-                    <!--Menu dropdown de las configuraciones de YT-->
-                    <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.html">
-                            <div class="pl-2 pr-4">
-                                <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                            <div class="pl-2 pr-4">
-                                <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                            <div class="pl-2 pr-4 dropdown-toggle">
-                                Idioma: Español
-                            </div>
-                        </button>
-                        <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                            <div class="pl-2 pr-4 dropdown-toggle">
-                                Ubicacion: Estados Unidos
-                            </div>
-                        </button>
-                        <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                            <div class="pl-2 pr-4 dropdown-toggle">
-                                Modo Restringido: Desactivado
-                            </div>
-                        </button>
-                    </div>
-                </div>
-                <button onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger end-btn btn-sm mt-1" id="btn-login">
-                    ACCEDER
+            </a>
+            <button type="button" class="btn btn-light d-none" id="btn-atras">
+                <i class="fas fa-arrow-left fa-lg"></i>
+            </button>
+            <input type="text" placeholder="Buscar" class="form-control m-0 d-none d-lg-block ml-5" id="search-box">
+            <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video"
+                id="btn-up">
+                <i class="fas fa-upload fa-lg"></i>
+            </button>
+            <div class="dropdown">
+                <button class="btn btn-light btn-circle end-btn" type="button" id="btn-apps" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" title="Apps de Youtube">
+                    <i class="fas fa-th fa-lg"></i>
                 </button>
-            </form>
-        </nav>
+                <!-- Menu de dropdown de las apps de YouTube-->
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btn-apps">
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-tv.png" class=" ml-2 mr-3"> YouTube TV
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-gaming.png" class=" ml-2 mr-3"> YouTube Gaming
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-music.png" class=" ml-2 mr-3"> YouTube Music
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-kids.png" class=" ml-2 mr-3"> YouTube Kids
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Academia de Creadores
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Youtube para Artistas
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    title="Configruacion">
+                    <i class="fas fa-ellipsis-v fa-lg"></i>
+                </button>
+                <!--Menu dropdown de las configuraciones de YT-->
+                <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.html">
+                        <div class="pl-2 pr-4">
+                            <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                        <div class="pl-2 pr-4 dropdown-toggle">
+                            Idioma: Español
+                        </div>
+                    </button>
+                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                        <div class="pl-2 pr-4 dropdown-toggle">
+                            Ubicacion: Estados Unidos
+                        </div>
+                    </button>
+                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                        <div class="pl-2 pr-4 dropdown-toggle">
+                            Modo Restringido: Desactivado
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <button onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger end-btn btn-sm mt-1"
+                id="btn-login">
+                ACCEDER
+            </button>
+        </form>
+    </nav>
+
     <!--Cuerpo de Youtube -->
     <div class="container-fluid no-padding mt-5">
         <div class="row no-gutters">
@@ -303,6 +309,7 @@
                 </div>
             </div>
             <!--fin modal para enviar comentarios-->
+
             <!--Modal de Ayuda-->
             <div class="modal" id="modal-ayuda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -415,81 +422,81 @@
             </div>
             <!--Fin modal de Ayuda-->
 
-            <!--Seccion de videos de YoutTube-->
+            <!--Seccion de Videos de YouTube-->
             <main class="col-md-10 col-12  main ml-auto" id="yt-body">
-                    <div class="header-canal">
-                        <div class="banner">
-                            <img id="logo-categoria" class="banner-foto" src="img/yt-en-vivo.jpg">
-                        </div>
-                        <div class="nombre-canal">
-                            <div class="header">
-                                <div class="row">
-                                    <div class="col-lg-2 foto-canal">
-                                        <span>
-                                            <img id="asset-categoria" src="img/assets/live.jpg" class="img-size-asset ml-5 mt-4 mb-4">
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4 pt-4 mt-2">
-                                        <span class="nombre-suscriptores">
-                                            <h4 id="nombre-categoria">En vivo</h4>
-                                            <p id="suscriptores-categoria">Numero de suscriptores</p>
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-4 offset-lg-1">
-                                        <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse #</button>
-                                    </div>
+                <div class="header-canal">
+                    <div class="banner">
+                        <img id="logo-categoria" class="banner-foto" src="#####BANNER#####">
+                    </div>
+                    <div class="nombre-canal">
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-lg-2 foto-canal">
+                                    <span>
+                                        <img id="asset-categoria" src="###ASSET###" class="img-size-asset ml-5 mt-4 mb-4">
+                                    </span>
                                 </div>
-                            </div>
-                            <div class="footer">
-                                <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
-                                    <button onclick="location.href='en-vivo.html'" type="button" class="btn btn-light">INICIO</button>
-                                    <button onclick="location.href='videos.html'" type="button" class="btn btn-light">VÍDEOS</button>
-                                    <button onclick="location.href='playlists.html'" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
-                                    <button onclick="location.href='canales.html'" type="button" class="btn btn-light">CANALES</button>
-                                    <button onclick="location.href='about.html'" type="button" class="btn btn-light">MÁS INFORMACION</button>
+                                <div class="col-lg-4 pt-4 mt-2">
+                                    <span class="nombre-suscriptores">
+                                        <h4 id="nombre-categoria">#####NOMBRE CANAL#####</h4>
+                                        <p id="suscriptores-categoria">#####SUSCRIPTORES#####</p>
+                                    </span>
+                                </div>
+                                <div class="col-lg-4 offset-lg-1">
+                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse #####SUSCRIPTORES#####</button>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="div-miniaturas item-center">
-                            <div class="body-grid">
-                                <div class="content-name">
-                                    Recomendados
-                                </div>
-                                <div class="row border-bottom" id="yt-video-canal">
-                        
-                                </div>
-                                <div class="content-name">
-                                    Canal # 1
-                                </div>
-                                <div class="row border-bottom" id="yt-video-canal-1">
-                                    
-                                </div>
+                        <div class="footer">
+                            <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
+                                <button onclick="location.href='musica.html'" type="button" class="btn btn-light">INICIO</button>
+                                <button onclick="btnGroup('###NOMBRE CANAL###', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
+                                <button onclick="btnGroup('###NOMBRE CANAL###', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
+                                <button onclick="btnGroup('###NOMBRE CANAL###', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
+                                <button onclick="btnGroup('###NOMBRE CANAL###', 'about.php')" type="button" class="btn btn-light">MÁS INFORMACION</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="div-miniaturas item-center">
+                        <div class="body-grid">
+                            <div class="content-name">
+                                Recomendados
+                            </div>
+                            <div class="row border-bottom" id="yt-video-canal">
+                    
+                            </div>
+                            <div class="content-name">
+                                Canal # 1
+                            </div>
+                            <div class="row border-bottom" id="yt-video-canal-1">
+                                
+                            </div>
+    
+                            <div class="content-name">
+                                Canal # 2
+                            </div>
+                            <div class="row border-bottom" id="yt-video-canal-2">
+                                                        
+                            </div>
+    
+                            <div class="content-name">
+                                Canal # 3
+                            </div>
+                            <div class="row border-bottom" id="yt-video-canal-3">
+                               
+                            </div>
+                        </div>
+                    </div>
+            </main>
         
-                                <div class="content-name">
-                                    Canal # 2
-                                </div>
-                                <div class="row border-bottom" id="yt-video-canal-2">
-                                                            
-                                </div>
-        
-                                <div class="content-name">
-                                    Canal # 3
-                                </div>
-                                <div class="row border-bottom" id="yt-video-canal-3">
-                                   
-                                </div>
-                            </div>
-                        </div>
-                </main>
+            </div>
 
-        </div>
-
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/menu.js"></script>
-        <script src="js/v-canales.js"></script>
-        <script src="js/barra.js"></script>
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/bootstrap.js"></script>
+            <script src="js/menu.js"></script>
+            <script src="js/v-canales.js"></script>
+            <script src="js/barra.js"></script>
 
 </body>
 

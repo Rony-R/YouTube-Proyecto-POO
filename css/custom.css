@@ -717,6 +717,14 @@ main footer h6 {
   display: run-in;
 }
 
+.zindex-1{
+  z-index: 1;
+}
+
+.zindex-2{
+  z-index: 2;
+}
+
 #btn-idioma{
   border: 1px solid black;
   height: 34px;

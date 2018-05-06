@@ -1,4 +1,4 @@
-function validarContrasena(etiqueta) {
+function validarContrasena(etiqueta){
   if (etiqueta.value.length < 8) {
     etiqueta.classList.remove("is-valid");
     etiqueta.classList.add("is-invalid");
@@ -8,9 +8,9 @@ function validarContrasena(etiqueta) {
   }
 }
 
-function validarEmail(id) {
+function validarEmail(id){
   var patron = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (patron.test($("#" + id).val())) {
+  if (patron.test($("#" + id).val())){
     $("#" + id).addClass("is-valid");
     $("#" + id).removeClass("is-invalid");
     return true;
@@ -21,7 +21,7 @@ function validarEmail(id) {
   }
 }
 
-function validar() {
+function validar(){
   var resultado = true;
   validarCampoVacio("txt-nombre");
   validarCampoVacio("txt-apellido");
@@ -95,10 +95,10 @@ var validarCampoVacio = function(id) {
   }
 };
 
-$("#btn-sig-paso").click(function() {
+$("#btn-sig-paso").click(function(){
   validar(); //Verificando si estan vacios!!!
 
-  if ($("#txt-password1").val() != $("#txt-password2").val()) {
+  if ($("#txt-password1").val() != $("#txt-password2").val()){
     $("#txt-password1").removeClass("is-valid");
     $("#txt-password1").addClass("is-invalid");
     $("#txt-password2").removeClass("is-valid");
@@ -108,53 +108,45 @@ $("#btn-sig-paso").click(function() {
     $("#validacion-contrasena2").html("Las contraseñas no coinciden");
   }
 
-  if (validarCampoVacio("txt-email")) {
+  if (validarCampoVacio("txt-email")){
     $("#validacion-correo").html("No puedes dejar este campo vacio.");
   } else {
-    if (validarEmail("txt-email")) {
+    if (validarEmail("txt-email") && $("#txt-password1").val() == $("#txt-password2").val()){
       $("#validacion-correo").html("Correo Valido");
+
+      var parametros ="nombre=" +$("#txt-nombre").val()+ "&"+
+                      "apellido=" +$("#txt-apellido").val()+ "&"+
+                      "correo=" +$("#txt-email").val()+ "&"+
+                      "contrasena=" +$("#txt-password2").val()+ "&"+
+                      "nacimiento=" +$("#dia").val() +"/" +$("#mes").val() +"/"+$("#agno").val()+ "&"+
+                      "genero=" +$("#slc-sexo").val()+ "&"+
+                      "telefono=" +$("#txt-telefono").val()+ "&"+
+                      "ubicacion=" +$("#slc-ubicacion").val();
+
+      console.log("Se enviara esto al php: " + parametros);
+
+      $.ajax({
+        url: "ajax/api.php?accion=formulario-google",
+        method: "POST",
+        data: parametros,
+        dataType:"json",
+        success: function(respuesta){
+          alert(respuesta.mensaje);
+          window.location.href = "./inicio-google.html";
+        },
+        error: function(e){
+          console.log(e);
+        }
+      });
+
     } else {
       $("#validacion-correo").html("Correo Invalido");
     }
   }
 
-  var parametros =
-    "usuario=" +
-    $("#txt-nombre").val() +
-    $("#txt-apellido").val() +
-    "&" +
-    "correo=" +
-    $("#txt-email").val() +
-    "&" +
-    "contraseña=" +
-    $("#txt-password2").val() +
-    "&" +
-    "nacimiento=" +
-    $("#dia").val() +
-    "/" +
-    $("#mes").val() +
-    "/" +
-    $("#agno").val() +
-    "&" +
-    "genero=" +
-    $("#slc-sexo").val() +
-    "&" +
-    "telefono=" +
-    $("#txt-telefono").val() +
-    "&" +
-    "ubicacion=" +
-    $("#slc-ubicacion").val();
-  console.log("Se enviara esto al php: " + parametros);
-
-  $.ajax({
-    url: "ajax/procesar-google.php",
-    method: "POST",
-    data: parametros,
-    succes: function(respuesta) {}
-  });
 });
 
-$("#btn-siguiente").click(function() {
+$("#btn-siguiente").click(function(){
   if ($("#txt-email").val() == "") {
     $("#txt-email").removeClass("is-valid");
     $("#txt-email").addClass("is-invalid");
@@ -176,25 +168,33 @@ $("#btn-siguiente").click(function() {
   }
 });
 
-$("#btn-siguiente2").click(function() {
-  var datos =
-    "usuario=" +
-    $("#nombre-usuario").html() +
-    "&" +
-    "contraseña=" +
-    $("#contra-inicio-google").val();
+$("#btn-siguiente2").click(function(){
+
+  var datos = "usuario=" +$("#nombre-usuario").html()+ "&"+
+              "contra=" +$("#contra-inicio-google").val();
+
   console.log("Se enviara esto al php: " + datos);
 
   $.ajax({
-    url: "ajax/procesar-inicio-google.php",
+    url: "ajax/api.php?accion=inicio-google",
     method: "POST",
     data: datos,
-    succes: function(respuesta) {}
+    dataType:"json",
+    success: function(respuesta){
+      if(respuesta.estadoResultado == 0)
+        window.location.href = "./index.html";
+      else
+        window.location.href = "./inicio-google.html";
+    },
+    error: function(e){
+      console.log(e);
+    } 
   });
+  
 });
 
-function botonesCategorias(id) {
-  if (id == "infoBasica") {
+function botonesCategorias(id){
+  if (id == "infoBasica"){
     $("#pagina1").removeClass("display-none");
     $("#pagina1").addClass("display-run-in");
 
@@ -226,8 +226,8 @@ function botonesCategorias(id) {
   }
 }
 
-/**Boton que guarda la informacion de los videos */
-$("#btn-publicar").click(function() {
+/**Boton que guarda la informacion de los videos **/
+$("#btn-publicar").click(function(){
   var parametros =
     "titulo=" +
     $("#titulo-video").val() +
@@ -287,3 +287,98 @@ $("#btn-publicar").click(function() {
         }
     });
 });
+
+function obtenerInfoCanal(nombreCanal)
+{
+  var nombreCanal = "nombre=" +nombreCanal;
+
+  $.ajax({
+    url: "ajax/api.php?accion=obtener-info-canal",
+    method: "POST",
+    data: nombreCanal,
+    dataType: "json",
+    success: function(respuesta){
+      console.log(respuesta);
+
+      var datos = "nombre_canal=" +respuesta.nombre_canal +"&"+ 
+                  "banner=" +respuesta.banner +"&"+
+                  "asset=" +respuesta.foto_canal +"&"+
+                  "subs=" +respuesta.num_suscriptores;
+
+      $.ajax({
+        url: "./estructura-canal.php",
+        method: "POST",
+        data: datos,
+        success: function(){
+          console.log("Datos para estructura canal: "+datos);
+          //window.location.href = "./estructura-canal.php";
+        },
+        error: function(e){
+          console.log(e);
+        }
+      });
+
+    }
+  });
+  
+}
+
+function btnGroup(canal, pagina)
+{
+  var dato = "canal=" +canal;
+
+  $.ajax({
+    url: "ajax/api.php?accion=btnGroup",
+    method: "POST",
+    data: dato,
+    success: function(respuesta){
+
+      var data = "nombre_canal=" +respuesta.nombre_canal +"&"+ 
+                  "banner=" +respuesta.banner +"&"+
+                  "asset=" +respuesta.foto_canal +"&"+
+                  "subs=" +respuesta.num_suscriptores;
+
+      $.ajax({
+        url: "./"+pagina,
+        method: "POST",
+        data: data,
+        success: function(){
+
+        },
+        error: function(e){
+          console.log(e);
+        }
+      });
+
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+
+}
+
+/*$(document).ready(function(){
+
+  $.ajax({
+    url: "ajax/api.php?accion=login-exitoso",
+    success: function(respuesta){
+      if(respuesta == 0)
+      {
+        $("#ocultar-al-login").addClass("display-none");
+        $("#mostrar-al-login").removeClass("display-none");
+        $("#link-acceso").addClass("display-none");
+      }
+      else
+      {
+        $("#ocultar-al-login").removeClass("display-none");
+        $("#mostrar-al-login").addClass("display-none");
+        $("#link-acceso").removeClass("display-none");
+      }
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+
+});*/
