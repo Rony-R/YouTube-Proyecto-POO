@@ -36,6 +36,9 @@
             echo $canal2->obtenerInfo($conexion);
         break;
 
+        case "log-out":
+        break;
+
     }
 
 ?>

@@ -358,6 +358,17 @@ function btnGroup(canal, pagina)
 
 }
 
+function cerrarSesion()
+{
+  alert("Cerrando Sesion!!!");
+  $.ajax({
+    url: "ajax/api.php?accion=log-out",
+    success: function(){
+      
+    }
+  });
+}
+
 /*$(document).ready(function(){
 
   $.ajax({

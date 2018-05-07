@@ -98,7 +98,7 @@
         {
             $instruccion = sprintf("INSERT INTO tbl_usuarios(codigo_genero, nombre, apellido, correo, contrasena, 
 									fecha_nacimiento, telefono, ubicacion)
-                                    VALUES(%s, '%s', '%s', '%s', '%s', STR_TO_DATE('%s', '%s'), '%s', '%s')",
+                                    VALUES(%s, '%s', '%s', '%s', sha1('%s'), STR_TO_DATE('%s', '%s'), '%s', '%s')",
                                     $conexion->antiInyeccion($this->codigo_genero), 
                                     $conexion->antiInyeccion($this->nombre),
                                     $conexion->antiInyeccion($this->apellido),
@@ -130,7 +130,7 @@
 			$instruccion = sprintf("SELECT codigo_usuario, nombre, apellido, correo, contrasena,
 							 fecha_nacimiento
 							 FROM tbl_usuarios
-							 WHERE correo='%s' AND contrasena='%s'",
+							 WHERE correo='%s' AND contrasena=sha1('%s')",
 							 $conexion->antiInyeccion($this->correo),
 							 $conexion->antiInyeccion($this->contrasena));
 

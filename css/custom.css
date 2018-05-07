@@ -857,3 +857,15 @@ main footer h6 {
 }
 
 /*Fin estilos para el modal de ayuda*/
+
+/*Estilos para el modal del usuario*/
+
+.fz-20{
+  font-size: 20px !important;
+}
+
+.fz-16{
+  font-size: 16px;
+}
+
+/*Fin estilos para el modal del usuario*/
