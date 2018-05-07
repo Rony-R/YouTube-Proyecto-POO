@@ -18,6 +18,9 @@
        case "'obtenerTendencias'":
             echo Videos::obtenerTendencias($conexion);
        break;
+       case "'buscador'":
+            echo Videos::buscarVideos($conexion,$_GET["texto"]);
+       break;
        case "'obtenerComentarios'":
             echo Comentarios::obtenerComentarios($conexion,$_GET["id"]);
        break;

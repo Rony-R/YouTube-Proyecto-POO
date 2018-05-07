@@ -314,8 +314,9 @@
             </div>
             <!--fin modal para enviar comentarios-->
 
-            <main class="col-md-12 col-12  main ml-auto" id="yt-body">
+            <main class="col-md-12 col-12 main ml-auto" id="yt-body">
                 <!--Seccion de Video-->
+                <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
                 <div class="row ml-4">
                     <div class="col-xl-8 col-lg-8 col-md-8 col-xs-12 col-12 p-3">
                         <div class="row">

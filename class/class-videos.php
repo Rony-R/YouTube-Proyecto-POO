@@ -203,6 +203,28 @@
 			return json_encode($tendencias);
 			
 		}
+		/**
+		 * Funcion que permite buscar los videos segun las letras que ingrese el usaurio
+		 */
+		public static function buscarVideos($conexion,$texto){
+			$sql = sprintf("SELECT a.codigo_video, a.titulo, a.descripcion, a.url_miniatura, 
+							a.num_visualizaciones,a.fecha_subida, c.nombre_canal  FROM tbl_videos a INNER JOIN tbl_categorias b 
+							ON (a.codigo_categoria = b.codigo_categoria)INNER JOIN tbl_canales c 
+							ON (a.codigo_canal =c.codigo_canal)
+							WHERE a.titulo LIKE '%s%s%s' OR b.categoria LIKE '%s%s%s'
+							OR c.nombre_canal LIKE '%s%s%s'",
+							"%",$conexion->antiInyeccion($texto),"%",
+							"%",$conexion->antiInyeccion($texto),"%",
+							"%",$conexion->antiInyeccion($texto),"%");
+			$result = $conexion->ejecutarConsulta($sql);
+			$busqueda = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$busqueda[] =$fila;
+			}
+			$busqueda[]["numero"] = $conexion->cantidadRegistros($result);
+
+			return json_encode($busqueda);
+		}
 
 		
            
