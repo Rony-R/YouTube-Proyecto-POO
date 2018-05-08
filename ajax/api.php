@@ -29,6 +29,18 @@
             echo $canal2->obtenerInfo($conexion);
         break;
 
+        case "verificarLogIn":
+            session_start();
+            if(isset($_SESSION["usr"]) && isset($_SESSION["psw"]))
+            {
+                echo 1;
+            }
+            else
+            {
+                echo 0;
+            }
+        break;
+
         case "log-out":
             session_start();
             if(session_destroy())

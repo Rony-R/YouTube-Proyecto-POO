@@ -59,7 +59,8 @@
 		//OTROS METODOS
 		public function obtenerInfo($conexion)
 		{
-			$instruccion = sprintf("SELECT codigo_canal, codigo_usuario, nombre_canal, banner, foto_canal, num_videos, descripcion_canal, num_suscriptores
+			$instruccion = sprintf("SELECT codigo_canal, codigo_usuario, nombre_canal, banner, foto_canal, num_videos,
+										   descripcion_canal, num_suscriptores
 									FROM tbl_canales
 									WHERE nombre_canal='%s'",
 									$conexion->antiInyeccion($this->nombre_canal));
@@ -67,7 +68,12 @@
 			
 			$informacion = $conexion->obtenerFila($resultado);
 
-			return json_encode($informacion);
+			//$datos = array('codigo_canal=' $informacio["codigo_canal"], 'nombre-canal=' $informacio["nombre-canal"]);
+
+			$arreglo = http_build_query($informacion);
+
+			//return json_encode($informacion);
+			return  json_encode($arreglo);
 		}
 		
     }

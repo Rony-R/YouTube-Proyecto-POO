@@ -426,34 +426,34 @@
             <main class="col-md-10 col-12  main ml-auto" id="yt-body">
                 <div class="header-canal">
                     <div class="banner">
-                        <img id="logo-categoria" class="banner-foto" src="<?php echo $_POST["banner"]?>">
+                        <img id="logo-categoria" class="banner-foto" src="<?php echo $_GET["banner"]?>">
                     </div>
                     <div class="nombre-canal">
                         <div class="header">
                             <div class="row">
                                 <div class="col-lg-2 foto-canal">
                                     <span>
-                                        <img id="asset-categoria" src="<?php echo $_POST["asset"]?>" class="img-size-asset ml-5 mt-4 mb-4">
+                                        <img id="asset-categoria" src="<?php echo $_GET["asset"]?>" class="img-size-asset ml-5 mt-4 mb-4">
                                     </span>
                                 </div>
                                 <div class="col-lg-4 pt-4 mt-2">
                                     <span class="nombre-suscriptores">
-                                        <h4 id="nombre-categoria"><?php echo $_POST["nombreCanal"]?></h4>
-                                        <p id="suscriptores-categoria"><?php echo $_POST["subs"]?></p>
+                                        <h4 id="nombre-categoria"><?php echo $_GET["nombreCanal"]?></h4>
+                                        <p id="suscriptores-categoria"><?php echo $_GET["subs"]?></p>
                                     </span>
                                 </div>
                                 <div class="col-lg-4 offset-lg-1">
-                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse<?php echo $_POST["subs"]?></button>
+                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse<?php echo $_GET["subs"]?></button>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
                                 <button onclick="location.href='musica.html'" type="button" class="btn btn-light">INICIO</button>
-                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
-                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
-                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
-                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'about.php')" type="button" class="btn btn-light">MÁS INFORMACION</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombreCanal']?>', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombreCanal']?>', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombreCanal']?>', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombreCanal']?>', 'about.php')" type="button" class="btn btn-light">MÁS INFORMACION</button>
                             </div>
                         </div>
                     </div>

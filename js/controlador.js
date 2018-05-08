@@ -1,4 +1,22 @@
 
+$(document).ready(function(){
+
+  $.ajax({
+    url: "ajax/api.php?accion=verificarLogIn",
+    success: function(respuesta){
+      if(respuesta == 1)
+      {
+        mostrarLogIn();
+      }
+      else
+      {
+        ocultarLogOut();
+      }
+    }
+  });
+
+});
+
 function validarContrasena(etiqueta){
   if (etiqueta.value.length < 8){
     etiqueta.classList.remove("is-valid");
@@ -196,7 +214,8 @@ $("#btn-siguiente2").click(function(){ //Boton de Log In!!!!!
 
 function cerrarSesion()
 {
-  alert("Cerrando Sesion!!!");
+  //alert("Cerrando Sesion!!!");
+  ocultarLogOut();
 
   $.ajax({
     url: "ajax/api.php?accion=log-out",
@@ -207,6 +226,7 @@ function cerrarSesion()
         window.location.href = "./index.html";
     }
   });
+
 }
 
 function botonesCategorias(id){
@@ -242,10 +262,29 @@ function botonesCategorias(id){
   }
 }
 
-/**Boton que guarda la informacion de los videos **/
-$("#btn-publicar").click(function(){
+function verificarLogIn()
+{
+  $.ajax({
+    url: "ajax/api.php?accion=verificarLogIn",
+    success: function(respuesta){
+      if(respuesta == 1)
+      {
+        mostrarLogIn();
+        window.location.href = "./form-videos.html";
+      }
+      else
+      {
+        ocultarLogOut();
+        window.location.href ="./inicio-google.html";
+      }
+    }
+  });
+}
 
-  var parametros = "titulo=" +$("#titulo-video").val()+
+/**Boton que guarda la informacion de los videos **/
+function publicarVideo()
+{
+  var parametros =  "titulo=" +$("#titulo-video").val()+
                     "&descripcion=" +$("#txta-descripcion1").val()+
                     "&etiqueta=" +$("#etiquetas-video").val()+
                     "&acceso=" +$("#slc-accesos").val()+
@@ -280,7 +319,7 @@ $("#btn-publicar").click(function(){
 
         }
     });
-});
+}
 
 function obtenerInfoCanal(nombreCanal)
 {
@@ -294,23 +333,27 @@ function obtenerInfoCanal(nombreCanal)
     success: function(respuesta){
       console.log(respuesta);
 
-      var datos = "nombreCanal=" +respuesta.nombre_canal +"&"+ 
-                  "banner=" +respuesta.banner +"&"+
-                  "asset=" +respuesta.foto_canal +"&"+
-                  "subs=" +respuesta.num_suscriptores;
+      var url = "./estructura-canal.php?" +respuesta;
 
-      $.ajax({
+      console.log(url);
+
+      //var datos = "nombreCanal=" +respuesta.nombre_canal +"&"+ 
+                  //"banner=" +respuesta.banner +"&"+
+                  //"asset=" +respuesta.foto_canal +"&"+
+                  //"subs=" +respuesta.num_suscriptores;
+
+      /*$.ajax({
         url: "./estructura-canal.php",
         method: "POST",
         data: datos,
         success: function(){
           console.log("Datos para estructura canal: " +datos);
-          window.location.href = "./estructura-canal.php";
+          //window.location.href = "./estructura-canal.php";
         },
         error: function(e){
           console.log(e);
         }
-      });
+      });*/
 
     }
   });
