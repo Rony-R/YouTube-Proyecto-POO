@@ -154,32 +154,32 @@
                         <p>LO MEJOR DE YOUTUBE</p>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="musica.html" title="Música" class="ml-2">
+                        <a onclick="obtenerInfoCanal('Musica')" class="ml-2">
                             <img src="img/assets/music.jpg" class="img-size ml-2 icon-margin"> Música
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="deportes.html" title="Deportes" class="ml-2">
+                        <a onclick="obtenerInfoCanal('Deportes')" title="Deportes" class="ml-2">
                             <img src="img/assets/sport.jpg" class="img-size ml-2 icon-margin"> Deportes
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="juegos.html" title="Juegos" class="ml-2">
+                        <a onclick="obtenerInfoCanal('Juegos')" title="Juegos" class="ml-2">
                             <img src="img/assets/games.jpg" class="img-size ml-2 icon-margin"> Juegos
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="noticias.html" title="Noticias" class="ml-2">
+                        <a onclick="obtenerInfoCanal('Noticias')" title="Noticias" class="ml-2">
                             <img src="img/assets/news.jpg" class="img-size ml-2 icon-margin"> Noticias
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="en-vivo.html" title="En vivo" class="ml-2">
+                        <a onclick="obtenerInfoCanal('Videos en Vivo')" title="En vivo" class="ml-2">
                             <img src="img/assets/live.jpg" class="img-size ml-2 icon-margin"> En vivo
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="videos-360.html" title="Videos en 360°" class="ml-2">
+                        <a onclick="obtenerInfoCanal('Videos en 360')" title="Videos en 360°" class="ml-2">
                             <img src="img/assets/explore.jpg" class="img-size ml-2 icon-margin"> Videos en 360°
                         </a>
                     </div>
@@ -426,34 +426,34 @@
             <main class="col-md-10 col-12  main ml-auto" id="yt-body">
                 <div class="header-canal">
                     <div class="banner">
-                        <img id="logo-categoria" class="banner-foto" src="#####BANNER#####">
+                        <img id="logo-categoria" class="banner-foto" src="<?php echo $_POST["banner"]?>">
                     </div>
                     <div class="nombre-canal">
                         <div class="header">
                             <div class="row">
                                 <div class="col-lg-2 foto-canal">
                                     <span>
-                                        <img id="asset-categoria" src="###ASSET###" class="img-size-asset ml-5 mt-4 mb-4">
+                                        <img id="asset-categoria" src="<?php echo $_POST["asset"]?>" class="img-size-asset ml-5 mt-4 mb-4">
                                     </span>
                                 </div>
                                 <div class="col-lg-4 pt-4 mt-2">
                                     <span class="nombre-suscriptores">
-                                        <h4 id="nombre-categoria">#####NOMBRE CANAL#####</h4>
-                                        <p id="suscriptores-categoria">#####SUSCRIPTORES#####</p>
+                                        <h4 id="nombre-categoria"><?php echo $_POST["nombreCanal"]?></h4>
+                                        <p id="suscriptores-categoria"><?php echo $_POST["subs"]?></p>
                                     </span>
                                 </div>
                                 <div class="col-lg-4 offset-lg-1">
-                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse #####SUSCRIPTORES#####</button>
+                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse<?php echo $_POST["subs"]?></button>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
                                 <button onclick="location.href='musica.html'" type="button" class="btn btn-light">INICIO</button>
-                                <button onclick="btnGroup('###NOMBRE CANAL###', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
-                                <button onclick="btnGroup('###NOMBRE CANAL###', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
-                                <button onclick="btnGroup('###NOMBRE CANAL###', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
-                                <button onclick="btnGroup('###NOMBRE CANAL###', 'about.php')" type="button" class="btn btn-light">MÁS INFORMACION</button>
+                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
+                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
+                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
+                                <button onclick="btnGroup('<?php echo $_POST['nombreCanal']?>', 'about.php')" type="button" class="btn btn-light">MÁS INFORMACION</button>
                             </div>
                         </div>
                     </div>
@@ -461,7 +461,7 @@
                     <div class="div-miniaturas item-center">
                         <div class="body-grid">
                             <div class="content-name">
-                                Recomendados
+                                Videos Subidos
                             </div>
                             <div class="row border-bottom" id="yt-video-canal">
                     

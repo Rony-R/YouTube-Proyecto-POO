@@ -47,22 +47,22 @@
 		public function setDescripcion($descripcion){
 			$this->descripcion = $descripcion;
 		}
-        public function toString()
+        public function __toString()
         {
 			return "Nombre_canal: " . $this->nombre_canal . 
 				    " Banner: " . $this->banner . 
 				    " Asset: " . $this->asset . 
 					" Subs: " . $this->subs .
-					"Descripcion: " . $this->descripcion;
+					" Descripcion: " . $this->descripcion;
         }
         
 		//OTROS METODOS
 		public function obtenerInfo($conexion)
 		{
 			$instruccion = sprintf("SELECT codigo_canal, codigo_usuario, nombre_canal, banner, foto_canal, num_videos, descripcion_canal, num_suscriptores
-							FROM tbl_canales
-							WHERE nombre_canal='%s'",
-							$conexion->antiInyeccion($this->nombre_canal));
+									FROM tbl_canales
+									WHERE nombre_canal='%s'",
+									$conexion->antiInyeccion($this->nombre_canal));
 			$resultado = $conexion->ejecutarInstruccion($instruccion);
 			
 			$informacion = $conexion->obtenerFila($resultado);

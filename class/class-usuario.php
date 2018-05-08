@@ -127,6 +127,8 @@
 		
 		public function verificarUsuario($conexion)
 		{
+			session_start();
+
 			$instruccion = sprintf("SELECT codigo_usuario, nombre, apellido, correo, contrasena,
 							 fecha_nacimiento
 							 FROM tbl_usuarios
@@ -143,14 +145,13 @@
 			{
 				$respuesta = $conexion->obtenerFila($resultado);
 				$respuesta["estadoResultado"] = 0;
-				setcookie("usr",$respuesta["correo"], time() + (86400 * 30),"/");
-       			setcookie("psw",$respuesta["contrasena"], time() + (86400 * 30),"/");
+				$_SESSION["usr"] = $respuesta["correo"];
+				$_SESSION["psw"] = $respuesta["contrasena"];
 			}
 			else
 			{
 				$respuesta["estadoResultado"] = 1;
-				setcookie("usr","");
-				setcookie("psw","");
+				session_destroy();
 			}
 
 			return json_encode($respuesta);

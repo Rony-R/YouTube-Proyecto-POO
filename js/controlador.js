@@ -1,5 +1,6 @@
+
 function validarContrasena(etiqueta){
-  if (etiqueta.value.length < 8) {
+  if (etiqueta.value.length < 8){
     etiqueta.classList.remove("is-valid");
     etiqueta.classList.add("is-invalid");
   } else {
@@ -147,12 +148,12 @@ $("#btn-sig-paso").click(function(){
 });
 
 $("#btn-siguiente").click(function(){
-  if ($("#txt-email").val() == "") {
+  if($("#txt-email").val() == ""){
     $("#txt-email").removeClass("is-valid");
     $("#txt-email").addClass("is-invalid");
     $("#div-validacion").html("No puedes dejar este campo vacio.");
-  } else {
-    if (validarEmail("txt-email")) {
+  }else{
+    if (validarEmail("txt-email")){
       $("#nombre-usuario").html($("#txt-email").val());
 
       $("#Pagina-inicio").removeClass("display-block");
@@ -160,7 +161,7 @@ $("#btn-siguiente").click(function(){
 
       $("#Pagina-Contrasena").removeClass("display-none");
       $("#Pagina-Contrasena").addClass("display-block");
-    } else {
+    }else{
       $("#txt-email").addClass("is-invalid");
       $("#txt-email").removeClass("is-valid");
       $("#div-validacion").html("Correo Invalido.");
@@ -168,7 +169,7 @@ $("#btn-siguiente").click(function(){
   }
 });
 
-$("#btn-siguiente2").click(function(){
+$("#btn-siguiente2").click(function(){ //Boton de Log In!!!!!
 
   var datos = "usuario=" +$("#nombre-usuario").html()+ "&"+
               "contra=" +$("#contra-inicio-google").val();
@@ -193,6 +194,21 @@ $("#btn-siguiente2").click(function(){
   
 });
 
+function cerrarSesion()
+{
+  alert("Cerrando Sesion!!!");
+
+  $.ajax({
+    url: "ajax/api.php?accion=log-out",
+    success: function(respuesta){
+      if(respuesta == 1)
+        window.location.href = "./index.html";
+      else 
+        window.location.href = "./index.html";
+    }
+  });
+}
+
 function botonesCategorias(id){
   if (id == "infoBasica"){
     $("#pagina1").removeClass("display-none");
@@ -203,8 +219,8 @@ function botonesCategorias(id){
 
     $("#pagina3").removeClass("display-run-in");
     $("#pagina3").addClass("display-none");
-  } else {
-    if (id == "traducciones") {
+  } else{
+    if (id == "traducciones"){
       $("#pagina2").removeClass("display-none");
       $("#pagina2").addClass("display-run-in");
 
@@ -213,7 +229,7 @@ function botonesCategorias(id){
 
       $("#pagina3").removeClass("display-run-in");
       $("#pagina3").addClass("display-none");
-    } else {
+    }else{
       $("#pagina3").removeClass("display-none");
       $("#pagina3").addClass("display-inline");
 
@@ -228,60 +244,38 @@ function botonesCategorias(id){
 
 /**Boton que guarda la informacion de los videos **/
 $("#btn-publicar").click(function(){
-  var parametros =
-    "titulo=" +
-    $("#titulo-video").val() +
-    "&descripcion=" +
-    $("#txta-descripcion1").val() +
-    "&etiqueta=" +
-    $("#etiquetas-video").val() +
-    "&acceso=" +
-    $("#slc-accesos").val() +
-    "&mensaje=" +
-    $("#msj-usuario").val() +
-    "&idioma=" +
-    $("#slc-idiomas").val() +
-    "&nombreOriginal=" +
-    $("#nombre-video1").val() +
-    "&descripcionOriginal=" +
-    $("#txta-descripcion2").val() +
-    "&nombreTraducido=" +
-    $("#nombre-video2").val() +
-    "&descripcionTraducida=" +
-    $("#txta-descripcion3").val() +
-    "&comentarios=" +
-    $("#chk-permitir-comentarios").val() +
-    "&idiomas-mostrar=" +
-    $("#slc-mostrar").val() +
-    "&ordenar=" +
-    $("#slc-comentarios").val() +
-    "&valoraciones=" +
-    $("#chk-valoraciones").val() +
-    "&licencia=" +
-    $("#slc-derechos").val() +
-    "&distribucion=" +
-    $("input[name='distribucion']:checked").val() +
-    "&subtitutlos=" +
-    $("#slc-motivos").val() +
-    "&opc-distribucion1=" +
-    $("#chk-dist1").val() +
-    "&opc-distribucion2=" +
-    $("#chk-dist2").val() +
-    "&categorias=" +
-    $("#slc-categoria").val() +
-    "&ubicacion=" +
-    $("#input-buscar").val() +
-    "&idioma-video=" +
-    $("#slc-idioma2").val() +
-    "&contribucion=" +
-    $("#chk-contribuciones").val() +
-    "&fecha-grabacion=" +
-    $("#input-fecha-grabacion").val();
+
+  var parametros = "titulo=" +$("#titulo-video").val()+
+                    "&descripcion=" +$("#txta-descripcion1").val()+
+                    "&etiqueta=" +$("#etiquetas-video").val()+
+                    "&acceso=" +$("#slc-accesos").val()+
+                    "&mensaje=" +$("#msj-usuario").val()+
+                    "&idioma=" +$("#slc-idiomas").val()+
+                    "&nombreOriginal=" +$("#nombre-video1").val()+
+                    "&descripcionOriginal=" +$("#txta-descripcion2").val()+
+                    "&nombreTraducido=" +$("#nombre-video2").val()+
+                    "&descripcionTraducida=" +$("#txta-descripcion3").val()+
+                    "&comentarios=" +$("#chk-permitir-comentarios").val()+
+                    "&idiomas-mostrar=" +$("#slc-mostrar").val()+
+                    "&ordenar=" +$("#slc-comentarios").val()+
+                    "&valoraciones=" +$("#chk-valoraciones").val()+
+                    "&licencia=" +$("#slc-derechos").val()+
+                    "&distribucion=" +$("input[name='distribucion']:checked").val()+
+                    "&subtitutlos=" +$("#slc-motivos").val()+
+                    "&opc-distribucion1=" +$("#chk-dist1").val()+
+                    "&opc-distribucion2=" +$("#chk-dist2").val()+
+                    "&categorias=" +$("#slc-categoria").val()+
+                    "&ubicacion=" +$("#input-buscar").val()+
+                    "&idioma-video=" +$("#slc-idioma2").val()+
+                    "&contribucion=" +$("#chk-contribuciones").val()+
+                    "&fecha-grabacion=" +$("#input-fecha-grabacion").val();
+
     console.log(parametros);
+
     $.ajax({
-        url: "ajax/formulario-video.php",
+        url: "ajax/api.php?accion=insertar-video",
         data: parametros,
-        method: "get",
+        method: "POST",
         success:function(respuesta){
 
         }
@@ -300,7 +294,7 @@ function obtenerInfoCanal(nombreCanal)
     success: function(respuesta){
       console.log(respuesta);
 
-      var datos = "nombre_canal=" +respuesta.nombre_canal +"&"+ 
+      var datos = "nombreCanal=" +respuesta.nombre_canal +"&"+ 
                   "banner=" +respuesta.banner +"&"+
                   "asset=" +respuesta.foto_canal +"&"+
                   "subs=" +respuesta.num_suscriptores;
@@ -310,8 +304,8 @@ function obtenerInfoCanal(nombreCanal)
         method: "POST",
         data: datos,
         success: function(){
-          console.log("Datos para estructura canal: "+datos);
-          //window.location.href = "./estructura-canal.php";
+          console.log("Datos para estructura canal: " +datos);
+          window.location.href = "./estructura-canal.php";
         },
         error: function(e){
           console.log(e);
@@ -358,38 +352,28 @@ function btnGroup(canal, pagina)
 
 }
 
-function cerrarSesion()
+function mostrarLogIn()
 {
-  alert("Cerrando Sesion!!!");
-  $.ajax({
-    url: "ajax/api.php?accion=log-out",
-    success: function(){
-      
-    }
-  });
+  $("#campanita").removeClass("display-none");
+  $("#log-usuario").removeClass("display-none");
+  $("#mostrar-al-login").removeClass("display-none");
+
+  $("#btn-iniciar-sesion").addClass("display-none");
+  $("#drop-puntitos").addClass("display-none");
+
+  $("#ocultar-al-login").removeClass("display-block");
+  $("#ocultar-al-login").addClass("display-none");
+  $("#ocultar-al-login2").addClass("display-none");
 }
 
-/*$(document).ready(function(){
+function ocultarLogOut()
+{
+  $("#campanita").addClass("display-none");
+  $("#log-usuario").addClass("display-none");
+  $("#mostrar-al-login").addClass("display-none");
 
-  $.ajax({
-    url: "ajax/api.php?accion=login-exitoso",
-    success: function(respuesta){
-      if(respuesta == 0)
-      {
-        $("#ocultar-al-login").addClass("display-none");
-        $("#mostrar-al-login").removeClass("display-none");
-        $("#link-acceso").addClass("display-none");
-      }
-      else
-      {
-        $("#ocultar-al-login").removeClass("display-none");
-        $("#mostrar-al-login").addClass("display-none");
-        $("#link-acceso").removeClass("display-none");
-      }
-    },
-    error: function(e){
-      console.log(e);
-    }
-  });
-
-});*/
+  $("#btn-iniciar-sesion").removeClass("display-none");
+  $("#drop-puntitos").removeClass("display-none");
+  $("#ocultar-al-login").removeClass("display-none");
+  $("#ocultar-al-login2").removeClass("display-none");
+}

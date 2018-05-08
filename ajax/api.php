@@ -19,13 +19,6 @@
 	        echo $usuario2->verificarUsuario($conexion);
         break;
 
-        case "login-exitoso":
-            if(isset($_COOKIE["usr"]) || isset($_COOKIE["psw"]))
-                echo 0;
-            else
-                echo 1;
-        break;
-
         case "obtener-info-canal":
             $canal = new Canal($_POST["nombre"], null, null, null, null);
             echo $canal->obtenerInfo($conexion);
@@ -37,6 +30,20 @@
         break;
 
         case "log-out":
+            session_start();
+            if(session_destroy())
+            {
+                sleep(3);
+                echo 1;
+            }
+            else
+            {
+                sleep(3);
+                echo 0;
+            }
+        break;
+
+        case "insertar-video":
         break;
 
     }
