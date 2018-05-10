@@ -20,7 +20,7 @@
             <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="nav-item nav-link active ml-4" href="index.html" id="yt-brand">
+            <a class="nav-item nav-link active ml-4" href="index.php" id="yt-brand">
                 <div class="logo-container align-middle">
                     <img src="img/yt-logo-2.png" alt="" class="logo">
                 </div>
@@ -193,7 +193,7 @@
             <aside class="sidebar col-xl-2 col-lg-2 col-md-2 nav flex-column  d-block navbar-fixed-left" id="barraNav">
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="index.html" title="Inicio" class="d-block item-center">
+                        <a href="index.php" title="Inicio" class="d-block item-center">
                             <i class="btn btn-ligth fas fa-home fa-lg pt-3 pb-3 ml-2 mr-4 selected"></i>
                             Inicio
                         </a>
