@@ -266,9 +266,9 @@
                                     <div class="col-12">
                                         <div class="item-center mt-5">
                                             <div class="btn btn-light">
-                                                <label id="seleccionar-video">
+                                                <label>
                                                     <img src="img/upload.png" class="mb-3">
-                                                    <input type="file" class="form-control-file display-none">
+                                                    <input type="file" class="form-control-file display-none" id="seleccionar-video" onchange="getUrl()">
                                                     <h5 class="mt-2">Selecciona archivos para subir</h5>
                                                 </label>
                                                 <p class="text-center yt-color">O arrastra y suelta archivos de video </p>
@@ -427,8 +427,10 @@
                 </div>
             </div>
         </footer>
+        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/barra.js"></script>
+        <script src="js/controlador.js"></script>
 </body>
 
 </html>

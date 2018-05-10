@@ -104,6 +104,8 @@
                         $_POST["contenido"], $_POST["ubicacion"]);
             echo $config->insertarConfig($conexion); 
         break;
+
         }
+
 
 ?>
