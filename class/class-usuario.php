@@ -109,7 +109,7 @@
                                     $conexion->antiInyeccion($this->telefono),
 									$conexion->antiInyeccion($this->ubicacion));
 
-            $resultado = $conexion->ejecutarInstruccion($instruccion);
+            $resultado = $conexion->ejecutarConsulta($instruccion);
 
             if($resultado)
 			{
@@ -136,7 +136,7 @@
 							 		$conexion->antiInyeccion($this->correo),
 							 		$conexion->antiInyeccion($this->contrasena));
 
-			$resultado = $conexion->ejecutarInstruccion($instruccion);
+			$resultado = $conexion->ejecutarConsulta($instruccion);
 			$num = $conexion->cantidadRegistros($resultado);
 
 			$respuesta = array();

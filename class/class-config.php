@@ -143,7 +143,7 @@
                                      $conexion->antiInyeccion($this->config_contenido),
                                      $conexion->antiInyeccion($this->config_ubicacion));
                                      
-            $resultado = $conexion->ejecutarInstruccion($instruccion);
+            $resultado = $conexion->ejecutarConsulta($instruccion);
 
             if($resultado)
 			{

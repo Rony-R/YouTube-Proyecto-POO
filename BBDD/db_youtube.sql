@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 03-05-2018 a las 03:01:35
+-- Tiempo de generación: 05-05-2018 a las 16:56:15
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 5.6.31
 
@@ -116,10 +116,25 @@ CREATE TABLE IF NOT EXISTS `tbl_comentarios` (
   `codigo_video` int(11) NOT NULL,
   `codigo_usuario` int(11) NOT NULL,
   `comentario` varchar(300) DEFAULT NULL,
+  `fecha_comentario` date DEFAULT NULL,
   PRIMARY KEY (`codigo_comentario`),
   KEY `fk_tbl_comentarios_tbl_videos1_idx` (`codigo_video`),
   KEY `fk_tbl_comentarios_tbl_usuarios1_idx` (`codigo_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_comentarios`
+--
+
+INSERT INTO `tbl_comentarios` (`codigo_comentario`, `codigo_video`, `codigo_usuario`, `comentario`, `fecha_comentario`) VALUES
+(1, 1, 1, 'Excelente cancion ', '2017-10-10'),
+(2, 1, 2, 'Me encanta ', '2018-02-02'),
+(3, 2, 2, 'Muy buena ', '2016-10-03'),
+(4, 2, 5, 'Perfecto', '2015-02-03'),
+(5, 3, 4, 'Infancia ', '2018-01-01'),
+(6, 9, 2, 'Excelente ', '2016-10-06'),
+(7, 11, 5, 'Excelente ', '2017-05-06'),
+(8, 10, 1, 'Muy bueno', '2018-09-09');
 
 -- --------------------------------------------------------
 
@@ -241,6 +256,7 @@ CREATE TABLE IF NOT EXISTS `tbl_usuarios` (
   `fecha_nacimiento` date DEFAULT NULL,
   `telefono` varchar(45) DEFAULT NULL,
   `ubicacion` varchar(45) DEFAULT NULL,
+  `url_imagen_perfil` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`codigo_usuario`),
   KEY `fk_tbl_usuarios_tbl_generos_idx` (`codigo_genero`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -249,12 +265,12 @@ CREATE TABLE IF NOT EXISTS `tbl_usuarios` (
 -- Volcado de datos para la tabla `tbl_usuarios`
 --
 
-INSERT INTO `tbl_usuarios` (`codigo_usuario`, `codigo_genero`, `nombre`, `apellido`, `correo`, `contrasena`, `fecha_nacimiento`, `telefono`, `ubicacion`) VALUES
-(1, 1, 'Maria ', 'Perez', 'mperez@gmail.com', 'asd.456', '1997-01-10', '99325648', 'Honduras'),
-(2, 2, 'Jose', 'Perez', 'jperez@gmail.com', 'asd.456', '1998-02-03', '88754612', 'España'),
-(3, 2, 'Mario', 'Mendez', 'mmendez@yahoo.com', 'asd.456', '1995-09-11', '33265840', 'Guatemala'),
-(4, 1, 'Juana', 'Dominguez', 'jdominguez@yahoo.com', 'asd.456', '1996-10-03', '99652013', 'USA'),
-(5, 2, 'Alejandro ', 'Casillas', 'acasillas@gmail.com', 'asd.456', '1990-10-08', '98456321', 'Honduras');
+INSERT INTO `tbl_usuarios` (`codigo_usuario`, `codigo_genero`, `nombre`, `apellido`, `correo`, `contrasena`, `fecha_nacimiento`, `telefono`, `ubicacion`, `url_imagen_perfil`) VALUES
+(1, 1, 'Maria ', 'Perez', 'mperez@gmail.com', 'asd.456', '1997-01-10', '99325648', 'Honduras', 'img/foto_perfil/user.png'),
+(2, 2, 'Jose', 'Perez', 'jperez@gmail.com', 'asd.456', '1998-02-03', '88754612', 'España', 'img/foto_perfil/user.png'),
+(3, 2, 'Mario', 'Mendez', 'mmendez@yahoo.com', 'asd.456', '1995-09-11', '33265840', 'Guatemala', 'img/foto_perfil/user.png'),
+(4, 1, 'Juana', 'Dominguez', 'jdominguez@yahoo.com', 'asd.456', '1996-10-03', '99652013', 'USA', 'img/foto_perfil/user.png'),
+(5, 2, 'Alejandro ', 'Casillas', 'acasillas@gmail.com', 'asd.456', '1990-10-08', '98456321', 'Honduras', 'img/foto_perfil/user.png');
 
 -- --------------------------------------------------------
 
@@ -298,7 +314,7 @@ INSERT INTO `tbl_videos` (`codigo_video`, `codigo_canal`, `codigo_categoria`, `c
 (8, 2, 3, 0, 'Los 20 mejores goles de neymar', 'Goles de Neymar', 'img/videos/video7.mp4', 'img/miniaturas/Los_20_mejores_goles_de_neymar.jpg', '2015-10-16', 500, 300, 200, 'Hola'),
 (9, 2, 3, 0, 'Los diez mejores goles de Lionel Messi', 'Goles de Messi', 'img/videos/video8.mp4', 'img/miniaturas/Los_diez_mejores_goles_de_Lionel_Messi.jpg', '2015-10-15', 1000000, 500, 300, 'Hola'),
 (10, 2, 3, 0, 'Mejores goles de Kaka', 'Goles de Kaka', 'img/videos/video10.mp4', 'img/miniaturas/Mejores_goles_de_Kaka.jpg', '2016-02-02', 5000000, 200, 300, 'hola'),
-(11, 1, 1, 0, 'Metallica - One ', 'Cancion de Metallica ', 'img/videos/Metallica - One .mp4', 'img/miniaturas/Metallica_One_[Official_Music_Video].jpg', '2012-10-05', 900000, 1500, 2, 'Hola'),
+(11, 1, 1, 0, 'Metallica - One ', 'Cancion de Metallica ', 'img/videos/video11.mp4', 'img/miniaturas/Metallica_One_[Official_Music_Video].jpg', '2012-10-05', 900000, 1500, 2, 'Hola'),
 (12, 3, 2, 0, 'MI PRIMERA PARTIDA A CALL OF DUTY BLACK OPS 3', 'Primera partida', 'img/videos/video12.mp4', 'img/miniaturas/MI_PRIMERA_PARTIDA_A_CALL_OF_DUTY_BLACK_OPS_3.jpg', '2013-06-10', 1500, 100, 50, 'hola'),
 (13, 1, 1, 0, 'NEFFEX - Fight Back [Official Video]', 'Official Video Neffex', 'img/videos/video13.mp4', 'img/miniaturas/NEFFEX_Fight_Back_[Official_Video].jpg', '2015-10-16', 1500000, 100000, 500, 'hola'),
 (14, 3, 2, 0, 'PERO ESTO QUE TIPO DE TROLL ES', 'Troll', 'img/videos/video14.mp4', 'img/miniaturas/PERO_ESTO_QUE_TIPO_DE_TROLL_ES.jpg', '2015-10-15', 5000, 200, 100, 'hola'),
