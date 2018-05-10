@@ -250,6 +250,15 @@ main .img-size-asset {
 .list-links:hover {
   color: #000000;
 }
+.search-links {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.search-links:hover {
+  color: #000000;
+}
 
 .bold-0 {
   font-weight: normal;
@@ -403,7 +412,7 @@ main .img-size-asset {
   text-decoration: none;
 }
 
-.video-descripcion{
+.video-descripcion {
   font-size: 0.8rem;
 }
 
@@ -483,7 +492,7 @@ main .img-size-asset {
   font-weight: normal;
 }
 
-.img-comentarios{
+.img-comentarios {
   width: 40px;
   height: 40px;
 }
@@ -497,7 +506,6 @@ main .img-size-asset {
   width: 400px;
 }
 
-
 /*fin estilos para el modal de enviar comentarios*/
 
 /*ID's*/
@@ -507,7 +515,6 @@ main .img-size-asset {
   text-decoration: none;
   font-weight: bold;
 }
-
 
 #search-box {
   width: 500px;
@@ -532,13 +539,16 @@ main .img-size-asset {
   font-size: inherit;
 }
 
-#div-busqueda{
+#div-busqueda {
   background-color: white;
   height: auto;
+  top: 48.3px;
+  left: 282px;
   width: 500px;
   z-index: 1;
   display: none;
-  box-shadow: 0px 0px 2px 1px #8b8b8bc9
+  margin-left: 33px;
+  box-shadow: 0px 0px 2px 1px #8b8b8bc9;
 }
 /*Estilo landing page*/
 
@@ -640,68 +650,68 @@ main footer h6 {
 
 /*Estilos para el formulario de subir videos*/
 
-#titulo-video{
+#titulo-video {
   width: 100%;
   height: 35px;
 }
 
-#txta-descripcion1{
+#txta-descripcion1 {
   width: 100%;
 }
 
-#txta-descripcion2{
+#txta-descripcion2 {
   width: 100%;
 }
 
-#txta-descripcion3{
+#txta-descripcion3 {
   width: 100%;
 }
 
-#etiquetas-video{
+#etiquetas-video {
   width: 100%;
   height: 35px;
 }
 
-#btn-publicar{
+#btn-publicar {
   padding-top: 1px;
   padding-bottom: 1px;
   width: 100px;
 }
 
-.hr-pref{
+.hr-pref {
   margin: 0px;
 }
 
-.progress{
+.progress {
   height: 26px;
 }
 
-.link-yt:hover{
+.link-yt:hover {
   text-decoration: none;
 }
 
-.miniatura-subida{
+.miniatura-subida {
   width: 30%;
   height: 30%;
 }
 
-.txt-11p{
+.txt-11p {
   font-size: 11px;
 }
 
-.txt-13p{
+.txt-13p {
   font-size: 13px;
 }
 
-.txt-14p{
+.txt-14p {
   font-size: 14px;
 }
 
-.fa-caret-right{
+.fa-caret-right {
   width: 10%;
 }
 
-.upload-box2{
+.upload-box2 {
   width: 1050px;
   height: auto;
   padding: 15px;
@@ -709,99 +719,99 @@ main footer h6 {
   box-shadow: 0px 2px 0.5px 0px #cfcfcfc9;
 }
 
-.input-espacio{
+.input-espacio {
   margin: 15px 15px 15px 0px;
 }
 
-.hr-footer{
+.hr-footer {
   margin: 0px;
 }
 
-.contenido-subida{
-  background-color: #E6E6E6;
+.contenido-subida {
+  background-color: #e6e6e6;
 }
 
-.display-none{
+.display-none {
   display: none;
 }
 
-.display-block{
+.display-block {
   display: block;
 }
 
-.display-run-in{
+.display-run-in {
   display: run-in;
 }
 
-#btn-idioma{
+#btn-idioma {
   border: 1px solid black;
   height: 34px;
   padding: 5px 5px;
 }
 
-#slc-idiomas{
+#slc-idiomas {
   height: 34px;
   padding: 5px 5px;
 }
 
-#slc-idioma2{
+#slc-idioma2 {
   width: 50%;
 }
 
-.no-pd-left{
+.no-pd-left {
   padding-left: 0px;
 }
 
-.no-pd-right{
+.no-pd-right {
   padding-right: 0px;
 }
 
-.custom-chk{
+.custom-chk {
   height: 15px;
   width: 15px;
 }
 
-#slc-comentarios{
+#slc-comentarios {
   width: 53%;
 }
 
-#slc-derechos{
+#slc-derechos {
   width: 255px;
 }
 
-#slc-motivos{
+#slc-motivos {
   width: 255px;
 }
 
-#slc-mostrar{
+#slc-mostrar {
   width: 80%;
 }
 
-#slc-categoria{
+#slc-categoria {
   width: 200px;
 }
 
-#input-buscar{
+#input-buscar {
   width: 69%;
 }
 
-#input-fecha-grabacion{
+#input-fecha-grabacion {
   width: 69%;
 }
 
-#btn-buscar{
+#btn-buscar {
   border: 1px solid black;
 }
 
-#btn-hoy{
+#btn-hoy {
   border: 1px solid black;
 }
 
-#miniatura-personalizada{
+#miniatura-personalizada {
   border: 1px solid black;
 }
 
-.no-margin{
+.no-margin {
   margin: 0px;
 }
 
@@ -809,58 +819,58 @@ main footer h6 {
 
 /*Estilos para el modal de ayuda*/
 
-#input-ayuda{
+#input-ayuda {
   margin: 0px !important;
 }
 
-.buscar-ayuda{
+.buscar-ayuda {
   margin-top: 10px;
 }
 
-.modal-header{
+.modal-header {
   padding-bottom: 0 !important;
   padding-left: 8px !important;
   padding-right: 8px !important;
 }
 
-.header-ayuda{
+.header-ayuda {
   background-color: #757575;
 }
 
-.elemento-blanco{
+.elemento-blanco {
   color: white;
 }
 
-.i-ayuda{
-  color: #0080FF;
+.i-ayuda {
+  color: #0080ff;
 }
 
-.texto-gris{
+.texto-gris {
   color: #585858;
 }
 
-.hr-ayuda{
+.hr-ayuda {
   margin-top: 3px;
 }
 
-.txt-18{
+.txt-18 {
   font-size: 18px;
 }
 
-.txt-15{
+.txt-15 {
   font-size: 15px;
 }
 
-.link-negro{
+.link-negro {
   color: #000000;
 }
 
-.link-negro:hover{
+.link-negro:hover {
   color: #000000;
   text-decoration: none;
 }
 
-.btn-ayuda{
+.btn-ayuda {
   border: 1px solid gray;
 }
 

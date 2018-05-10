@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     if(!isset($_GET["id"])){
-        header("location: index.html");
+        header("location: ../index.html");
     }
     echo '<span class="d-none" id="div-codigo">'.$_GET["id"].'</span>'
 ?>
@@ -36,6 +36,7 @@
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
+            <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
             <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='../form-videos.html';" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
@@ -316,7 +317,7 @@
 
             <main class="col-md-12 col-12 main ml-auto" id="yt-body">
                 <!--Seccion de Video-->
-                <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
+                
                 <div class="row ml-4">
                     <div class="col-xl-8 col-lg-8 col-md-8 col-xs-12 col-12 p-3">
                         <div class="row">
@@ -408,5 +409,6 @@
     <script src="../js/barra.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/watch.js"></script>
+    <span class="d-none" id="nivel">1</span>
 </body>
 </html>

@@ -77,7 +77,6 @@ search.click(function() {
   } else {
     buscarVideo();
   }
-
 });
 
 /**Evento click del boton atras */
@@ -126,21 +125,29 @@ function barraNormMd() {
  */
 txt_busqueda.keyup(function() {
   var parametros = "";
+  var url = "";
+  if ($("#nivel").html() == 0) {
+    url = "ajax/api.php?accion='buscador'";
+  } else {
+    if ($("#nivel").html() == 1) {
+      url = "../ajax/api.php?accion='buscador'";
+    }
+  }
   if (txt_busqueda.val() != "") {
     parametros = "texto=" + txt_busqueda.val();
     $.ajax({
-      url: "ajax/api.php?accion='buscador'",
+      url: url,
       data: parametros,
       dataType: "json",
       method: "GET",
       success: function(respuesta) {
         var resultados = "";
-        if (respuesta.length > 0) {
-          for (var i = 0; i < respuesta.length-1; i++) {
+        if (respuesta.length != 1) {
+          for (var i = 0; i < respuesta.length - 1; i++) {
             resultados +=
               '<a href="watch/video-watch.php?id=' +
               respuesta[i].codigo_video +
-              '" class="d-block font-weight-bold">' +
+              '" class="d-block search-links font-weight-bold">' +
               respuesta[i].titulo +
               "</a><br>";
           }
@@ -157,7 +164,6 @@ txt_busqueda.keyup(function() {
       }
     });
   }
-  console.log(txt_busqueda.val());
   if (txt_busqueda.val() == "") {
     $("#div-busqueda").html("");
     $("#div-busqueda").fadeOut();
@@ -168,7 +174,7 @@ txt_busqueda.keyup(function() {
 
 function buscarVideo() {
   if (txt_busqueda.val() != "") {
-    var busqueda = "watch/search.php?busqueda=" + txt_busqueda.val()+"";
+    var busqueda = "search/search.php?busqueda=" + txt_busqueda.val() + "";
     window.location.href = busqueda;
   }
 }

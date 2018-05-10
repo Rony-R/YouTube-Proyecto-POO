@@ -3,6 +3,7 @@
     include("../class/class-conexion.php");
     include("../class/class-videos.php");
     include("../class/class-comentarios.php");
+    include("../class/class-canales.php");
     $conexion = new Conexion();
 
     switch($_GET["accion"]){
@@ -34,6 +35,15 @@
                                 $_POST["idUsuario"],
                                 $_POST["comentario"],null);
             echo $c->agregarComentario($conexion);
+       break;
+       case "'obtenerCanales'":
+            echo Canal::obtenerCanales($conexion);
+       break;
+       case "'entrenar'":
+            echo Videos::entrenarRed($conexion,$_GET["id"]);
+       break;
+       case "'redRecomendados'":
+            echo Videos::redRecomendados($conexion, $_GET["id"]);
        break;
     }
 

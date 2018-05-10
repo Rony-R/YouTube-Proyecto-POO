@@ -141,14 +141,17 @@
 		 * Funcion que obtiene los videos del servidor 
 		 */
         public static function obtenerVideos($conexion){
-            $sql = "SELECT a.codigo_video ,a.titulo ,a.num_visualizaciones, a.fecha_subida, a.url_miniatura, b.nombre_canal 
+            $sql = "SELECT a.codigo_video ,a.titulo ,a.num_visualizaciones, a.fecha_subida, a.url_miniatura, b.nombre_canal,c.categoria 
             FROM tbl_videos a 
-            INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal) ORDER BY a.codigo_video ASC";
+            INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal)
+            INNER JOIN tbl_categorias c ON (a.codigo_categoria = c.codigo_categoria)
+            ORDER BY a.codigo_video ASC";
             $result = $conexion->ejecutarConsulta($sql);
 			$videos = array();
             while($fila = $conexion->obtenerFila($result)){
 				$videos[] = $fila;
-            }
+			}
+			$videos[]["categorias"] = self::obtenerCategorias($conexion);
             return json_encode($videos);
 
 		}
@@ -226,8 +229,58 @@
 			return json_encode($busqueda);
 		}
 
+		/**
+		 * Funcion que obtiene las categorias de los videos en la BD
+		 */
+		private static function obtenerCategorias($conexion){
+			$sql = "SELECT DISTINCT  a.categoria FROM tbl_categorias a 
+			INNER JOIN tbl_videos b ON (a.codigo_categoria = b.codigo_categoria)";
+			$result = $conexion->ejecutarConsulta($sql);
+			$categorias = array();
+			while($fila = $conexion->obtenerFila($result))
+				$categorias[] = $fila;
+			
+			return $categorias;
+		}
 		
+		/**
+		 * Funcion que obtiene las tendencias de videos de un usuario especifico
+		 */
+		public static function entrenarRed($conexion,$id){
+			$sql = sprintf(
+					"SELECT porcentaje_clicks FROM tbl_info_red WHERE codigo_usuario =%s",
+					$conexion->antiInyeccion($id)
+				);
+			$result = $conexion->ejecutarConsulta($sql);
+			$info = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$info[] = $fila;
+			}
+
+			return json_encode($info);
+		}
+
+		/**
+		 * Funcion que interpreta la funcionalidad de la red neuronal
+		 */
+		public static function redRecomendados($conexion,$id){
+			$sql = sprintf("SELECT DISTINCT a.codigo_video ,a.titulo ,a.num_visualizaciones, a.fecha_subida, a.url_miniatura, b.nombre_canal,c.categoria 
+					FROM tbl_videos a 
+					INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal)
+					INNER JOIN tbl_categorias c ON (a.codigo_categoria = c.codigo_categoria)
+					INNER JOIN tbl_info_red d ON (a.codigo_categoria = d.codigo_categoria)
+					WHERE d.porcentaje_clicks >= 50  AND d.codigo_usuario = %s
+					ORDER BY a.codigo_video ASC LIMIT 4",$conexion->antiInyeccion($id));
+			$result = $conexion->ejecutarConsulta($sql);
+			$infoRecomendados = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$infoRecomendados [] = $fila;
+			 }
+			 
+			return json_encode($infoRecomendados);
+		}
            
-    }
+	}
+	
     
 ?>

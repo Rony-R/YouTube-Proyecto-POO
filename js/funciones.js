@@ -1,5 +1,5 @@
 /**
- * Funcion que convierte el numero de visualizaciones a un formato ligero
+ * Funcion que convierte el numero de visualizaciones, suscriptores y demas numeros grandes a un formato ligero
  * @param {*} num
  */
 function parseVisualizaciones(num) {

@@ -29,10 +29,13 @@
             <button type="button" class="btn btn-light d-none" id="btn-atras">
                 <i class="fas fa-arrow-left fa-lg"></i>
             </button>
-            <input type="text" placeholder="Buscar" class="form-control m-0 d-none d-lg-block ml-5" id="search-box">
+
+            <input type="text" placeholder="Buscar" class="form-control m-0 d-none  d-lg-block ml-5" id="search-box">
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
+            <span id="div-busqueda" class="p-3 position-absolute  font-weight-bold"></span>
+
             <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
@@ -444,20 +447,21 @@
 
             <!--Seccion de videos de YouTube -->
             <main class="col-md-10 col-12 item-center main ml-auto" id="yt-body">
-                <div class="body-grid mt-5">
-                    <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
-                    <div class="row" id="div-videos">
-                    </div>
+                <div class="body-grid mt-5" id="div-videos">
+
+
                 </div>
             </main>
         </div>
 
         <script src="js/jquery-3.3.1.min.js"></script>
+       <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0">
+        </script>-->
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/videos.js"></script>
         <script src="js/barra.js"></script>
-
+        <span class="d-none" id="nivel">0</span>
 </body>
 
 </html>

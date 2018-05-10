@@ -33,6 +33,7 @@
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
+            <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
             <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
@@ -447,7 +448,7 @@
             <!--Seccion de Videos de YouTube-->
             <main class="col-md-10 col-12 main ml-auto item-center mt-4" id="yt-body">
                 <div class="body-grid">
-                    <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
+                
                     <div class="row">
                         <div class="col-6">
                             <p class="text-center" id="info-p">Debes acceder a tu cuenta para ver el historial de reproducciones.
@@ -511,7 +512,7 @@
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/barra.js"></script>
-
+        <span class="d-none" id="nivel">0</span>
 </body>
 
 </html>
