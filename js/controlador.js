@@ -312,7 +312,7 @@ function publicarVideo()
     console.log("Parametros del video: " + parametrosVideos);
     console.log("Parametros configuracion: " + parametrosConfiguracion);
 
-    $.ajax({
+    /*$.ajax({
         url: "ajax/api.php?accion=insertar-video",
         data: parametrosVideos,
         method: "POST",
@@ -332,7 +332,7 @@ function publicarVideo()
         alert(respuesta.mensaje);
 
       }
-  });
+  });*/
 
 }
 
@@ -408,12 +408,15 @@ function ocultarLogOut()
   $("#ocultar-al-login2").removeClass("display-none");
 }
 
-$("#seleccionar-video").click(function(){
+function getUrl()
+{
+  $(document).on('change', 'input[type=file]', function(e){
+    var url = document.getElementById('seleccionar-video').files[0].name;
+    
+    var urlTemporal = $("#seleccionar-video").val();
 
-  $(document).on('change', 'input[type:file]', function(e){
-    var path = URL.crearObjectURL(e.target.files[0]);
-    $('span').html(path);
-    $('img').attr('src', path);
-  });
+    var tmppath = URL.createObjectURL(e.target.files[0]);
 
-});
+    alert(url + "\n" + urlTemporal + "\n" + tmppath);
+  }); 
+}
