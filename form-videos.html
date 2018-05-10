@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -51,7 +50,7 @@
                                 <button class="btn btn-light btn-circle end-btn ml-3">
                                     <i class="fas fa-bell fa-lg"></i>
                                 </button>
-                                
+
                                 <a id="log-usuario" class="ml-4 end-btn" data-toggle="modal" data-target="#modal-usuario">
                                     <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
                                 </a>
@@ -63,12 +62,12 @@
         </div>
     </nav>
 
-     <!--Modal del usuario-->
-     <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--Modal del usuario-->
+    <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="width: 300px">
                 <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
-                   <div class="row">
+                    <div class="row">
                         <div id="foto-user">
                             <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
                         </div>
@@ -80,34 +79,44 @@
                                 <p>Correo Usuario</p>
                             </div>
                         </div>
-                   </div>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div id="div-1">
                         <i class="fas fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Mi Canal</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Mi Canal</label>
+                        <br>
                         <i class="fas fa-cog fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Crear Studio</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Crear Studio</label>
+                        <br>
                         <i class="far fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label>
+                        <br>
                         <i class="fas fa-sign-out-alt fz-20"></i>
-                        <a onclick="cerrarSesion()"><label class="mb-2 ml-4 fz-16">Cerrar Sesión</label></a>
+                        <a onclick="cerrarSesion()">
+                            <label class="mb-2 ml-4 fz-16">Cerrar Sesión</label>
+                        </a>
                         <hr>
                     </div>
                     <div id="div-2">
                         <i class="fas fa-moon fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Tema Oscuro</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Tema Oscuro</label>
+                        <br>
                         <i class="fas fa-cogs fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Ajustes</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Ajustes</label>
+                        <br>
                         <i class="fas fa-question-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Ayuda</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Ayuda</label>
+                        <br>
                         <i class="fas fa-exclamation-circle fz-20"></i>
                         <label class="mb-2 ml-4 fz-16">Enviar Sugerencias</label>
                         <hr>
                     </div>
                     <div id="div-3">
-                        <label class="mb-2 text-muted">Idioma</label> <br>
-                        <label class="mb-2 text-muted">Ubicación</label> <br>
+                        <label class="mb-2 text-muted">Idioma</label>
+                        <br>
+                        <label class="mb-2 text-muted">Ubicación</label>
+                        <br>
                         <label class="mb-2 text-muted">Modo Restringido</label>
                     </div>
                 </div>
@@ -268,7 +277,12 @@
                                             <div class="btn btn-light">
                                                 <label>
                                                     <img src="img/upload.png" class="mb-3">
-                                                    <input type="file" class="form-control-file display-none" id="seleccionar-video" onchange="getUrl()">
+
+                                                    <form action="ajax/subirVideo.php" class="" method="POST" enctype="multipart/form-data">
+                                                        <input type="file" class="form-control-file display-none" name="video">
+                                                        <input type="submit" class="btn btn-light" value="Subir video">
+                                                    </form>
+
                                                     <h5 class="mt-2">Selecciona archivos para subir</h5>
                                                 </label>
                                                 <p class="text-center yt-color">O arrastra y suelta archivos de video </p>

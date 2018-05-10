@@ -314,7 +314,6 @@
 				return json_encode($msj);
 			}
 		}
-
            
 	}
 	
