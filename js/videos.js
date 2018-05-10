@@ -1,11 +1,12 @@
 $.getScript("js/funciones.js");
-$.getScript("js/red.js");
+//$.getScript("js/red.js");
 $(document).ready(function() {
   $.ajax({
     url: "ajax/api.php?accion='redRecomendados'",
     data: "id=3",
     dataType: "json",
     success: function(respuesta) {
+      
       var videos = "";
       for (var i = 0; i < respuesta.length; i++) {
         videos +=
@@ -46,12 +47,19 @@ $(document).ready(function() {
           videos +
           "</div>"
       );
+    },
+    error: function(e,text,error){
+      console.log(e);
+      console.log(error);
     }
   });
+
+  
   $.ajax({
     url: "ajax/api.php?accion='obtener-videos'",
     dataType: "json",
     success: function(respuesta) {
+      
       var num = respuesta.length - 1;
       $("#div-videos").append(
         '<div class="content-name border-bottom mt-4 p-2" style="font-size: 20px;"> Mas videos en YouTube <br>' + "</div>"
@@ -69,6 +77,8 @@ $(document).ready(function() {
     },
     error: function(e, text, error) {
       console.log(e);
+      console.log(error);
+      console.log(text);
     }
   });
   //train(1);
