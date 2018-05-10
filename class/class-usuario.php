@@ -130,11 +130,11 @@
 			session_start();
 
 			$instruccion = sprintf("SELECT codigo_usuario, nombre, apellido, correo, contrasena,
-							 fecha_nacimiento
-							 FROM tbl_usuarios
-							 WHERE correo='%s' AND contrasena=sha1('%s')",
-							 $conexion->antiInyeccion($this->correo),
-							 $conexion->antiInyeccion($this->contrasena));
+							 		fecha_nacimiento
+							 		FROM tbl_usuarios
+							 		WHERE correo='%s' AND contrasena=sha1('%s')",
+							 		$conexion->antiInyeccion($this->correo),
+							 		$conexion->antiInyeccion($this->contrasena));
 
 			$resultado = $conexion->ejecutarInstruccion($instruccion);
 			$num = $conexion->cantidadRegistros($resultado);

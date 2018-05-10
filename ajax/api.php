@@ -3,6 +3,8 @@
     include("../class/class-conexion.php");
     include("../class/class-usuario.php");
     include("../class/class-canal.php");
+    include("../class/class-video.php");
+    include("../class/class-config.php");
 
     $conexion = new Conexion();
 
@@ -32,13 +34,9 @@
         case "verificarLogIn":
             session_start();
             if(isset($_SESSION["usr"]) && isset($_SESSION["psw"]))
-            {
                 echo 1;
-            }
             else
-            {
                 echo 0;
-            }
         break;
 
         case "log-out":
@@ -56,6 +54,16 @@
         break;
 
         case "insertar-video":
+            $video = new Video(null, null, $_POST["categoria"], $_POST["acceso"], $_POST["titulo"], $_POST["descripcion"], null, null, null, null, null, null, $_POST["mensajeUsuario"]);
+            echo $video->insertarVideo($conexion);
+        break;
+
+        case "config-video":
+            $config = new Configuracion(null, null, $_POST["comentarios"], $_POST["motrarComentarios"],
+                           $_POST["licencia"], $_POST["distribucion"], $_POST["subtitutlos"],
+                           $_POST["restriccionEdad"], $_POST["fecha-grabacion"], $_POST["estadisticas"], 
+                           $_POST["contenido"], $_POST["ubicacion"]);
+            echo $config->insertarConfig($conexion); 
         break;
 
     }

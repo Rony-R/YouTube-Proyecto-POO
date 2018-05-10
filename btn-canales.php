@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Música - YouTube</title>
+    <title><?php echo $_GET["nombre_canal"]?> - YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/custom.css">
@@ -77,7 +77,7 @@
                     </a>
                 </div>
             </div>
-            <div class="dropdown">
+            <div id="drop-puntitos" class="dropdown">
                 <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     title="Configruacion">
                     <i class="fas fa-ellipsis-v fa-lg"></i>
@@ -117,12 +117,75 @@
                     </button>
                 </div>
             </div>
-            <button onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger end-btn btn-sm mt-1"
-                id="btn-login">
-                ACCEDER
-            </button>
+            <button id="campanita" type="button" class="btn btn-light btn-circle end-btn display-none" title="notificaciones">
+                    <i class="fas fa-bell"></i>
+                </button>
+
+                <button id="btn-iniciar-sesion" onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger btn-sm mt-1">
+                    INICIAR SESIÓN
+                </button>
+
+                <a id="log-usuario" class="ml-2 display-none" data-toggle="modal" data-target="#modal-usuario">
+                    <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                </a>
         </form>
     </nav>
+
+    <!--Modal del usuario-->
+    <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 300px">
+                <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
+                   <div class="row">
+                        <div id="foto-user">
+                            <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                        </div>
+                        <div id="datos-user" style="margin-left: 25px;">
+                            <div class="row">
+                                <p class="no-margin">Nombre Usuario</p>
+                            </div>
+                            <div class="row">
+                                <p>Correo Usuario</p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <div class="modal-body">
+                    <div id="div-1">
+                        <i class="fas fa-user-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Mi Canal</label> <br>
+                        <i class="fas fa-cog fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Crear Studio</label> <br>
+                        <i class="far fa-user-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label> <br>
+                        <i class="fas fa-sign-out-alt fz-20"></i>
+                        <a onclick="cerrarSesion()"><label class="mb-2 ml-4 fz-16">Cerrar Sesión</label></a>
+                        <hr>
+                    </div>
+                    <div id="div-2">
+                        <i class="fas fa-moon fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Tema Oscuro</label> <br>
+                        <i class="fas fa-cogs fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Ajustes</label> <br>
+                        <i class="fas fa-question-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Ayuda</label> <br>
+                        <i class="fas fa-exclamation-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Enviar Sugerencias</label>
+                        <hr>
+                    </div>
+                    <div id="div-3">
+                        <label class="mb-2 text-muted">Idioma</label> <br>
+                        <label class="mb-2 text-muted">Ubicación</label> <br>
+                        <label class="mb-2 text-muted">Modo Restringido</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--Fin modal del usuario-->
+
     <!--Cuerpo de Youtube -->
     <div class="container-fluid no-padding mt-5">
         <div class="row no-gutters">
@@ -148,41 +211,97 @@
                         </a>
                     </div>
                 </div>
+
+                <!--Div que se mostrara cuando el usuario inicie sesion-->
+                <div id="mostrar-al-login" class="display-none">
+                    <div class="border-bottom pt-2 pb-2">
+                        <div class="string-text">
+                            BIBLIOTECA
+                            <br><br>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a href="#" class="ml-2 d-block">
+                                <i class="btn btn-ligth fab fa-youtube fa-lg pt-3 pb-3 ml-2 mr-2"></i>Suscripciones
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a href="#" class="ml-2 d-block">
+                                <i class="btn btn-ligth fas fa-clock fa-lg pt-3 pb-3 ml-2 mr-2"></i>Ver más Tarde
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a href="#" class="ml-2 d-block">
+                                <i class="btn btn-ligth fas fa-thumbs-up fa-lg pt-3 pb-3 ml-2 mr-2"></i>Videos que me gus...
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="border-bottom pt-2 pb-2">
+                        <div class="string-text">
+                            SUSCRIPCIONES
+                            <br><br>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Musica')" class="ml-2 d-block">
+                                <img src="img/assets/music.jpg" class="img-size img-fluid ml-2 icon-margin">Música
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Deportes')" class="ml-2 d-block">
+                                <img src="img/assets/sport.jpg" class="img-size img-fluid ml-2 icon-margin">Deportes
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Juegos')" class="ml-2 d-block">
+                                <img src="img/assets/games.jpg" class="img-size img-fluid ml-2 icon-margin">Juegos
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Noticias')" class="ml-2 d-block">
+                                <img src="img/assets/news.jpg" class="img-size img-fluid ml-2 icon-margin">Noticias
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Fin div que se mostrara cuando el usuario inicie sesion-->
+
+                <div id="ocultar-al-login" class="border-bottom pt-2 pb-2">
                 <div class="border-bottom pt-2 pb-2">
-                    <div class="string-text">
-                        LO MEJOR DE YOUTUBE
-                        <br>
-                        <br>
-                    </div>
-                    <div class="entrada pt-2 pb-2">
-                        <a href="musica.html" title="Música" class="ml-2 d-block">
-                            <img src="img/assets/music.jpg" class="img-size img-fluid ml-2 icon-margin"> Música
-                        </a>
-                    </div>
-                    <div class="entrada pt-2 pb-2">
-                        <a href="deportes.html" title="Deportes" class="ml-2 d-block">
-                            <img src="img/assets/sport.jpg" class="img-size img-fluid ml-2 icon-margin"> Deportes
-                        </a>
-                    </div>
-                    <div class="entrada pt-2 pb-2">
-                        <a href="juegos.html" title="Juegos" class="ml-2 d-block">
-                            <img src="img/assets/games.jpg" class="img-size img-fluid ml-2 icon-margin"> Juegos
-                        </a>
-                    </div>
-                    <div class="entrada pt-2 pb-2">
-                        <a href="noticias.html" title="Noticias" class="ml-2 d-block">
-                            <img src="img/assets/news.jpg" class="img-size img-fluid ml-2 icon-margin"> Noticias
-                        </a>
-                    </div>
-                    <div class="entrada pt-2 pb-2">
-                        <a href="en-vivo.html" title="En vivo" class="ml-2 d-block">
-                            <img src="img/assets/live.jpg" class="img-size img-fluid ml-2 icon-margin"> En vivo
-                        </a>
-                    </div>
-                    <div class="entrada pt-2 pb-2">
-                        <a href="videos-360.html" title="Videos en 360°" class="ml-2 d-block">
-                            <img src="img/assets/explore.jpg" class="img-size img-fluid ml-2 icon-margin"> Videos en 360°
-                        </a>
+                        <div class="string-text">
+                            LO MEJOR DE YOUTUBE
+                            <br>
+                            <br>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Musica')" title="Música" class="ml-2 d-block">
+                                <img src="img/assets/music.jpg" class="img-size img-fluid ml-2 icon-margin"> Música
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Deportes')" title="Deportes" class="ml-2 d-block">
+                                <img src="img/assets/sport.jpg" class="img-size img-fluid ml-2 icon-margin"> Deportes
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Juegos')" title="Juegos" class="ml-2 d-block">
+                                <img src="img/assets/games.jpg" class="img-size img-fluid ml-2 icon-margin"> Juegos
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Noticias')" title="Noticias" class="ml-2 d-block">
+                                <img src="img/assets/news.jpg" class="img-size img-fluid ml-2 icon-margin"> Noticias
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Videos en Vivo')" title="En vivo" class="ml-2 d-block">
+                                <img src="img/assets/live.jpg" class="img-size img-fluid ml-2 icon-margin"> En vivo
+                            </a>
+                        </div>
+                        <div class="entrada pt-2 pb-2">
+                            <a onclick="obtenerInfoCanal('Videos en 360')" title="Videos en 360°" class="ml-2 d-block">
+                                <img src="img/assets/explore.jpg" class="img-size img-fluid ml-2 icon-margin"> Videos en 360°
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="border-bottom pt-2 pb-2">
@@ -193,11 +312,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="border-bottom pt-2 pb-2">
+                <div id="ocultar-al-login2" class="border-bottom pt-2 pb-2">
                     <div class="ml-2 mr-2 pt-2 pb-2">
                         <p>Accede ahora para ver tus canales y recomendaciones.</p>
                         <a href="inicio-google.html" title="" id="link-acceso">
-                            ACCEDER
+                            INICIAR SESIÓN
                         </a>
                     </div>
                 </div>
@@ -425,34 +544,34 @@
             <main class="col-md-10 col-12  main ml-auto" id="yt-body">
                 <div class="header-canal">
                     <div class="banner">
-                        <img class="banner-foto" src="img/yt-music.jpg">
+                        <img class="banner-foto" src="<?php echo $_GET["banner"]?>">
                     </div>
                     <div class="nombre-canal">
                         <div class="header">
                             <div class="row">
                                 <div class="col-lg-2 foto-canal">
                                     <span>
-                                        <img src="img/assets/music.jpg" class="img-size-asset ml-5 mt-4 mb-4">
+                                        <img src="<?php echo $_GET["foto_canal"]?>" class="img-size-asset ml-5 mt-4 mb-4">
                                     </span>
                                 </div>
                                 <div class="col-lg-4 pt-4 mt-2">
                                     <span class="nombre-suscriptores">
-                                        <h4>Música</h4>
-                                        <p>Numero de suscriptores</p>
+                                        <h4><?php echo $_GET["nombre_canal"]?></h4>
+                                        <p><?php echo $_GET["num_suscriptores"]?> Suscriptores</p>
                                     </span>
                                 </div>
                                 <div class="col-lg-4 offset-lg-1">
-                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse #</button>
+                                    <button type="button" class="btn btn-danger btn-lg suscribirse">Suscribirse <?php echo $_GET["num_suscriptores"]?></button>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
-                                <button onclick="location.href='musica.html'" type="button" class="btn btn-light">INICIO</button>
-                                <button onclick="location.href='videos.html'" type="button" class="btn btn-light">VÍDEOS</button>
-                                <button onclick="location.href='playlists.html'" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
-                                <button onclick="location.href='canales.html'" type="button" class="btn btn-light">CANALES</button>
-                                <button onclick="location.href='about.html'" type="button" class="btn btn-light">MÁS INFORMACION</button>
+                                <button onclick="location.href='<?php echo $_GET["nombre_canal"]?>.php'" type="button" class="btn btn-light">INICIO</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
+                                <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'about.php')" type="button" class="btn btn-light">MÁS INFORMACION</button>
                             </div>
                         </div>
                     </div>
@@ -548,6 +667,7 @@
             </div>
 
             <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/controlador.js"></script>
             <script src="js/bootstrap.js"></script>
             <script src="js/jquery.jscrollpane.min.js"></script>
             <script src="js/canales.js"></script>

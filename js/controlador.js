@@ -5,13 +5,9 @@ $(document).ready(function(){
     url: "ajax/api.php?accion=verificarLogIn",
     success: function(respuesta){
       if(respuesta == 1)
-      {
         mostrarLogIn();
-      }
       else
-      {
         ocultarLogOut();
-      }
     }
   });
 
@@ -133,14 +129,14 @@ $("#btn-sig-paso").click(function(){
     if (validarEmail("txt-email") && $("#txt-password1").val() == $("#txt-password2").val()){
       $("#validacion-correo").html("Correo Valido");
 
-      var parametros ="nombre=" +$("#txt-nombre").val()+ "&"+
-                      "apellido=" +$("#txt-apellido").val()+ "&"+
-                      "correo=" +$("#txt-email").val()+ "&"+
-                      "contrasena=" +$("#txt-password2").val()+ "&"+
-                      "nacimiento=" +$("#dia").val() +"/" +$("#mes").val() +"/"+$("#agno").val()+ "&"+
-                      "genero=" +$("#slc-sexo").val()+ "&"+
-                      "telefono=" +$("#txt-telefono").val()+ "&"+
-                      "ubicacion=" +$("#slc-ubicacion").val();
+      var parametros ="nombre=" +$("#txt-nombre").val()+ 
+                      "&apellido=" +$("#txt-apellido").val()+ 
+                      "&correo=" +$("#txt-email").val()+ 
+                      "&contrasena=" +$("#txt-password2").val()+ 
+                      "&nacimiento=" +$("#dia").val() +"/" +$("#mes").val() +"/"+$("#agno").val()+ 
+                      "&genero=" +$("#slc-sexo").val()+ 
+                      "&telefono=" +$("#txt-telefono").val()+ 
+                      "&ubicacion=" +$("#slc-ubicacion").val();
 
       console.log("Se enviara esto al php: " + parametros);
 
@@ -284,41 +280,60 @@ function verificarLogIn()
 /**Boton que guarda la informacion de los videos **/
 function publicarVideo()
 {
-  var parametros =  "titulo=" +$("#titulo-video").val()+
-                    "&descripcion=" +$("#txta-descripcion1").val()+
-                    "&etiqueta=" +$("#etiquetas-video").val()+
-                    "&acceso=" +$("#slc-accesos").val()+
-                    "&mensaje=" +$("#msj-usuario").val()+
-                    "&idioma=" +$("#slc-idiomas").val()+
-                    "&nombreOriginal=" +$("#nombre-video1").val()+
-                    "&descripcionOriginal=" +$("#txta-descripcion2").val()+
-                    "&nombreTraducido=" +$("#nombre-video2").val()+
-                    "&descripcionTraducida=" +$("#txta-descripcion3").val()+
-                    "&comentarios=" +$("#chk-permitir-comentarios").val()+
-                    "&idiomas-mostrar=" +$("#slc-mostrar").val()+
-                    "&ordenar=" +$("#slc-comentarios").val()+
-                    "&valoraciones=" +$("#chk-valoraciones").val()+
-                    "&licencia=" +$("#slc-derechos").val()+
-                    "&distribucion=" +$("input[name='distribucion']:checked").val()+
-                    "&subtitutlos=" +$("#slc-motivos").val()+
-                    "&opc-distribucion1=" +$("#chk-dist1").val()+
-                    "&opc-distribucion2=" +$("#chk-dist2").val()+
-                    "&categorias=" +$("#slc-categoria").val()+
-                    "&ubicacion=" +$("#input-buscar").val()+
-                    "&idioma-video=" +$("#slc-idioma2").val()+
-                    "&contribucion=" +$("#chk-contribuciones").val()+
-                    "&fecha-grabacion=" +$("#input-fecha-grabacion").val();
+  var parametrosVideos =  "titulo=" +$("#titulo-video").val()+
+                          "&descripcion=" +$("#txta-descripcion1").val()+
+                          "&etiqueta=" +$("#etiquetas-video").val()+
+                          "&acceso=" +$("#slc-accesos").val()+                         
+                          "&mensajeUsuario=" +$("#msj-usuario").val()+                          
+                          "&idioma=" +$("#slc-idiomas").val()+
+                          "&tituloOriginal=" +$("#nombre-video1").val()+                       
+                          "&descripcionOriginal=" +$("#txta-descripcion2").val()+                          
+                          "&tituloTraducido=" +$("#nombre-video2").val()+
+                          "&descripcionTraducida=" +$("#txta-descripcion3").val()+
+                          "&categoria=" +$("#slc-categoria").val();
 
-    console.log(parametros);
+  var parametrosConfiguracion =   "&comentarios=" +$("#chk-permitir-comentarios").val()+
+                                  "&motrarComentarios=" +$("#slc-mostrar").val()+
+                                  "&ordenaComentarios=" +$("#slc-comentarios").val()+
+                                  "&valoraciones=" +$("#chk-valoraciones").val()+
+                                  "&licencia=" +$("#slc-derechos").val()+
+                                  "&distribucion=" +$("input[name='distribucion']:checked").val()+
+                                  "&subtitutlos=" +$("#slc-motivos").val()+
+                                  "&opcDist1=" +$("#chk-dist1").val()+
+                                  "&opcDist2=" +$("#chk-dist2").val()+
+                                  "&restriccionEdad=" +$("#chk-restriccion")+
+                                  "&ubicacion=" +$("#input-buscar").val()+
+                                  "&idiomaVideo=" +$("#slc-idioma2").val()+
+                                  "&contribucion=" +$("#chk-contribuciones").val()+
+                                  "&fecha-grabacion=" +$("#input-fecha-grabacion").val()+
+                                  "&estadisticas=" +$("#chk-estadisticas")+
+                                  "&contenido=" +$("#chk-declaracion");
+
+    console.log("Parametros del video: " + parametrosVideos);
+    console.log("Parametros configuracion: " + parametrosConfiguracion);
 
     $.ajax({
         url: "ajax/api.php?accion=insertar-video",
-        data: parametros,
+        data: parametrosVideos,
         method: "POST",
+        dataType: "json",
         success:function(respuesta){
+          alert(respuesta.mensaje);
 
         }
     });
+
+    $.ajax({
+      url: "ajax/api.php?accion=config-video",
+      data: parametrosConfiguracion,
+      method: "POST",
+      dataType: "json",
+      success:function(respuesta){
+        alert(respuesta.mensaje);
+
+      }
+  });
+
 }
 
 function obtenerInfoCanal(nombreCanal)
@@ -337,24 +352,7 @@ function obtenerInfoCanal(nombreCanal)
 
       console.log(url);
 
-      //var datos = "nombreCanal=" +respuesta.nombre_canal +"&"+ 
-                  //"banner=" +respuesta.banner +"&"+
-                  //"asset=" +respuesta.foto_canal +"&"+
-                  //"subs=" +respuesta.num_suscriptores;
-
-      /*$.ajax({
-        url: "./estructura-canal.php",
-        method: "POST",
-        data: datos,
-        success: function(){
-          console.log("Datos para estructura canal: " +datos);
-          //window.location.href = "./estructura-canal.php";
-        },
-        error: function(e){
-          console.log(e);
-        }
-      });*/
-
+      window.location.href = url;
     }
   });
   
@@ -370,22 +368,11 @@ function btnGroup(canal, pagina)
     data: dato,
     success: function(respuesta){
 
-      var data = "nombre_canal=" +respuesta.nombre_canal +"&"+ 
-                  "banner=" +respuesta.banner +"&"+
-                  "asset=" +respuesta.foto_canal +"&"+
-                  "subs=" +respuesta.num_suscriptores;
+      var url = "./" + pagina + "?" +respuesta;
 
-      $.ajax({
-        url: "./"+pagina,
-        method: "POST",
-        data: data,
-        success: function(){
+      console.log(url);
 
-        },
-        error: function(e){
-          console.log(e);
-        }
-      });
+      window.location.href = url;
 
     },
     error: function(e){
@@ -420,3 +407,13 @@ function ocultarLogOut()
   $("#ocultar-al-login").removeClass("display-none");
   $("#ocultar-al-login2").removeClass("display-none");
 }
+
+$("#seleccionar-video").click(function(){
+
+  $(document).on('change', 'input[type:file]', function(e){
+    var path = URL.crearObjectURL(e.target.files[0]);
+    $('span').html(path);
+    $('img').attr('src', path);
+  });
+
+});
