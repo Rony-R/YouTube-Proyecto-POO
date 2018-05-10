@@ -78,51 +78,70 @@
                     </a>
                 </div>
             </div>
-            <div class="dropdown">
-                <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    title="Configruacion">
-                    <i class="fas fa-ellipsis-v fa-lg"></i>
-                </button>
-                <!--Menu dropdown de las configuraciones de YT-->
-                <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.html">
-                        <div class="pl-2 pr-4">
-                            <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                        <div class="pl-2 pr-4">
-                            <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                        <div class="pl-2 pr-4">
-                            <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                        <div class="pl-2 pr-4 dropdown-toggle">
-                            Idioma: Español
-                        </div>
-                    </button>
-                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                        <div class="pl-2 pr-4 dropdown-toggle">
-                            Ubicacion: Estados Unidos
-                        </div>
-                    </button>
-                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                        <div class="pl-2 pr-4 dropdown-toggle">
-                            Modo Restringido: Desactivado
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <button onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger end-btn btn-sm mt-1" id="btn-login">
-                ACCEDER
+            <button id="campanita" type="button" class="btn btn-light btn-circle end-btn" title="notificaciones">
+                <i class="fas fa-bell"></i>
             </button>
+            <a id="log-usuario" class="ml-2" data-toggle="modal" data-target="#modal-usuario">
+                <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+            </a>
         </form>
     </nav>
+
+    <!--Modal del usuario-->
+    <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 300px">
+                <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
+                   <div class="row">
+                        <div id="foto-user">
+                            <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                        </div>
+                        <div id="datos-user" style="margin-left: 25px;">
+                            <div class="row">
+                                <p class="no-margin">Nombre Usuario</p>
+                            </div>
+                            <div class="row">
+                                <p>Correo Usuario</p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <div class="modal-body">
+                    <div id="div-1">
+                        <i class="fas fa-user-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Mi Canal</label> <br>
+                        <i class="fas fa-cog fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Crear Studio</label> <br>
+                        <i class="far fa-user-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label> <br>
+                        <i class="fas fa-sign-out-alt fz-20"></i>
+                        <a onclick="cerrarSesion()"><label class="mb-2 ml-4 fz-16">Cerrar Sesión</label></a>
+                        <hr>
+                    </div>
+                    <div id="div-2">
+                        <i class="fas fa-moon fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Tema Oscuro</label> <br>
+                        <i class="fas fa-cogs fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Ajustes</label> <br>
+                        <i class="fas fa-question-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Ayuda</label> <br>
+                        <i class="fas fa-exclamation-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Enviar Sugerencias</label>
+                        <hr>
+                    </div>
+                    <div id="div-3">
+                        <label class="mb-2 text-muted">Idioma</label> <br>
+                        <label class="mb-2 text-muted">Ubicación</label> <br>
+                        <label class="mb-2 text-muted">Modo Restringido</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--Fin modal del usuario-->
+
 
     <!--Pagina 1-->
     <main id="pagina1" class="contenido-subida contenido-principal item-center main ml-auto mt-5 display-run-in">
@@ -154,7 +173,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo()" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -177,10 +196,10 @@
                             <div class="col-lg-5">
                                 <form>
                                     <select class="form-control mt-3" name="slc-accesos" id="slc-accesos">
-                                        <option value="1">Público</option>
-                                        <option value="2">Oculto</option>
-                                        <option value="3">Privado</option>
-                                        <option value="4">Programado</option>
+                                        <option>Público</option>
+                                        <option>Oculto</option>
+                                        <option>Privado</option>
+                                        <option>Programado</option>
                                     </select>
                                 </form>
                                 <div class="row">
@@ -210,7 +229,7 @@
                                     </div>
                                 </div>
                                 <div class="boton-miniatura col-lg-3">
-                                    <button id="miniatura-personalizada" class="btn btn-light btn-sm    ">
+                                    <button id="miniatura-personalizada" class="btn btn-light btn-sms">
                                         <b>Miniatura Personalizada</b>
                                     </button>
                                     <p class="txt-13p">Tamaño máximo del archivo: 2MB</p>
@@ -255,7 +274,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo()" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -274,7 +293,7 @@
                                 </p>
                                 <button id="btn-idioma" type="button" class="btn btn-light mt-1 mb-4">Seleccionar Idioma</button>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-5">
                                 <p class="mb-1">
                                     <b>Traducir al</b>
                                 </p>
@@ -352,7 +371,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo()" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -372,7 +391,7 @@
                                         <b>Comentarios</b>
                                     </label>
                                     <p class="txt-14p">
-                                        <input class="custom-chk" id="chk-permitir-comentarios" type="checkbox" checked value="1"> Permitir comentarios.
+                                        <input class="custom-chk" id="chk-permitir-comentarios" type="checkbox" checked> Permitir comentarios.
                                         <a href="#">Más Informacion</a>
                                     </p>
                                 </span>
@@ -381,40 +400,32 @@
                                         <b>Mostrar</b>
                                     </label>
                                     <select class="form-control mb-3" name="slc-mostrar" id="slc-mostrar">
-                                        <option value="0">Todos</option>
-                                        <option value="1">Idioma 1</option>
-                                        <option value="2">Idioma 2</option>
-                                        <option value="3">Idioma 3</option>
-                                        <option value="4">Idioma 4</option>
+                                        <option>Todos</option>
+                                        <option>Todos excepto los comentarios que puedan ser inapropiados</option>
+                                        <option>Aprobar primero</option>
                                     </select>
                                     <form>
                                         <span class="row">
                                             <p class="txt-14p mr-2 mt-1 ml-2">Ordenar por</p>
                                             <select class="form-control no-margin" name="slc-comentarios" id="slc-comentarios">
-                                                <option value="0">Mejores Comentarios</option>
-                                                <option value="1">Idioma 1</option>
-                                                <option value="2">Idioma 2</option>
-                                                <option value="3">Idioma 3</option>
-                                                <option value="4">Idioma 4</option>
+                                                <option>Mejores Comentarios</option>
+                                                <option>Más recientes primero</option>
                                             </select>
                                         </span>
                                         <p class="txt-14p">
-                                            <input class="custom-chk" id="chk-valoraciones" type="checkbox" checked value="1"> Los usuarios pueden ver las valoraciones
+                                            <input class="custom-chk" id="chk-valoraciones" type="checkbox" checked> Los usuarios pueden ver las valoraciones
                                         </p>
                                     </form>
                                 </span>
-                                <span>
+                                <sp an>
                                     <label class="txt-13p">
                                         <b>Licencia y propiedad de los derechos </b>
                                         <i class="fas fa-question-circle"></i>
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-derechos" id="slc-derechos">
-                                            <option value="0">Licencia de Youtube estándar</option>
-                                            <option value="1">Idioma 1</option>
-                                            <option value="2">Idioma 2</option>
-                                            <option value="3">Idioma 3</option>
-                                            <option value="4">Idioma 4</option>
+                                            <option>Licencia de Youtube estándar</option>
+                                            <option>Creative Commons-Atribución</option>
                                         </select>
                                     </form>
                                 </span>
@@ -425,13 +436,13 @@
                                     <form>
                                         <p class="txt-13p no-margin">
                                             <label>
-                                                <input type="radio" id="rd-dist1" name="distribucion" value="1"> En todas partes
+                                                <input type="radio" id="rd-dist1" name="distribucion"> En todas partes
                                                 <p class="txt-11p ml-4 text-muted">Difundir este video en todas las plataformas</p>
                                             </label>
                                         </p>
                                         <p class="txt-13p no-margin">
                                             <label>
-                                                <input type="radio" id="rd-dist2" name="distribucion" value="0"> Plataformas con obtención de ingresos
+                                                <input type="radio" id="rd-dist2" name="distribucion"> Plataformas con obtención de ingresos
                                                 <p class="txt-11p ml-4 text-muted">Difundir este video solo en plataformas con obtención de ingresos
                                                     <i class="fas fa-question-circle"></i>
                                                 </p>
@@ -446,11 +457,10 @@
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-motivos" id="slc-motivos">
-                                            <option value="0">Selecciona una opción</option>
-                                            <option value="1">Idioma 1</option>
-                                            <option value="2">Idioma 2</option>
-                                            <option value="3">Idioma 3</option>
-                                            <option value="4">Idioma 4</option>
+                                            <option>Selecciona una opción</option>
+                                            <option>Este contenido nunca se ha emitido en televisión estadounidense</option>
+                                            <option>Este contenido solo se ha emitido en televisión estadounidense sin subtitulos</option>
+                                            <option>Este contenido no es una reproducción de video de larga duración</option>
                                         </select>
                                     </form>
 
@@ -458,11 +468,11 @@
                                         <b>Opciones de distribución</b>
                                     </p>
                                     <p class="txt-14p">
-                                        <input class="custom-chk" id="chk-dist1" type="checkbox" checked value="1"> Permitir inserción
+                                        <input class="custom-chk" id="chk-dist1" type="checkbox" checked> Permitir inserción
                                         <i class="fas fa-question-circle"></i>
                                     </p>
                                     <p class="txt-14p">
-                                        <input class="custom-chk" id="chk-dist2" type="checkbox" checked value="1"> Publicar en el feed Suscripciones y notificar a los suscriptores
+                                        <input class="custom-chk" id="chk-dist2" type="checkbox" checked> Publicar en el feed Suscripciones y notificar a los suscriptores
                                         <i class="fas fa-question-circle"></i>
                                     </p>
 
@@ -484,11 +494,21 @@
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-categoria" id="slc-categoria">
-                                            <option value="0">Gente y blogs</option>
-                                            <option value="1">Idioma 1</option>
-                                            <option value="2">Idioma 2</option>
-                                            <option value="3">Idioma 3</option>
-                                            <option value="4">Idioma 4</option>
+                                            <option>Gente y blogs</option>
+                                            <option>Cine y animación</option>
+                                            <option>Motor</option>
+                                            <option>Música</option>
+                                            <option>Mascotas y animales</option>
+                                            <option>Deportes</option>
+                                            <option>Viajes y eventos</option>
+                                            <option>Juegos</option>
+                                            <option>Comedia</option>
+                                            <option>Entretenimiento</option>
+                                            <option>Noticias y Politica</option>
+                                            <option>Consejos y estilo</option>
+                                            <option>Formación</option>
+                                            <option>Ciencia y tecnologia</option>
+                                            <option>ONG y activismo</option>
                                         </select>
                                     </form>
                                 </span>
@@ -511,11 +531,10 @@
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-idioma2" id="slc-idioma2">
-                                            <option value="0">Seleccionar Idioma</option>
-                                            <option value="1">Idioma 1</option>
-                                            <option value="2">Idioma 2</option>
-                                            <option value="3">Idioma 3</option>
-                                            <option value="4">Idioma 4</option>
+                                            <option>Seleccionar Idioma</option>
+                                            <option>Español</option>
+                                            <option>Inglés</option>
+                                            <option>No Aplicable</option>
                                         </select>
                                     </form>
                                 </span>
@@ -524,7 +543,7 @@
                                         <b>Contribuciones a la comunidad</b>
                                     </label>
                                     <p class="txt-14p">
-                                        <input class="custom-chk" id="chk-contribuciones" type="checkbox" value="0"> Permitir que los aportadores aporten la traducción de titulos, descripciones y subtitulos
+                                        <input class="custom-chk" id="chk-contribuciones" type="checkbox"> Permitir que los aportadores aporten la traducción de titulos, descripciones y subtitulos
                                         <i class="fas fa-question-circle"></i>
                                     </p>
                                 </span>
