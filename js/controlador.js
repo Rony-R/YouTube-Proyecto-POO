@@ -197,7 +197,7 @@ $("#btn-siguiente2").click(function(){ //Boton de Log In!!!!!
     dataType:"json",
     success: function(respuesta){
       if(respuesta.estadoResultado == 0)
-        window.location.href = "./index.html";
+        window.location.href = "./index.php";
       else
         window.location.href = "./inicio-google.html";
     },
@@ -217,9 +217,9 @@ function cerrarSesion()
     url: "ajax/api.php?accion=log-out",
     success: function(respuesta){
       if(respuesta == 1)
-        window.location.href = "./index.html";
+        window.location.href = "./index.php";
       else 
-        window.location.href = "./index.html";
+        window.location.href = "./index.php";
     }
   });
 
@@ -312,7 +312,7 @@ function publicarVideo()
     console.log("Parametros del video: " + parametrosVideos);
     console.log("Parametros configuracion: " + parametrosConfiguracion);
 
-    /*$.ajax({
+    $.ajax({
         url: "ajax/api.php?accion=insertar-video",
         data: parametrosVideos,
         method: "POST",
@@ -332,7 +332,7 @@ function publicarVideo()
         alert(respuesta.mensaje);
 
       }
-  });*/
+  });
 
 }
 
@@ -408,15 +408,12 @@ function ocultarLogOut()
   $("#ocultar-al-login2").removeClass("display-none");
 }
 
-function getUrl()
-{
-  $(document).on('change', 'input[type=file]', function(e){
-    var url = document.getElementById('seleccionar-video').files[0].name;
-    
-    var urlTemporal = $("#seleccionar-video").val();
+$("#seleccionar-video").click(function(){
 
-    var tmppath = URL.createObjectURL(e.target.files[0]);
+  $(document).on('change', 'input[type:file]', function(e){
+    var path = URL.crearObjectURL(e.target.files[0]);
+    $('span').html(path);
+    $('img').attr('src', path);
+  });
 
-    alert(url + "\n" + urlTemporal + "\n" + tmppath);
-  }); 
-}
+});

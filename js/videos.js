@@ -1,8 +1,7 @@
-
 $.getScript("js/funciones.js");
 //$.getScript("js/red.js");
 $(document).ready(function() {
-  $.ajax({
+  /*$.ajax({
     url: "ajax/api.php?accion='redRecomendados'",
     data: "id=3",
     dataType: "json",
@@ -54,7 +53,7 @@ $(document).ready(function() {
       console.log(error);
     }
   });
-
+*/
   
   $.ajax({
     url: "ajax/api.php?accion='obtener-videos'",
