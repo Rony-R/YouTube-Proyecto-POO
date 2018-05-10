@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `tbl_canales` (
 
 INSERT INTO `tbl_canales` (`codigo_canal`, `codigo_usuario`, `nombre_canal`, `banner`, `foto_canal`, `num_videos`, `descripcion_canal`, `num_suscriptores`) VALUES
 (1, NULL, 'Musica', 'img/banners/yt-music.jpg', 'img/foto_canal/music.jpg', 5, 'Un canal para conocer la musica del momento ', 1500),
-(2, NULL, 'Deporte', 'img/banners/yt-sports.jpg', 'img/foto_canal/sport.jpg', 15, 'Un canal para conocer deportes', 1500),
+(2, NULL, 'Deporte', 'img/banners/yt-sports.jpg', 'img/foto_canal/sports.jpg', 15, 'Un canal para conocer deportes', 1500),
 (3, NULL, 'Juegos', 'img/banners/yt-games.jpg', 'img/foto_canal/games.jpg', 20, 'Un canal para juegos', 3000),
 (4, NULL, 'Noticias', 'img/banners/yt-news.jpg', 'img/foto_canal/news.jpg', 30, 'Un canal para ver noticias', 2500),
 (5, NULL, 'Videos en Vivo', 'img/banners/yt-en-vivo.jpg', 'img/foto_canal/live.jpg', 30, 'Un canal para ver videos en vivo', 3000),

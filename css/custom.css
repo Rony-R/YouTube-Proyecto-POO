@@ -743,7 +743,15 @@ main footer h6 {
   display: run-in;
 }
 
-#btn-idioma {
+.zindex-1{
+  z-index: 1;
+}
+
+.zindex-2{
+  z-index: 2;
+}
+
+#btn-idioma{
   border: 1px solid black;
   height: 34px;
   padding: 5px 5px;
@@ -875,3 +883,15 @@ main footer h6 {
 }
 
 /*Fin estilos para el modal de ayuda*/
+
+/*Estilos para el modal del usuario*/
+
+.fz-20{
+  font-size: 20px !important;
+}
+
+.fz-16{
+  font-size: 16px;
+}
+
+/*Fin estilos para el modal del usuario*/

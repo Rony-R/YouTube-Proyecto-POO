@@ -279,6 +279,42 @@
 			 
 			return json_encode($infoRecomendados);
 		}
+
+		public function insertarVideo($conexion)
+		{
+			$instruccion = sprintf("INSERT INTO tbl_videos(codigo_canal, codigo_categoria, 
+												codigo_acceso, titulo, descripcion, url_video, url_miniatura,
+												 fecha_subida, num_visualizaciones, num_likes, num_dislikes, 
+												 mensaje_usuario)
+									VALUES (%s, %s, %s,'%s', '%s', '%s','%s', CURDATE(), %s, %s, %s, %s)
+									WHERE ",
+									 $conexion->antiInyeccion($this->codigo_canal),
+									 $conexion->antiInyeccion($this->codigo_categoria),
+									 $conexion->antiInyeccion($this->codigo_acceso),
+									 $conexion->antiInyeccion($this->titulo),
+									 $conexion->antiInyeccion($this->descripcion),
+									 $conexion->antiInyeccion($this->url_video),
+									 $conexion->antiInyeccion($this->url_miniatura),
+									 $conexion->antiInyeccion($this->fecha_subida),
+									 $conexion->antiInyeccion($this->visualizaciones),
+									 $conexion->antiInyeccion($this->likes),
+									 $conexion->antiInyeccion($this->dislikes),
+									 $conexion->antiInyeccion($this->msj_usuario));
+									 
+			$resultado = $conexion->ejecutarConsulta($instruccion);
+
+			if($resultado)
+			{
+				$msj['mensaje'] = "Video ingresado con exito!!!";
+				return json_encode($msj);
+			}
+			else
+			{
+				$msj['mensaje'] = "No se agrego el video!!!";
+				return json_encode($msj);
+			}
+		}
+
            
 	}
 	
