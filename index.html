@@ -17,7 +17,7 @@
     <!--Barra de navegacion de YouTube -->
     <nav class="navbar navbar-light bg-light fixed-top barra">
 
-        <form class="form-inline mb-1 w-100">
+        <div class="form-inline mb-1 w-100">
             <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,10 +29,12 @@
             <button type="button" class="btn btn-light d-none" id="btn-atras">
                 <i class="fas fa-arrow-left fa-lg"></i>
             </button>
-            <input type="text" placeholder="Buscar" class="form-control m-0 d-none d-lg-block ml-5" id="search-box">
+
+            <input type="text" placeholder="Buscar" class="form-control m-0 d-none  d-lg-block ml-5" id="search-box">
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
+            <span id="div-busqueda" class="p-3 position-absolute  font-weight-bold"></span>
             <button type="button" class="btn btn-light btn-circle end-btn ml-4" onclick="verificarLogIn()" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
@@ -447,19 +449,20 @@
                                 <div class="row">
                                     <h5 class="modal-title">Ayuda</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span> <!--&times es la x para cerrar el modal--> 
+                                        <span aria-hidden="true">&times;</span>
+                                        <!--&times es la x para cerrar el modal-->
                                     </button>
                                 </div>
                                 <div class="row buscar-ayuda">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <button id="serch-ayuda" class="btn btn-light btn-ayuda" type="button">
-                                            <i class="fas fa-search fa-lg"></i>
-                                          </button>
+                                            <button id="serch-ayuda" class="btn btn-light btn-ayuda" type="button">
+                                                <i class="fas fa-search fa-lg"></i>
+                                            </button>
                                         </div>
                                         <input id="input-ayuda" type="text" class="form-control" placeholder="Buscar en la Ayuda">
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
 
@@ -474,15 +477,19 @@
                                     <span class="col-lg-11">
                                         <label class="txt-18">¿Necesitas más Ayuda?</label>
                                     </span>
-                                </div><hr class="hr-ayuda">
+                                </div>
+                                <hr class="hr-ayuda">
                                 <div class="row">
                                     <span class="col-lg-1">
                                         <i class="fas fa-comment-alt i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" data-toggle="modal" data-target="#modal-comentarios" data-dismiss="modal"><label class="txt-18">Enviar Comentarios</label></a>
-                                    </span> 
-                                </div><hr class="hr-ayuda">
+                                        <a class="link-negro" data-toggle="modal" data-target="#modal-comentarios" data-dismiss="modal">
+                                            <label class="txt-18">Enviar Comentarios</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
                             </div>
                             <div class="seccion-ayuda-2">
                                 <label class="texto-gris txt-18">Populares</label>
@@ -491,58 +498,70 @@
                                         <i class="fas fa-eraser i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="historial.html"><label class="txt-18">Borrar el historial de reproducciones</label></a>
-                                    </span> 
-                                </div><hr class="hr-ayuda">
+                                        <a class="link-negro" href="historial.html">
+                                            <label class="txt-18">Borrar el historial de reproducciones</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
                                 <div class="row">
                                     <span class="col-lg-1">
                                         <i class="far fa-file-alt i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="#"><label class="txt-18">Obtener ingresos con tus video</label></a>
-                                    </span> 
-                                </div><hr class="hr-ayuda">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Obtener ingresos con tus video</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
                                 <div class="row">
                                     <span class="col-lg-1">
                                         <i class="far fa-file-alt i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="#"><label class="txt-18">Subir videos</label></a>
-                                    </span> 
-                                </div><hr class="hr-ayuda">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Subir videos</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
                                 <div class="row">
                                     <span class="col-lg-1">
                                         <i class="far fa-file-alt i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="#"><label class="txt-18">Iniciar y cerrar sesion de YouTube</label></a>
-                                    </span> 
-                                </div><hr class="hr-ayuda">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Iniciar y cerrar sesion de YouTube</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
                                 <div class="row">
                                     <span class="col-lg-1">
                                         <i class="far fa-file-alt i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="#"><label class="txt-18">Quitar contenido recomendado de la página principal</label></a>
-                                    </span> 
-                                </div><hr class="hr-ayuda">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Quitar contenido recomendado de la página principal</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
 
                                 <div class="row">
                                     <span class="col-lg-11">
-                                        <a href="#"><label class="txt-15">ELIMINAR TODOS LOS ARTICULOS</label></a>
+                                        <a href="#">
+                                            <label class="txt-15">ELIMINAR TODOS LOS ARTICULOS</label>
+                                        </a>
                                     </span>
                                     <span class="col-lg-1">
                                         <i class="far fa-share-square i-ayuda"></i>
-                                    </span> 
+                                    </span>
                                 </div>
                             </div>
-                            
-                        </div>
 
-                        <!--<div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Enviar</button>
-                        </div>-->
+                        </div>
                     </div>
 
                 </div>
@@ -551,43 +570,22 @@
 
             <!--Seccion de videos de YouTube -->
             <main class="col-md-10 col-12 item-center main ml-auto" id="yt-body">
-                <div class="body-grid mt-5">
-                    <div class="content-name">
-                        Recomendados
-                    </div>
-                    <div class="row border-bottom" id="vd-recomendados">
+                <div class="body-grid mt-5" id="div-videos">
 
-                    </div>
-                    <div class="content-name">
-                        Canal # 1
-                    </div>
-                    <div class="row border-bottom" id="vd-canal-1">
 
-                    </div>
-
-                    <div class="content-name">
-                        Canal # 2
-                    </div>
-                    <div class="row border-bottom" id="vd-canal-2">
-
-                    </div>
-
-                    <div class="content-name">
-                        Canal # 3
-                    </div>
-                    <div class="row border-bottom" id="vd-canal-3">
-
-                    </div>
                 </div>
             </main>
         </div>
 
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/controlador.js"></script>
+       <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0">
+        </script>-->
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/videos.js"></script>
         <script src="js/barra.js"></script>
+        <script src="js/controlador.js"></script>
+        <span class="d-none" id="nivel">0</span>
 </body>
 
 </html>

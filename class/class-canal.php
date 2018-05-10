@@ -64,7 +64,7 @@
 									FROM tbl_canales
 									WHERE nombre_canal='%s'",
 									$conexion->antiInyeccion($this->nombre_canal));
-			$resultado = $conexion->ejecutarInstruccion($instruccion);
+			$resultado = $conexion->ejecutarConsulta($instruccion);
 			
 			$informacion = $conexion->obtenerFila($resultado);
 
@@ -75,6 +75,22 @@
 			//return json_encode($informacion);
 			return  json_encode($arreglo);
 		}
+		
+		 /**
+         * Funcion que obtiene los canales de la BD
+         *
+         */
+        public static function obtenerCanales($conexion){
+            $sql = "SELECT codigo_canal, nombre_canal, foto_canal, num_suscriptores FROM tbl_canales";
+            $result = $conexion->ejecutarConsulta($sql);
+            $canales = array();
+            while($fila = $conexion->obtenerFila($result)){
+                $canales[] = $fila;
+            }
+           
+
+            return json_encode($canales);    
+        }
 		
     }
 
