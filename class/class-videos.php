@@ -289,33 +289,36 @@
 												codigo_acceso, titulo, descripcion, url_video, url_miniatura,
 												 fecha_subida, num_visualizaciones, num_likes, num_dislikes, 
 												 mensaje_usuario)
-									VALUES (%s, %s, %s,'%s', '%s', '%s','%s', CURDATE(), %s, %s, %s, %s)
-									WHERE ",
+									VALUES (%s, %s, %s,'%s', '%s', '%s','%s', CURDATE(), %s, %s, %s, '%s')",
 									 $conexion->antiInyeccion($this->codigo_canal),
 									 $conexion->antiInyeccion($this->codigo_categoria),
-									 $conexion->antiInyeccion($this->codigo_acceso),
+									 $conexion->antiInyeccion($this->acceso),
 									 $conexion->antiInyeccion($this->titulo),
 									 $conexion->antiInyeccion($this->descripcion),
 									 $conexion->antiInyeccion($this->url_video),
 									 $conexion->antiInyeccion($this->url_miniatura),
 									 $conexion->antiInyeccion($this->fecha_subida),
-									 $conexion->antiInyeccion($this->visualizaciones),
-									 $conexion->antiInyeccion($this->likes),
-									 $conexion->antiInyeccion($this->dislikes),
-									 $conexion->antiInyeccion($this->msj_usuario));
+									 $conexion->antiInyeccion($this->num_visualizaciones),
+									 $conexion->antiInyeccion($this->num_likes),
+									 $conexion->antiInyeccion($this->num_dislikes),
+									 $conexion->antiInyeccion($this->mensaje_usuario));
 									 
 			$resultado = $conexion->ejecutarConsulta($instruccion);
 
 			if($resultado)
 			{
+				$msj['estado'] = 0;
 				$msj['mensaje'] = "Video ingresado con exito!!!";
-				return json_encode($msj);
+				$msj['ultimoId'] = $conexion->ultimoId();
+				$msj["sql"] = $instruccion;
 			}
 			else
 			{
+				$msj['estado'] = 1;
 				$msj['mensaje'] = "No se agrego el video!!!";
-				return json_encode($msj);
+				$msj["sql"] = $instruccion;
 			}
+			return json_encode($msj);
 		}
 		/**
 		 * Funcion que agrega el video al historial del usuario registrado 

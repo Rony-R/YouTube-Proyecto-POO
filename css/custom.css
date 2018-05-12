@@ -240,6 +240,10 @@ main .img-size-asset {
   text-align: center;
 }
 
+.txta-desc-canal{
+  width: 250px !important
+}
+
 .list-links {
   color: #000000;
   font-size: 14px;
@@ -463,8 +467,8 @@ main .img-size-asset {
 }
 /*Estilos para la pagina el modal de enviar comentarios*/
 
-.img-enviar-comentario {
-  width: 100%;
+.img-enviar-comentario{
+  width: 100% !important;
   height: 199px;
 }
 
@@ -867,6 +871,10 @@ main footer h6 {
 
 .txt-15 {
   font-size: 15px;
+}
+
+.txt-12{
+  font-size: 12px !important;
 }
 
 .link-negro {

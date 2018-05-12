@@ -1,11 +1,18 @@
+
+<?php
+
+    session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
+    <span id="span-url" class="d-none"><?php echo $_GET["video"]?></span>
     <meta charset="utf-8" />
     <title>YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
@@ -98,10 +105,11 @@
                         </div>
                         <div id="datos-user" style="margin-left: 25px;">
                             <div class="row">
-                                <p class="no-margin">Nombre Usuario</p>
+
+                                <p class="no-margin"><?php echo $_SESSION["nombre"]?></p>
                             </div>
                             <div class="row">
-                                <p>Correo Usuario</p>
+                                <p><?php echo $_SESSION["usr"]?></p>
                             </div>
                         </div>
                    </div>
@@ -173,7 +181,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button onclick="publicarVideo()" id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo('<?php echo $_SESSION["cod"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -196,10 +204,10 @@
                             <div class="col-lg-5">
                                 <form>
                                     <select class="form-control mt-3" name="slc-accesos" id="slc-accesos">
-                                        <option>Público</option>
-                                        <option>Oculto</option>
-                                        <option>Privado</option>
-                                        <option>Programado</option>
+                                        <option value="1">Público</option>
+                                        <option value="3">Oculto</option>
+                                        <option value="2">Privado</option>
+                                        <option value="4">Programado</option>
                                     </select>
                                 </form>
                                 <div class="row">
@@ -274,7 +282,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button onclick="publicarVideo()" id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo('<?php echo $_SESSION["cod"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -371,7 +379,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button onclick="publicarVideo()" id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo('<?php echo $_SESSION["cod"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -494,21 +502,21 @@
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-categoria" id="slc-categoria">
-                                            <option>Gente y blogs</option>
-                                            <option>Cine y animación</option>
-                                            <option>Motor</option>
-                                            <option>Música</option>
-                                            <option>Mascotas y animales</option>
-                                            <option>Deportes</option>
-                                            <option>Viajes y eventos</option>
-                                            <option>Juegos</option>
-                                            <option>Comedia</option>
-                                            <option>Entretenimiento</option>
-                                            <option>Noticias y Politica</option>
-                                            <option>Consejos y estilo</option>
-                                            <option>Formación</option>
-                                            <option>Ciencia y tecnologia</option>
-                                            <option>ONG y activismo</option>
+                                            <option value="1">Gente y blogs</option>
+                                            <option value="2">Cine y animación</option>
+                                            <option value="3">Motor</option>
+                                            <option value="4">Música</option>
+                                            <option value="5">Mascotas y animales</option>
+                                            <option value="6">Deportes</option>
+                                            <option value="7">Viajes y eventos</option>
+                                            <option value="8">Juegos</option>
+                                            <option value="9">Comedia</option>
+                                            <option value="10">Entretenimiento</option>
+                                            <option value="11">Noticias y Politica</option>
+                                            <option value="12">Consejos y estilo</option>
+                                            <option value="13">Formación</option>
+                                            <option value="14">Ciencia y tecnologia</option>
+                                            <option value="15">ONG y activismo</option>
                                         </select>
                                     </form>
                                 </span>
