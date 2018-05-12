@@ -356,7 +356,16 @@ function publicarVideo(codUsuario)
                                   "&estadisticas=" +$("#chk-estadisticas").val()+
                                   "&contenido=" +$("#chk-declaracion").val();
 
-   
+    $.ajax({
+        url: "ajax/api.php?accion=insertar-video",
+        data: parametrosVideos,
+        method: "POST",
+        dataType: "json",
+        success:function(respuesta){
+          alert(respuesta.mensaje);
+
+        }
+    });
 
     $.ajax({
       url: "ajax/api.php?accion=config-video",
