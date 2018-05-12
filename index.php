@@ -224,7 +224,7 @@
                     </div>
                     <div class="inputs">
                         <input class="form-control" id="nombreCanal" type="text" placeholder="Nombre">
-                        <textarea class="form-control" id="descripcionCanal" type="text" placeholder="Descripcion del canal"></textarea>
+                        <textarea style="width: 250px !important;" class="form-control" id="descripcionCanal" type="text" placeholder="Descripcion del canal"></textarea>
                     </div>
                 </div>
               </div>

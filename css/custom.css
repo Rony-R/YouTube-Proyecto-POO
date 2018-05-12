@@ -467,8 +467,8 @@ main .img-size-asset {
 }
 /*Estilos para la pagina el modal de enviar comentarios*/
 
-.img-enviar-comentario {
-  width: 100%;
+.img-enviar-comentario{
+  width: 100% !important;
   height: 199px;
 }
 
