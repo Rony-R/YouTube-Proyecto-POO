@@ -36,7 +36,7 @@
 }
 
 .modal input{
-    width: 350px;
+    width: 250px;
 }
 
 .modal #name{
@@ -69,4 +69,8 @@
 .container-modal h1{
     font-family: Georgia;
     font-weight: normal;
+}
+
+textarea{
+    width: 250px !important; 
 }

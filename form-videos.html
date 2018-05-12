@@ -25,7 +25,7 @@
                 <span class="row">
                     <div class="navbar-nav">
                         <span class="col-1 no-padding pb-1">
-                            <a class="nav-item nav-link active" href="index.html">
+                            <a class="nav-item nav-link active" href="index.php">
                                 <div class="logo-container align-middle">
                                     <img src="img/yt-logo-2.png" alt="" class="logo">
                                 </div>
@@ -44,15 +44,16 @@
                         </span>
                         <span class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-xs-6 ml-5 mt-1">
                             <form class="form-inline ml-auto">
-                                <button class="btn btn-light btn-circle end-btn">
+                                <button class="btn btn-light btn-circle ml-5 end-btn">
                                     <i class="fas fa-upload fa-lg"></i>
                                 </button>
-                                <button class="btn btn-light btn-circle end-btn ml-5">
+                                <button class="btn btn-light btn-circle end-btn ml-3">
                                     <i class="fas fa-bell fa-lg"></i>
                                 </button>
-                                <button class="btn btn-light end-btn">
-                                    <i class="fas fa-user fa-lg"></i>
-                                </button>
+
+                                <a id="log-usuario" class="ml-4 end-btn" data-toggle="modal" data-target="#modal-usuario">
+                                    <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                                </a>
                             </form>
                         </span>
                     </div>
@@ -61,13 +62,78 @@
         </div>
     </nav>
 
+    <!--Modal del usuario-->
+    <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 300px">
+                <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
+                    <div class="row">
+                        <div id="foto-user">
+                            <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                        </div>
+                        <div id="datos-user" style="margin-left: 25px;">
+                            <div class="row">
+                                <p class="no-margin">Nombre Usuario</p>
+                            </div>
+                            <div class="row">
+                                <p>Correo Usuario</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="div-1">
+                        <i class="fas fa-user-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Mi Canal</label>
+                        <br>
+                        <i class="fas fa-cog fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Crear Studio</label>
+                        <br>
+                        <i class="far fa-user-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label>
+                        <br>
+                        <i class="fas fa-sign-out-alt fz-20"></i>
+                        <a onclick="cerrarSesion()">
+                            <label class="mb-2 ml-4 fz-16">Cerrar Sesión</label>
+                        </a>
+                        <hr>
+                    </div>
+                    <div id="div-2">
+                        <i class="fas fa-moon fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Tema Oscuro</label>
+                        <br>
+                        <i class="fas fa-cogs fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Ajustes</label>
+                        <br>
+                        <i class="fas fa-question-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Ayuda</label>
+                        <br>
+                        <i class="fas fa-exclamation-circle fz-20"></i>
+                        <label class="mb-2 ml-4 fz-16">Enviar Sugerencias</label>
+                        <hr>
+                    </div>
+                    <div id="div-3">
+                        <label class="mb-2 text-muted">Idioma</label>
+                        <br>
+                        <label class="mb-2 text-muted">Ubicación</label>
+                        <br>
+                        <label class="mb-2 text-muted">Modo Restringido</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--Fin modal del usuario-->
+
     <!--Cuerpo de Youtube -->
     <div class="container-fluid no-padding mt-5">
         <div class="row no-gutters">
             <!--Barra lateral de YouTube-->
             <aside class="sidebar col-xl-2 col-lg-2 col-md-2 nav flex-column collapse d-none d-xl-none navbar-fixed-left" id="barraNav">
                 <div class="border-bottom pt-2 pb-2">
-                    <a href="index.html" title="Inicio">
+                    <a href="index.php" title="Inicio">
                         <div class="entrada">
                             <i class="btn btn-ligth fas fa-home fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Inicio
@@ -208,13 +274,17 @@
                                 <div class="row justify-content-center">
                                     <div class="col-12">
                                         <div class="item-center mt-5">
-                                            <button class="btn btn-light">
-                                                <img src="img/upload.png" alt="">
-                                                <br>
-                                                <br>
-                                                <h5 class="mt-2">Selecciona archivos para subir</h5>
-                                                <p class="text-center yt-color">O arrastra y sueltar archivos de video </p>
-                                            </button>
+                                            <div class="btn btn-light">
+                                                <label id="seleccionar-video">
+                                                    <img src="img/upload.png" class="mb-3">
+                                                    <form action="ajax/subirVideo.php" method="POST" enctype="multipart/form-data">
+                                                        <input type="file" class="form-control-file display-none" name="video">
+                                                        <input type="submit" class="btn btn-light" value="Subir video">
+                                                    </form>
+                                                    <h5 class="mt-2">Selecciona archivos para subir</h5>
+                                                </label>
+                                                <p class="text-center yt-color">O arrastra y suelta archivos de video </p>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -369,7 +439,10 @@
                 </div>
             </div>
         </footer>
+        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
+        <script src="js/barra.js"></script>
+        <script src="js/controlador.js"></script>
 </body>
 
 </html>

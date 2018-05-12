@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <?php
-    if(isset($_GET['titulo-video']))
-        header("location: index.html");
-
+    if(!isset($_GET["id"])){
+        header("location: ../index.html");
+    }
+    echo '<span class="d-none" id="div-codigo">'.$_GET["id"].'</span>'
 ?>
 <html>
 <head>
+    <link rel="icon" type="image/png" href="../img/favicon-yt.png">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title id="title-pg"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/custom.css">
     <link rel="stylesheet" href="../css/fontawesome-all.min.css">
-    <link rel="icon" type="image/png" href="../img/favicon.png"> 
 </head>
 <body class="yt-background-color">
     <!--Barra de navegacion de YouTube -->
@@ -35,6 +36,7 @@
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
+            <span id="div-busqueda" class="p-3 position-absolute font-weight-bold"></span>
             <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='../form-videos.html';" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
@@ -120,7 +122,7 @@
                     </button>
                 </div>
             </div>
-            <button onclick="location.href='../modal-inicio-google.html'" type="button" class="btn btn-outline-danger end-btn btn-sm mt-1"
+            <button onclick="location.href='../inicio-google.html'" type="button" class="btn btn-outline-danger end-btn btn-sm mt-1"
                 id="btn-login">
                 ACCEDER
             </button>
@@ -313,26 +315,46 @@
             </div>
             <!--fin modal para enviar comentarios-->
 
-            <main class="col-md-12 col-12  main ml-auto" id="yt-body">
+            <main class="col-md-12 col-12 main ml-auto" id="yt-body">
                 <!--Seccion de Video-->
+                
                 <div class="row ml-4">
                     <div class="col-xl-8 col-lg-8 col-md-8 col-xs-12 col-12 p-3">
                         <div class="row">
-                            <div class="col-12" id="sc-video">
-                                <div style="background-color: black; width: inherent; height: 500px"></div>
+                            <div class="col-12 border-bottom" id="sc-video">
+                                <video src="" style="width: inherit; height: 500px" controls controlsList="nodownload" id="video-content" autoplay>
+                                </video>
                                 <br>
-                            <h3>Titulo video</h3>
-                            <h5># Visualizaciones</h5>
-                            <br> 
+                            <h3 id="video-title"></h3>
+                            <h5 id="video-visual"></h5>
+                            <br>
                                 <div class="float-right">
-                                    <button class="btn btn-outline-light "><i class="fas fa-lg fa-thumbs-up"></i></button>
-                                    <button class="btn btn-outline-light rounded-circle"><i class="fas fa-lg fa-thumbs-down"></i></button>
-                                    <label class="yt-color"><button class="btn btn-outline-light rounded-circle"><i class="fas fa-lg fa-share"></i></button>Compartir</label>
-                                    <button class="btn btn-outline-light rounded-circle"><i class="fas fa-lg fa-plus-square"></i></button>
+                                    <label>
+                                        <button class="btn btn-outline-light ">
+                                            <i class="fas fa-lg fa-thumbs-up"></i>
+                                        </button>
+                                        <span id="video-likes"></span>
+                                    </label>
+                                    <label>
+                                        <button class="btn btn-outline-light rounded-circle">
+                                            <i class="fas fa-lg fa-thumbs-down"></i>
+                                        </button>
+                                        <span id="video-dislikes"></span>
+                                    </label>
+                                    <label class="yt-color">
+                                        <button class="btn btn-outline-light rounded-circle">
+                                            <i class="fas fa-lg fa-share"></i>
+                                            </button>Compartir
+                                    </label>
+                                    <button class="btn btn-outline-light rounded-circle">
+                                        <i class="fas fa-lg fa-plus-square"></i>
+                                    </button>
                                     <span class="dropdown">
                                         <button class="btn btn-outline-light rounded-circle" type="button"
                                         id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        title="Mas"><i class="fas fa-lg fa-ellipsis-h"></i></button>
+                                        title="Mas">    
+                                            <i class="fas fa-lg fa-ellipsis-h"></i>
+                                        </button>
                                         <!--Dropdown de Menu de Mas opciones de video-->
                                         <div class="dropdown-menu  p-2">
                                              <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
@@ -354,17 +376,30 @@
                                     <span>
                                 </div>
                             </div> 
+                            <div class="col-12 mt-3 mb-3">
+                                <img class="img-fluid rounded-circle" src="" id="foto-canal" style="width: 50px; height: 50px;">
+                                <button class="btn btn-danger float-right mb-4" id="btn-suscribirse">Suscribirse</button>
+                                <span class="font-weight-bold ml-2" id="div-nombre"></span><br>
+                                <span class="yt-color" id="div-fecha" style="margin-left: 60px;"></span><br>
+                                <button class="btn btn-outline-light yt-color" id="btn-mostrar" style="margin-left: 47px;">Mostrar mas</button>
+                                <div class=" d-none text-justify yt-color p-3" id="div-descripcion" >
+
+                                </div>
+                            </div>
                             <!--Seccion de Comentarios-->
-                            <div class="col-12" id="sc-comentarios">
+                            <div class="col-12">
                                <textarea class="form-control" id="txt-comentario"></textarea>
                                <br>
-                               <button class="btn btn-danger ">Publicar</button>
+                               <button class="btn btn-danger float-right" id="btn-publicar">Publicar</button>
+                               <div class="row mt-3" id="div-comentarios">
+                                   
+                               </div>
                             </div> 
                         </div>
                     </div>
                     <!--Seccion de recomendados-->
                     <div class="col-xl-3 col-lg-2 col-md-2 col-xs-12 col-12 p-1" id="div-recomendados">
-                        
+                            <label class="font-weight-bold ml-2 mt-3">Recomendados</label>
                     </div>
                 </div>
                 
@@ -374,5 +409,6 @@
     <script src="../js/barra.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/watch.js"></script>
+    <span class="d-none" id="nivel">1</span>
 </body>
 </html>
