@@ -280,6 +280,9 @@
 			return json_encode($infoRecomendados);
 		}
 
+		/**
+		 * Funcion que inserta los videos en la BD
+		 */
 		public function insertarVideo($conexion)
 		{
 			$instruccion = sprintf("INSERT INTO tbl_videos(codigo_canal, codigo_categoria, 
@@ -316,6 +319,124 @@
 				$msj["sql"] = $instruccion;
 			}
 			return json_encode($msj);
+		}
+		/**
+		 * Funcion que agrega el video al historial del usuario registrado 
+		 */
+		public static function agregarHistorial($conexion,$idVideo, $idUsuario){
+			$idVideoCleen =  $conexion->antiInyeccion($idVideo);
+			$idUsuarioCleen = $conexion->antiInyeccion($idUsuario);
+			$sql =sprintf("SELECT codigo_video, codigo_usuario 
+						  FROM tbl_historial 
+						  WHERE codigo_video = %s AND codigo_usuario = %s", $idVideoCleen,$idUsuarioCleen);
+			$result = $conexion->ejecutarConsulta($sql);
+			$cantidad = $conexion->cantidadRegistros($result);
+			if($cantidad==0){
+				$sqlInsert = sprintf("INSERT INTO tbl_historial(codigo_video, codigo_usuario) 
+						VALUES (%s,%s)",$idVideoCleen,$idUsuarioCleen);
+				$resultInsert = $conexion->ejecutarConsulta($sqlInsert);
+			}
+		}
+
+		/**
+		 * Funcion que obtiene el historial del usuario que esta logeado
+		 */
+		public static function obtenerHistorial($conexion, $idUsuario){
+			$sql =sprintf(
+						"SELECT a.codigo_video, a.titulo, a.descripcion, a.url_video, a.url_miniatura, a.fecha_subida, a.num_visualizaciones,b.nombre_canal
+						 FROM tbl_videos a
+						 INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal) 
+						 WHERE a.codigo_video IN (SELECT codigo_video FROM tbl_historial WHERE codigo_usuario = %s)",
+				   $conexion->antiInyeccion($idUsuario));
+			$result = $conexion->ejecutarConsulta($sql);
+			$historial = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$historial[] = $fila;
+			}
+			
+			return json_encode($historial);
+		}
+
+		/**
+		 * Funcion que borra el historial del usuario
+		 */
+		public static function borrarHistorial($conexion, $idUsuario){
+			$sql = sprintf("DELETE FROM tbl_historial WHERE codigo_usuario = %s",$conexion->antiInyeccion($idUsuario));
+			$result = $conexion->ejecutarConsulta($sql);
+			if($result){
+				$respuesta["codigo_mensaje"] = 0;
+				$respuesta["mensaje"] = "Se borraron los datos correctamente";
+			}else{
+				$respuesta["codigo_mensaje"] = 1;
+				$respuesta["mensaje"] = "No se borraron los datos correctamente";
+			}
+
+			return json_encode($respuesta);
+		}
+
+		/**
+		 * Funcion que agrega videos a ver mas tarde
+		 */
+
+		public static function agregarMasTarde($conexion,$id_usuario, $id_video){
+			$id_usuarioCleen = $conexion->antiInyeccion($id_usuario);
+			$id_videoCleen = $conexion->antiInyeccion($id_video);
+			$sql =sprintf(
+					"SELECT codigo_video, codigo_usuario 
+				   	 FROM tbl_ver_mas_tarde WHERE codigo_video =%s AND codigo_usuario=%s",
+					 $id_videoCleen,$id_usuarioCleen);
+			$result = $conexion->ejecutarConsulta($sql);
+			$cantidad = $conexion->cantidadRegistros($result);
+			if($cantidad==0){
+				$sqlInsert = sprintf(
+							"INSERT INTO tbl_ver_mas_tarde(codigo_video, codigo_usuario) 
+							VALUES (%s, %s)",$id_videoCleen,$id_usuarioCleen);
+				$resultInsert = $conexion->ejecutarConsulta($sqlInsert);
+				if($resultInsert){
+					$respuesta["codigo_respuesta"] = 0;
+					$respuesta["mensaje"] = "Video agregado a Ver Mas Tarde";
+				}else{
+					$respuesta["codigo_respuesta"] = 1;
+					$respuesta["mensaje"] = "Video no fue agregado  a Ver Mas Tarde";
+				}
+				return json_encode($respuesta);
+			}
+		}
+
+		/**
+		 * Funcion que permite obtener los videos de Mas tarde
+		 */
+		public static function obtenerMasTarde($conexion, $id){
+			$sql =sprintf(
+						"SELECT a.codigo_video, a.titulo, a.url_miniatura, a.fecha_subida, b.nombre_canal
+						FROM tbl_videos a
+						INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal) 
+						WHERE a.codigo_video IN (SELECT codigo_video FROM tbl_ver_mas_tarde WHERE codigo_usuario = %s)",
+						$conexion->antiInyeccion($id));
+			$result = $conexion->ejecutarConsulta($sql);
+			$videosMasTarde = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$videosMasTarde[] = $fila;
+			}			
+			return json_encode($videosMasTarde);
+		}
+
+		/**
+		 * Funcion que obtiene los videos del canal respectivo
+		 */
+		public static function obtenerVideosCanal($conexion,$id){
+			$sql =sprintf(
+				"SELECT a.codigo_video ,a.titulo ,a.num_visualizaciones, a.fecha_subida, a.url_miniatura
+           		 FROM tbl_videos a 
+            	INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal)
+				WHERE a.codigo_canal = %s",$conexion->antiInyeccion($id));
+			$result = $conexion->ejecutarConsulta($sql);
+			$videos = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$videos[] = $fila;
+			}	
+
+			return json_encode($videos);
 		}
            
 	}

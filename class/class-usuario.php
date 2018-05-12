@@ -149,8 +149,11 @@
 				$respuesta["estadoResultado"] = 0;
 				$_SESSION["usr"] = $respuesta["correo"];
 				$_SESSION["psw"] = $respuesta["contrasena"];
-				$_SESSION["cod"] = $respuesta["codigo_usuario"];
-				$_SESSION["nombre"] = $respuesta["nombre"] ." ". $respuesta["apellido"];
+				$_SESSION["nombre"] =$respuesta["nombre"]." ".$respuesta["apellido"];
+				$_SESSION["codigo"] = $respuesta["codigo_usuario"];
+				
+				
+
 			}
 			else
 			{

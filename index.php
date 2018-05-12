@@ -1,5 +1,6 @@
-<?php
 
+
+<?php
     session_start();
 
 ?>
@@ -102,7 +103,7 @@
                     </button>
                     <!--Menu dropdown de las configuraciones de YT-->
                     <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
-                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.html">
+                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.php">
                             <div class="pl-2 pr-4">
                                 <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
                             </div>
@@ -161,13 +162,12 @@
                    <div class="row">
                         <div id="foto-user">
                             <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                            <span class="ml-2"><?php echo $_SESSION["nombre"]?></span>
                         </div>
                         <div id="datos-user" style="margin-left: 25px;">
                             <div class="row">
-                                <p class="no-margin"><?php echo $_SESSION["nombre"]?></p>
-                            </div>
-                            <div class="row">
                                 <p><?php echo $_SESSION["usr"]?></p>
+                                <span class="d-none" id="txt-codigo"><?php echo $_SESSION["codigo"] ?></span>
                             </div>
                         </div>
                    </div>
@@ -269,13 +269,13 @@
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="tendencias.html" title="Tendencias" class="d-block">
+                        <a href="tendencias.php" title="Tendencias" class="d-block">
                             <i class="btn btn-ligth fas fa-fire fa-lg pt-3 pb-3 ml-2  mr-4"></i>
                             Tendencias
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="historial.html" title="Historial" class="d-block">
+                        <a href="historial.php" title="Historial" class="d-block">
                             <i class="btn btn-ligth fas fa-history fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Historial
                         </a>
@@ -284,22 +284,22 @@
 
                 <!--Div que se mostrara cuando el usuario inicie sesion-->
                 <div id="mostrar-al-login" class="display-none">
-                    <div class="border-bottom pt-2 pb-2">
+                    <div class="border-bottom">
                         <div class="string-text">
                             BIBLIOTECA
-                            <br><br>
+                            <br>
                         </div>
-                        <div class="entrada pt-2 pb-2">
+                        <div class="entrada">
                             <a href="#" class="ml-2 d-block">
                                 <i class="btn btn-ligth fab fa-youtube fa-lg pt-3 pb-3 ml-2 mr-2"></i>Suscripciones
                             </a>
                         </div>
-                        <div class="entrada pt-2 pb-2">
-                            <a href="#" class="ml-2 d-block">
+                        <div class="entrada">
+                            <a href="ver_mas_tarde.php" class="ml-2 d-block">
                                 <i class="btn btn-ligth fas fa-clock fa-lg pt-3 pb-3 ml-2 mr-2"></i>Ver más Tarde
                             </a>
                         </div>
-                        <div class="entrada pt-2 pb-2">
+                        <div class="entrada">
                             <a href="#" class="ml-2 d-block">
                                 <i class="btn btn-ligth fas fa-thumbs-up fa-lg pt-3 pb-3 ml-2 mr-2"></i>Videos que me gus...
                             </a>
@@ -377,7 +377,7 @@
 
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="explorar.html" title="Explorar canales" class="d-block">
+                        <a href="explorar.php" title="Explorar canales" class="d-block">
                             <i class="btn btn-ligth fas fa-plus fa-lg pt-3 pb-3 ml-2 mr-3 "></i>
                             <label class="md-text"> Explorar canales </label>
                         </a>
@@ -393,7 +393,7 @@
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="configuracion.html" title="Configuracion" class="d-block">
+                        <a href="configuracion.php" title="Configuracion" class="d-block">
                             <i class="btn btn-ligth fas fa-cog fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Configuración
                         </a>
@@ -559,7 +559,7 @@
                                         <i class="fas fa-eraser i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="historial.html">
+                                        <a class="link-negro" href="historial.php">
                                             <label class="txt-18">Borrar el historial de reproducciones</label>
                                         </a>
                                     </span>

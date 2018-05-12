@@ -1,8 +1,16 @@
 
 $(document).ready(function(){
 
+  var url ="";
+  if ($("#nivel").html() == 0) {
+    url = "ajax/api.php?accion=verificarLogIn";
+  } else {
+    if ($("#nivel").html() == 1) {
+      url = "../ajax/api.php?accion=verificarLogIn";
+    }
+  }
   $.ajax({
-    url: "ajax/api.php?accion=verificarLogIn",
+    url: url,
     success: function(respuesta){
       if(respuesta == 1)
         mostrarLogIn();
@@ -260,6 +268,7 @@ function botonesCategorias(id){
 
 function verificarLogIn()
 {
+  
   $.ajax({
     url: "ajax/api.php?accion=verificarLogIn",
     success: function(respuesta){

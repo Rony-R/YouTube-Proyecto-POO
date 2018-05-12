@@ -33,22 +33,17 @@
        case "'obtenerComentarios'":
             echo Comentarios::obtenerComentarios($conexion,$_GET["id"]);
        break;
-       case "'insetarComentario'":
-            session_start();
-            if((!isset($_SESSION["usr"])) || (!isset($_SESSION["psw"]))){
-                header("Location: ../inicio-google.html");
-            }
-            $c = new Comentario(null,
-                                $_POST["idVideo"],
-                                $_POST["idUsuario"],
-                                $_POST["comentario"],null);
+       case "'insertarComentario'":
+            $c = new Comentarios(null,$_POST["idVideo"],$_POST["idUsuario"],$_POST["comentario"],null);
             echo $c->agregarComentario($conexion);
        break;
 
        case "'obtenerCanales'":
             echo Canal::obtenerCanales($conexion);
        break;
-
+       case "'obtenerNoSuscrito'":
+            echo Canal::obtenerNoSuscrito($conexion,$_POST["id"]);
+       break;
        case "'entrenar'":
             echo Videos::entrenarRed($conexion,$_GET["id"]);
        break;
@@ -112,7 +107,6 @@
                         $_POST["contenido"], $_POST["ubicacion"]);
             echo $config->insertarConfig($conexion); 
         break;
-
         case "crear-canal":
             $canal2 = new Canal($_POST["nombre"], $_POST["banner"], $_POST["foto_canal"], null, $_POST["descripcion"], null, $_POST["codigo"], 0, 0);
             echo $canal2->crearCanal($conexion);
@@ -126,6 +120,30 @@
         case "obtenerCodigoCanal":
             $canal4 = new Canal(null, null, null, null, null, null, $_POST["codigo"], null, null);
             echo $canal4->obtenerCodigoCanal($conexion);
+        break;
+        case "'historial'":
+            Videos::agregarHistorial($conexion,$_POST["codigo_video"],$_POST["codigo_usuario"]);
+        break;    
+        case "'obtenerHistorial'":
+            echo Videos::obtenerHistorial($conexion,$_POST["id"]);
+        break;
+        case "'borrarHistorial'":
+            echo Videos::borrarHistorial($conexion,$_POST["id"]);
+        break;
+        case "'suscribirse'":
+            echo Canal::suscribirseCanal($conexion,$_POST["idUsuario"],$_POST["idCanal"]);
+        break;
+        case "'unsuscribe'":
+            echo Canal::unsuscribeCanal($conexion,$_POST["idUsuario"],$_POST["idCanal"]);
+        break;
+        case "'masTarde'":
+            echo Videos::agregarMasTarde($conexion,$_POST["idUsuario"],$_POST["idVideo"]);
+        break;
+        case "'obtenerMasTarde'":
+            echo Videos::obtenerMasTarde($conexion,$_POST["id"]);
+        break;
+        case "'obtenerVideosCanal'":
+            echo Videos::obtenerVideosCanal($conexion,$_POST["id"]);
         break;
 
         }

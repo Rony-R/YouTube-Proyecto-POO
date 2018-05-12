@@ -1,9 +1,9 @@
+
 <?php
 
     session_start();
 
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -40,7 +40,7 @@
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
-            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video"
+            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.php';" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
             </button>
@@ -105,6 +105,7 @@
                         </div>
                         <div id="datos-user" style="margin-left: 25px;">
                             <div class="row">
+
                                 <p class="no-margin"><?php echo $_SESSION["nombre"]?></p>
                             </div>
                             <div class="row">
