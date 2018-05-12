@@ -185,10 +185,6 @@
 
 			return json_encode($respuesta);
 		}
-           
-
-            return json_encode($canales);    
-        }
 		
     }
 

@@ -279,7 +279,7 @@ function verificarLogIn()
 
 /**Boton que guarda la informacion de los videos **/
 function publicarVideo(codUsuario)
-{
+{ 
   var codigo = "codigo=" +codUsuario;
 
   var codCanal;

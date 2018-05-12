@@ -1,23 +1,12 @@
-<<<<<<< HEAD
 $.getScript("js/funciones.js");
 //$.getScript("js/red.js");
 $(document).ready(function() {
   /*$.ajax({
-=======
-
-$.getScript("js/funciones.js");
-$.getScript("js/red.js");
-$(document).ready(function() {
-  $.ajax({
->>>>>>> origin/Rama-Rony
     url: "ajax/api.php?accion='redRecomendados'",
     data: "id=3",
     dataType: "json",
     success: function(respuesta) {
-<<<<<<< HEAD
       
-=======
->>>>>>> origin/Rama-Rony
       var videos = "";
       for (var i = 0; i < respuesta.length; i++) {
         videos +=
@@ -58,13 +47,10 @@ $(document).ready(function() {
           videos +
           "</div>"
       );
-<<<<<<< HEAD
     },
     error: function(e,text,error){
       console.log(e);
       console.log(error);
-=======
->>>>>>> origin/Rama-Rony
     }
   });
 */
@@ -73,10 +59,7 @@ $(document).ready(function() {
     url: "ajax/api.php?accion='obtener-videos'",
     dataType: "json",
     success: function(respuesta) {
-<<<<<<< HEAD
       
-=======
->>>>>>> origin/Rama-Rony
       var num = respuesta.length - 1;
       $("#div-videos").append(
         '<div class="content-name border-bottom mt-4 p-2" style="font-size: 20px;"> Mas videos en YouTube <br>' + "</div>"
@@ -94,11 +77,8 @@ $(document).ready(function() {
     },
     error: function(e, text, error) {
       console.log(e);
-<<<<<<< HEAD
       console.log(error);
       console.log(text);
-=======
->>>>>>> origin/Rama-Rony
     }
   });
   //train(1);

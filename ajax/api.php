@@ -72,7 +72,7 @@
 
        case "formulario-google":
         $usuario = new Usuario(null, $_POST["genero"], $_POST["nombre"], $_POST["apellido"],$_POST["correo"], 
-                        $_POST["contrasena"], $_POST["nacimiento"], $_POST["telefono"], $_POST["ubicacion"]);
+                        $_POST["contrasena"], $_POST["nacimiento"], $_POST["telefono"], $_POST["ubicacion"], null);
         echo $usuario->ingresarUsuario($conexion);
         break;
 
