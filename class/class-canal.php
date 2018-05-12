@@ -90,8 +90,84 @@
            
 
             return json_encode($canales);    
-        }
+		}
 		
+		/**
+		 * Funcion que obtiene todos los canales que el usuario no esta susrito
+		 */
+		public static function obtenerNoSuscrito($conexion, $id){
+			$sql = sprintf(
+					"SELECT DISTINCT a.codigo_canal, a.nombre_canal, a.foto_canal, a.num_suscriptores
+					 FROM tbl_canales a
+					 WHERE a.codigo_canal  NOT IN( SELECT codigo_canal FROM tbl_suscripciones WHERE codigo_usuario =%s)",
+					 $conexion->antiInyeccion($id));
+			$result = $conexion->ejecutarConsulta($sql);
+			$canales = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$canales [] = $fila;
+			}		
+			return json_encode($canales);
+		}
+		
+		/**
+		 * Funcion que permite al usuario suscribirse a un canal
+		 */
+		public static function suscribirseCanal($conexion,$idUsuario, $idCanal){
+			$idCanalCleen = $conexion->antiInyeccion($idCanal);
+			$idUsuarioCleen = $conexion->antiInyeccion($idUsuario);
+			$sql = sprintf(
+					"SELECT codigo_canal, codigo_usuario FROM tbl_suscripciones 
+					WHERE codigo_canal=%s AND codigo_usuario=%s",
+					$idCanalCleen, $idUsuarioCleen
+					);
+			$resultado = $conexion->ejecutarConsulta($sql);
+			$cantidad = $conexion->cantidadRegistros($resultado);
+			if($cantidad==0){
+				$sqlInsert = sprintf("INSERT INTO tbl_suscripciones(codigo_canal, codigo_usuario) VALUES (%s,%s)",
+									$idCanalCleen,$idUsuarioCleen);
+				$resultInsert = $conexion->ejecutarConsulta($sqlInsert);
+				if($resultInsert){
+					$respuesta["codigo_respuesta"] = 0;
+					$respuesta["mensaje"] = "El usuario se suscribio correctamente";
+					$respuesta["estado"] = "UNSUSCRIBE";
+				}else{
+					$respuesta["codigo_respuesta"] = 1;
+					$respuesta["mensaje"] = "El usuario no pudo suscribirse";
+				}
+			}	
+			
+			return json_encode($respuesta);
+		}
+
+		/**
+		 * Funcion que permite al usuario desuscribirse a un canal
+		 */
+		public static function unsuscribeCanal($conexion,$idUsuario, $idCanal){
+			$idCanalCleen = $conexion->antiInyeccion($idCanal);
+			$idUsuarioCleen = $conexion->antiInyeccion($idUsuario);
+			$sql = sprintf(
+					"SELECT codigo_canal, codigo_usuario FROM tbl_suscripciones 
+					WHERE codigo_canal=%s AND codigo_usuario=%s",
+					$idCanalCleen, $idUsuarioCleen
+					);
+			$resultado = $conexion->ejecutarConsulta($sql);
+			$cantidad = $conexion->cantidadRegistros($resultado);
+			if($cantidad==1){
+				$sqlInsert = sprintf("DELETE FROM tbl_suscripciones WHERE codigo_canal=%s AND codigo_usuario=%s",
+									$idCanalCleen,$idUsuarioCleen);
+				$resultInsert = $conexion->ejecutarConsulta($sqlInsert);
+				if($resultInsert){
+					$respuesta["codigo_respuesta"] = 0;
+					$respuesta["mensaje"] = "El usuario se desuscribio correctamente";
+					$respuesta["estado"] = "SUSCRIBIRSE";
+				}else{
+					$respuesta["codigo_respuesta"] = 1;
+					$respuesta["mensaje"] = "El usuario no pudo desuscribirse";
+				}
+			}	
+			
+			return json_encode($respuesta);
+		}
     }
 
 ?>

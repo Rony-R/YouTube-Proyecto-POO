@@ -76,26 +76,24 @@
         
 
         public function agregarComentario($conexion){
-            $sql = sprintf(
-                   "INSERT INTO tbl_comentarios(codigo_video, codigo_usuario,
-                    comentario, fecha_comentario) 
+            $sql = sprintf("INSERT INTO tbl_comentarios(codigo_video, codigo_usuario,comentario, fecha_comentario) 
                     VALUES (%s, %s, '%s',CURDATE())",
                     $conexion->antiInyeccion($this->codigo_video),
                     $conexion->antiInyeccion($this->codigo_usuario),
                     $conexion->antiInyeccion($this->comentario)                    
-                );
+				);
             $result = $conexion->ejecutarConsulta($sql);
             if($result){
-                $sql = sprintf(
+                $sqlSelect = sprintf(
                                 "SELECT a.comentario, a.fecha_comentario, b.nombre, b.url_imagen_perfil 
                                 FROM tbl_comentarios a INNER JOIN tbl_usuarios b 
                                 ON (a.codigo_usuario = b.codigo_usuario) WHERE a.codigo_comentario = %s",
                                 $conexion->ultimoId()
                               );
-                $resultado = $conexion->ejecutarConsulta($sql);
+                $resultado = $conexion->ejecutarConsulta($sqlSelect);
                 $comentario = $conexion->obtenerFila($resultado);              
                 $comentario["codigo_respuesta"]=0;
-                $comentario["mensaje"] ="El comentario no se ingreso con exito";
+                $comentario["mensaje"] ="El comentario  se ingreso con exito";
                             
             }else{
                 $comentario["codigo_respuesta"]=1;
