@@ -34,6 +34,21 @@
             echo Comentarios::obtenerComentarios($conexion,$_GET["id"]);
        break;
 
+       case "'obtenerVideoID'":
+            echo Videos::obtenerVideosById($conexion,$_GET["id"]);
+       break;
+       case "'obtenerRecomendados'": 
+            echo Videos::obtenerVideosRecomendados($conexion,$_GET["idCat"],$_GET["id"]);
+       break;
+       case "'obtenerTendencias'":
+            echo Videos::obtenerTendencias($conexion);
+       break;
+       case "'buscador'":
+            echo Videos::buscarVideos($conexion,$_GET["texto"]);
+       break;
+       case "'obtenerComentarios'":
+            echo Comentarios::obtenerComentarios($conexion,$_GET["id"]);
+       break;
        case "'insetarComentario'":
             session_start();
             if((!isset($_SESSION["usr"])) || (!isset($_SESSION["psw"]))){
@@ -45,22 +60,19 @@
                                 $_POST["comentario"],null);
             echo $c->agregarComentario($conexion);
        break;
-
        case "'obtenerCanales'":
             echo Canal::obtenerCanales($conexion);
        break;
-
        case "'entrenar'":
             echo Videos::entrenarRed($conexion,$_GET["id"]);
        break;
-       
        case "'redRecomendados'":
             echo Videos::redRecomendados($conexion, $_GET["id"]);
        break;
 
        case "formulario-google":
         $usuario = new Usuario(null, $_POST["genero"], $_POST["nombre"], $_POST["apellido"],$_POST["correo"], 
-                        $_POST["contrasena"], $_POST["nacimiento"], $_POST["telefono"], $_POST["ubicacion"], null);
+                        $_POST["contrasena"], $_POST["nacimiento"], $_POST["telefono"], $_POST["ubicacion"]);
         echo $usuario->ingresarUsuario($conexion);
         break;
 
@@ -107,7 +119,7 @@
         break;
 
         case "config-video":
-            $config = new Configuracion(null, $_POST["codigo_video"], $_POST["comentarios"], $_POST["motrarComentarios"],
+            $config = new Configuracion(null, null, $_POST["comentarios"], $_POST["motrarComentarios"],
                         $_POST["licencia"], $_POST["distribucion"], $_POST["subtitutlos"],
                         $_POST["restriccionEdad"], $_POST["fecha-grabacion"], $_POST["estadisticas"], 
                         $_POST["contenido"], $_POST["ubicacion"]);

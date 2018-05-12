@@ -128,8 +128,8 @@
                                                  config_mostrar, config_licencia, config_distribucion, 
                                                  config_subtitulos, config_res_edad, config_fecha_grabacion, 
                                                  config_estadisticas, config_contenido, config_ubicacion) 
-                                    VALUES (%s, '%s', '%s', '%s', '%s', '%s', '%s', STR_TO_DATE('%s', '%s'), 
-											'%s', '%s', '%s')",
+                                    VALUES (%s, '%s', '%s', '%s', '%s', '%s', '%s', STR_TO_DATE('%s', '%s'), '%s', '%s', '%s')
+                                    WHERE ",
                                      $conexion->antiInyeccion($this->codigo_video),
                                      $conexion->antiInyeccion($this->config_comentarios),
                                      $conexion->antiInyeccion($this->config_mostrar),
