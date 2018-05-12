@@ -1,4 +1,5 @@
 
+
 <?php
     session_start();
 
@@ -14,6 +15,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link href="css/estilo-inicio-google.css" rel="stylesheet" type="text/css">
+    <link href="css/estilo-modal-crear-canal.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
@@ -40,11 +42,17 @@
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
+
             <span id="div-busqueda" class="p-3 position-absolute  font-weight-bold"></span>
             <button type="button" class="btn btn-light btn-circle end-btn ml-4" onclick="verificarLogIn()" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
             </button>
+            <button type="button" class="btn btn-light btn-circle end-btn ml-4 display-none " onclick="verificacionDoble('<?php echo $_SESSION["codigo"]?>')" title="Subir video"
+                id="btn-up2">
+                <i class="fas fa-upload fa-lg"></i>
+            </button>
+
             <div class="dropdown">
                 <button class="btn btn-light btn-circle end-btn" type="button" id="btn-apps" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" title="Apps de Youtube">
@@ -167,11 +175,9 @@
                 <div class="modal-body">
                     <div id="div-1">
                         <i class="fas fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Mi Canal</label> <br>
-                        <i class="fas fa-cog fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Crear Studio</label> <br>
+                        <a onclick="verificarCanal('<?php echo $_SESSION["codigo"]?>')"><label class="mb-2 ml-4 fz-16">Mi Canal</label></a> <br>
                         <i class="far fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Imagen Perfil</label> <br>
                         <i class="fas fa-sign-out-alt fz-20"></i>
                         <a onclick="cerrarSesion()"><label class="mb-2 ml-4 fz-16">Cerrar Sesión</label></a>
                         <hr>
@@ -199,6 +205,56 @@
         </div>
     </div>
     <!--Fin modal del usuario-->
+
+    <!--Modal para crear el canal-->
+    <div class="modal" id="modal-yt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Usar YouTube como...</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span> <!--&times es la x para cerrar el modal-->
+              </button>
+            </div>
+            <div class="modal-body"> <!--Cuerpo del moodal donde ira el contenido-->
+              <div class="canal">
+                <div class="contenedor">
+                    <div class="foto-perfil">
+                        <img src="img/user-icon.png">
+                    </div>
+                    <div class="inputs">
+                        <input class="form-control" id="nombreCanal" type="text" placeholder="Nombre">
+                        <textarea style="width: 250px !important;" class="form-control" id="descripcionCanal" type="text" placeholder="Descripcion del canal"></textarea>
+                    </div>
+                </div>
+              </div>
+
+              <div class="modal-body-2">
+                    <p class="txt-12">
+                      Al hacer clic en "Crear canal", aceptas las<a class="txt-12" href="https://www.youtube.com/t/terms">
+                      Condiciones de Servicio de YouTube.</a>
+                      <br><a class="txt-12" href="https://support.google.com/youtube/answer/1646861?topic=3024170&hl=es">
+                      Más información</a>
+                    </p>
+                    <p class="txt-12 mt-2">Los cambios que hagas se aplicarán al contenido de todos los servicios de Google que crees y 
+                        compartas, y los verán las personas con las que interactúes.<a class="txt-12" href="https://support.google.com/accounts/answer/6304920?visit_id=1-636558036907961102-1616914527&p=infosharing&hl=es&rd=1">
+                        Más información</a>
+                    </p>
+                    <p class="txt-12 mt-2">
+                      <a class="txt-12 mt-2" href="#">Utiliza un nombre de empresa u otro nombre</a> <!--OJO!!! aqui vamos atener que hacer otro formulario-->
+                    </p>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                <button id="btn-crear-canal" onclick="crearCanal('<?php echo $_SESSION["codigo"] ?>')" type="button" class="btn btn-primary">Crear Canal</button>
+            </div>
+
+          </div>
+        </div>
+            </div>
+    <!--Fin modal para crear el canal-->
 
     <!--Cuerpo de Youtube -->
     <div class="container-fluid no-padding mt-5">
@@ -583,8 +639,6 @@
         </div>
 
         <script src="js/jquery-3.3.1.min.js"></script>
-       <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0">
-        </script>-->
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/videos.js"></script>

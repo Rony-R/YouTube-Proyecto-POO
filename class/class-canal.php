@@ -8,13 +8,23 @@
 		private $subs;
 		private $descripcion;
 
-        public function __construct($nombre_canal,$banner,$asset,$subs, $descripcion)
+		private $codigo_canal;
+		private $codigo_usuario;
+		private $num_videos;
+		private $num_suscriptores;
+
+		public function __construct($nombre_canal,$banner,$asset,$subs, $descripcion, $codigo_canal, $codigo_usuario,
+									$num_videos, $num_suscriptores)
         {
 			$this->nombre_canal = $nombre_canal;
 			$this->banner = $banner;
 			$this->asset = $asset;
 			$this->subs = $subs;
 			$this->descripcion = $descripcion;
+			$this->codigo_canal = $codigo_canal;
+			$this->codigo_usuario = $codigo_usuario;
+			$this->num_videos = $num_videos;
+			$this->num_suscriptores = $num_suscriptores;
         }
         
 		public function getNombre_canal(){
@@ -87,10 +97,96 @@
             while($fila = $conexion->obtenerFila($result)){
                 $canales[] = $fila;
             }
-           
-
             return json_encode($canales);    
 		}
+
+		
+		public function crearCanal($conexion)
+		{
+			$instruccion = sprintf("INSERT INTO tbl_canales(codigo_usuario, nombre_canal, banner,
+											    foto_canal, num_videos, descripcion_canal, num_suscriptores)
+									 VALUES (%s,'%s','%s','%s',%s,'%s',%s)",
+									 $conexion->antiInyeccion($this->codigo_usuario),
+									 $conexion->antiInyeccion($this->nombre_canal),
+									 $conexion->antiInyeccion($this->banner),
+									 $conexion->antiInyeccion($this->asset),
+									 $conexion->antiInyeccion($this->num_videos),
+									 $conexion->antiInyeccion($this->descripcion),
+									 $conexion->antiInyeccion($this->num_suscriptores));
+
+			$instruccion2 = sprintf("UPDATE tbl_usuarios SET tiene_canal= 1
+									 WHERE codigo_usuario= %s",
+									 $conexion->antiInyeccion($this->codigo_usuario));
+
+			$resultado = $conexion->ejecutarConsulta($instruccion);
+			$resultado2 = $conexion->ejecutarConsulta($instruccion2);
+
+			if($resultado)
+			{
+				//$msj['mensaje'] = "Se ha agregado creado el canal con exito!!!";
+				//return json_encode($msj);
+				$canal['nombre'] = $this->nombre_canal;
+			}
+			else
+			{
+				$canal['nombre'] = "No se creo el canal!!!";
+			}
+
+			return json_encode($canal);
+
+		}
+
+		public function verificacionCanal($conexion)
+		{
+			$instruccion = sprintf("SELECT codigo_canal, codigo_usuario, nombre_canal, banner, foto_canal,
+									 num_videos, descripcion_canal, num_suscriptores 
+									 FROM tbl_canales 
+									 WHERE codigo_usuario= %s",
+									 $conexion->antiInyeccion($this->codigo_usuario));
+
+			$resultado = $conexion->ejecutarConsulta($instruccion);
+
+			$fila = $conexion->obtenerFila($resultado);
+
+			if($conexion->cantidadRegistros($resultado) > 0)
+			{
+				$respuesta["tieneCanal"] = 1;
+				$respuesta["dato"] = $fila["nombre_canal"];
+			}
+			else
+			{
+				$respuesta["tieneCanal"] = 0;
+				$respuesta["dato"] = "El usuario no tiene canal";
+			}
+
+			return json_encode($respuesta);
+
+		}
+
+		public function obtenerCodigoCanal($conexion)
+		{
+			$instruccion = sprintf("SELECT codigo_canal, codigo_usuario, nombre_canal, banner, foto_canal,
+									 num_videos, descripcion_canal, num_suscriptores 
+									 FROM tbl_canales 
+									 WHERE codigo_usuario= %s",
+									 $conexion->antiInyeccion($this->codigo_usuario));
+
+			$resultado = $conexion->ejecutarConsulta($instruccion);
+
+			$fila = $conexion->obtenerFila($resultado);
+
+			if($conexion->cantidadRegistros($resultado) > 0)
+			{
+				$respuesta["codigoCanal"] = $fila["codigo_canal"];
+			}
+			else
+			{
+				$respuesta["codigoCanal"] = "El usuario no tiene canal";
+			}
+
+			return json_encode($respuesta);
+		}
+
 		
 		/**
 		 * Funcion que obtiene todos los canales que el usuario no esta susrito

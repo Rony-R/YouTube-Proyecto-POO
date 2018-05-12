@@ -10,10 +10,11 @@
         private $contrasena;
         private $nacimiento;
         private $telefono;
-        private $ubicacion;
+		private $ubicacion;
+		private $tiene_canal;
 
         public function __construct($codigo_usuario,$codigo_genero,$nombre,$apellido,$correo,$contrasena,
-                                    $nacimiento,$telefono,$ubicacion)
+                                    $nacimiento,$telefono,$ubicacion, $tiene_canal)
         {
 			$this->codigo_usuario = $codigo_usuario;
 			$this->codigo_genero = $codigo_genero;
@@ -24,6 +25,7 @@
 			$this->nacimiento = $nacimiento;
 			$this->telefono = $telefono;
 			$this->ubicacion = $ubicacion;
+			$this->tiene_canal = $tiene_canal;
         }
         
 		public function getCodigo_usuario(){
@@ -97,8 +99,8 @@
         public function ingresarUsuario($conexion)
         {
             $instruccion = sprintf("INSERT INTO tbl_usuarios(codigo_genero, nombre, apellido, correo, contrasena, 
-									fecha_nacimiento, telefono, ubicacion)
-                                    VALUES(%s, '%s', '%s', '%s', sha1('%s'), STR_TO_DATE('%s', '%s'), '%s', '%s')",
+									fecha_nacimiento, telefono, ubicacion, tiene_canal)
+                                    VALUES(%s, '%s', '%s', '%s', sha1('%s'), STR_TO_DATE('%s', '%s'), '%s', '%s', 0)",
                                     $conexion->antiInyeccion($this->codigo_genero), 
                                     $conexion->antiInyeccion($this->nombre),
                                     $conexion->antiInyeccion($this->apellido),
@@ -130,7 +132,7 @@
 			session_start();
 
 			$instruccion = sprintf("SELECT codigo_usuario, nombre, apellido, correo, contrasena,
-							 		fecha_nacimiento
+							 		fecha_nacimiento, tiene_canal
 							 		FROM tbl_usuarios
 							 		WHERE correo='%s' AND contrasena=sha1('%s')",
 							 		$conexion->antiInyeccion($this->correo),
@@ -151,6 +153,7 @@
 				$_SESSION["codigo"] = $respuesta["codigo_usuario"];
 				
 				
+
 			}
 			else
 			{

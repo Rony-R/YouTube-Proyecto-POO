@@ -63,33 +63,37 @@ function obtenerRecomendados(parametros) {
         data: parametros,
         dataType: "json",
         success: function (respuesta) {
-            for (var i = 0; i < respuesta.length; i++) {
-                $("#div-recomendados").append(
-                    '<div class="row ml-2">' +
-                    '<div class="col-12 p-0">' +
-                    '<div class="row no-gutters">' +
-                    '<div class="foto col-xl-7 col-lg-7 col-md-7">' +
-                    '<a href="video-watch.php?id=' + respuesta[i].codigo_video + '" class="d-block" onclick="Neurona(' +
-                    respuesta[i].codigo_video + ')">' +
-                    '<div class="video-miniatura-tendencias mt-3">' +
-                    '<img class="img-fluid" src="../' + respuesta[i].url_miniatura + '">' +
-                    '</div>' +
-                    '</a>' +
-                    '</div>' +
-                    '<div class=" col-xl-5 col-lg-5 col-md-5">' +
-                    '<div class=" ml-2 p-1 mt-2">' +
-                    '<a href="video-watch.php?id=' + respuesta[i].codigo_video + '" class="video-links">' +
-                    respuesta[i].titulo +
-                    '</a>' +
-                    '<p class="video-descripcion yt-color">' + respuesta[i].nombre_canal + ' <br> ' +
-                    parseVisualizaciones(respuesta[i].num_visualizaciones) + '' +
-                    '</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>'
-                );
+            if (respuesta.length > 0) {
+                for (var i = 0; i < respuesta.length; i++) {
+                    $("#div-recomendados").append(
+                        '<div class="row ml-2">' +
+                        '<div class="col-12 p-0">' +
+                        '<div class="row no-gutters">' +
+                        '<div class="foto col-xl-7 col-lg-7 col-md-7">' +
+                        '<a href="video-watch.php?id=' + respuesta[i].codigo_video + '" class="d-block" onclick="Neurona(' +
+                        respuesta[i].codigo_video + ')">' +
+                        '<div class="video-miniatura-tendencias mt-3">' +
+                        '<img class="img-fluid" src="../' + respuesta[i].url_miniatura + '">' +
+                        '</div>' +
+                        '</a>' +
+                        '</div>' +
+                        '<div class=" col-xl-5 col-lg-5 col-md-5">' +
+                        '<div class=" ml-2 p-1 mt-2">' +
+                        '<a href="video-watch.php?id=' + respuesta[i].codigo_video + '" class="video-links">' +
+                        respuesta[i].titulo +
+                        '</a>' +
+                        '<p class="video-descripcion yt-color">' + respuesta[i].nombre_canal + ' <br> ' +
+                        parseVisualizaciones(respuesta[i].num_visualizaciones) + ' vistas' +
+                        '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+                    );
+                }
+            }else{
+                $("#div-recomendados").append("<p class='font-weight-bold'>No hay mas videos de esta categoria</p>");
             }
         },
         error: function (e) {

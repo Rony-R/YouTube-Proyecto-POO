@@ -148,11 +148,13 @@
             if($resultado)
 			{
 				$msj['mensaje'] = "Se ha agregado la configuracion!!!";
+				$msj["sql"] = $instruccion;
 				return json_encode($msj);
 			}
 			else
 			{
 				$msj['mensaje'] = "No se agrego la configuracion!!!";
+				$msj["sql"] = $instruccion;
 				return json_encode($msj);
 			}
         }

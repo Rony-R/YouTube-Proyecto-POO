@@ -275,7 +275,7 @@ function verificarLogIn()
       if(respuesta == 1)
       {
         mostrarLogIn();
-        window.location.href = "./form-videos.html";
+        window.location.href = "./form-videos.php";
       }
       else
       {
@@ -287,9 +287,32 @@ function verificarLogIn()
 }
 
 /**Boton que guarda la informacion de los videos **/
-function publicarVideo()
-{
+function publicarVideo(codUsuario)
+{ 
+  var codigo = "codigo=" +codUsuario;
+
+  var codCanal;
+  var ultId;
+
+    $.ajax({
+      url: "ajax/api.php?accion=obtenerCodigoCanal",
+      async: false,
+      method: "POST",
+      data: codigo, 
+      dataType: "json",
+      success: function(respuesta){
+         //console.log(respuesta.codigoCanal);
+         codCanal = respuesta.codigoCanal;
+      },
+      error: function(e)
+      {
+        console.log(e);
+      }
+    });
+
   var parametrosVideos =  "titulo=" +$("#titulo-video").val()+
+                          "&codCanal=" +codCanal+
+                          "&url-vid=" +$("#span-url").html()+
                           "&descripcion=" +$("#txta-descripcion1").val()+
                           "&etiqueta=" +$("#etiquetas-video").val()+
                           "&acceso=" +$("#slc-accesos").val()+                         
@@ -300,8 +323,36 @@ function publicarVideo()
                           "&tituloTraducido=" +$("#nombre-video2").val()+
                           "&descripcionTraducida=" +$("#txta-descripcion3").val()+
                           "&categoria=" +$("#slc-categoria").val();
+  console.log(parametrosVideos);
+                        
+  $.ajax({
+    url: "ajax/api.php?accion=insertar-video",
+    data: parametrosVideos,
+    async: false,
+    method: "POST",
+    dataType: "json",
+    success:function(respuesta){
+      console.log(respuesta);
+      console.log(respuesta.sql);
+      if(respuesta.estado == 0)
+      {
+        window.location.href = "watch/video-watch.php?id="+respuesta.ultimoId;
+        ultId = respuesta.ultimoId;
+        
+      }
+      else{
+        window.location.href = "form-videos.php";
+      }
+       
+    },
+    error:function(e,text,error){
+      console.log(e);
+      console.log(error);
+    }
+});
 
   var parametrosConfiguracion =   "&comentarios=" +$("#chk-permitir-comentarios").val()+
+                                  "&codigo_video=" +ultId+
                                   "&motrarComentarios=" +$("#slc-mostrar").val()+
                                   "&ordenaComentarios=" +$("#slc-comentarios").val()+
                                   "&valoraciones=" +$("#chk-valoraciones").val()+
@@ -310,36 +361,23 @@ function publicarVideo()
                                   "&subtitutlos=" +$("#slc-motivos").val()+
                                   "&opcDist1=" +$("#chk-dist1").val()+
                                   "&opcDist2=" +$("#chk-dist2").val()+
-                                  "&restriccionEdad=" +$("#chk-restriccion")+
+                                  "&restriccionEdad=" +$("#chk-restriccion").val()+
                                   "&ubicacion=" +$("#input-buscar").val()+
                                   "&idiomaVideo=" +$("#slc-idioma2").val()+
                                   "&contribucion=" +$("#chk-contribuciones").val()+
                                   "&fecha-grabacion=" +$("#input-fecha-grabacion").val()+
-                                  "&estadisticas=" +$("#chk-estadisticas")+
-                                  "&contenido=" +$("#chk-declaracion");
+                                  "&estadisticas=" +$("#chk-estadisticas").val()+
+                                  "&contenido=" +$("#chk-declaracion").val();
 
-    console.log("Parametros del video: " + parametrosVideos);
-    console.log("Parametros configuracion: " + parametrosConfiguracion);
+    
 
-    $.ajax({
-        url: "ajax/api.php?accion=insertar-video",
-        data: parametrosVideos,
-        method: "POST",
-        dataType: "json",
-        success:function(respuesta){
-          alert(respuesta.mensaje);
-
-        }
-    });
-
-    $.ajax({
+   $.ajax({
       url: "ajax/api.php?accion=config-video",
       data: parametrosConfiguracion,
       method: "POST",
       dataType: "json",
       success:function(respuesta){
         alert(respuesta.mensaje);
-
       }
   });
 
@@ -403,6 +441,10 @@ function mostrarLogIn()
   $("#ocultar-al-login").removeClass("display-block");
   $("#ocultar-al-login").addClass("display-none");
   $("#ocultar-al-login2").addClass("display-none");
+
+  $("#btn-up2").removeClass("display-none");
+  $("#btn-up").addClass("display-none");
+
 }
 
 function ocultarLogOut()
@@ -415,14 +457,92 @@ function ocultarLogOut()
   $("#drop-puntitos").removeClass("display-none");
   $("#ocultar-al-login").removeClass("display-none");
   $("#ocultar-al-login2").removeClass("display-none");
+
+  $("#btn-up2").addClass("display-none");
+  $("#btn-up").removeClass("display-none");
+
 }
 
-$("#seleccionar-video").click(function(){
+function verificarCanal(cod)
+{
+  var dato = "codigoUsuario=" +cod;
 
-  $(document).on('change', 'input[type:file]', function(e){
-    var path = URL.crearObjectURL(e.target.files[0]);
-    $('span').html(path);
-    $('img').attr('src', path);
+  $.ajax({
+    url: "ajax/api.php?accion=verificarCanal",
+    method: "POST",
+    data: dato,
+    dataType: "json",
+    success: function(respuesta){
+
+      console.log(respuesta);
+
+      if(respuesta.tieneCanal == 1)
+      {
+        obtenerInfoCanal(respuesta.dato);
+      }
+      else
+      {
+        $('#modal-yt').modal('show');
+      }
+
+    },
+    error: function(e){
+      console.log(e);
+    }
   });
+}
 
-});
+function crearCanal(codigoUsuario)
+{ 
+    var datosCanal = "nombre=" +$("#nombreCanal").val()+
+                    "&codigo=" + codigoUsuario+
+                    "&descripcion=" +$("#descripcionCanal").val()+
+                    "&banner=" +"img/youtube.png"+
+                    "&foto_canal=" +"img/user-icon.png";
+
+    console.log(datosCanal);
+
+    $.ajax({
+      url: "ajax/api.php?accion=crear-canal",
+      method: "POST",
+      data: datosCanal,
+      dataType: "json",
+      success: function(respuesta){
+        console.log(respuesta.nombre);
+        obtenerInfoCanal(respuesta.nombre);
+      }
+    });
+
+}
+
+function verificacionDoble(codigoUser)
+{
+  var dato = "codigoUsuario=" +codigoUser;
+
+  $.ajax({
+    url: "ajax/api.php?accion=verificarCanal",
+    method: "POST",
+    data: dato,
+    dataType: "json",
+    success: function(respuesta){
+
+      console.log(respuesta);
+
+      if(respuesta.tieneCanal == 1)
+      {
+        window.location.href = "./form-videos.php";
+      }
+      else
+      {
+        $('#modal-yt').modal('show');
+        $("#btn-crear-canal").click(function(){
+          window.location.href = "./form-videos.php";
+        });
+      }
+
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+}

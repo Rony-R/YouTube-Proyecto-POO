@@ -1,59 +1,6 @@
 $.getScript("js/funciones.js");
-//$.getScript("js/red.js");
 $(document).ready(function () {
-  /*$.ajax({
-    url: "ajax/api.php?accion='redRecomendados'",
-    data: "id=3",
-    dataType: "json",
-    success: function(respuesta) {
-      
-      var videos = "";
-      for (var i = 0; i < respuesta.length; i++) {
-        videos +=
-          '<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">' +
-          '<a href="watch/video-watch.php?id=' +
-          respuesta[i].codigo_video +
-          '" class="d-block" onclick="Neurona(' +
-          respuesta[i].codigo_video +
-          ')">' +
-          '<div class="video-miniatura">' +
-          '<img class="img-fluid" id="miniatura" src=' +
-          respuesta[i].url_miniatura +
-          ">" +
-          '<div class="descripcion">' +
-          '<a href="watch/video-watch.php?id=' +
-          respuesta[i].codigo_video +
-          '" class="video-title" onclick="Neurona(' +
-          respuesta[i].codigo_video +
-          ')" id="titulo-video">' +
-          respuesta[i].titulo +
-          "</a>" +
-          '<p class="yt-color video-text" id="informacion">' +
-          respuesta[i].nombre_canal +
-          "<br>" +
-          parseVisualizaciones(respuesta[i].num_visualizaciones) +
-          " vistas &bull; Hace " +
-          parseTimeElement(respuesta[i].fecha_subida) +
-          "</p>" +
-          "</div>" +
-          "</div>" +
-          "</a>" +
-          "</div>";
-      }
-      $("#div-videos").append(
-        '<div class="content-name"> Recomendados' +
-          "</div>" +
-          '<div class="row border-bottom mt-3">' +
-          videos +
-          "</div>"
-      );
-    },
-    error: function(e,text,error){
-      console.log(e);
-      console.log(error);
-    }
-  });
-*/
+  
 
   $.ajax({
     url: "ajax/api.php?accion='obtener-videos'",
@@ -61,9 +8,7 @@ $(document).ready(function () {
     success: function (respuesta) {
 
       var num = respuesta.length - 1;
-      $("#div-videos").append(
-        '<div class="content-name border-bottom mt-4 p-2" style="font-size: 20px;"> Mas videos en YouTube <br>' + "</div>"
-      );
+     
       for (var j = 0; j < respuesta[num].categorias.length; j++) {
         $("#div-videos").append(
           '<div class="content-name">' +
@@ -81,7 +26,7 @@ $(document).ready(function () {
       console.log(text);
     }
   });
-  //train(1);
+  
 });
 
 /**
