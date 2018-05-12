@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
+    <?php echo "<span class='d-none' id='txt-codigo-canal'>".$_GET["codigo_canal"]."</span>"?>
     <meta charset="utf-8" />
     <title> <?php echo $_GET["nombre_canal"]?> - YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +14,7 @@
 </head>
 
 <body class="yt-background-color">
-
+    
     <!--Barra de navegacion de YouTube -->
     <nav class="navbar  navbar-light bg-light fixed-top barra">
 
@@ -32,7 +34,7 @@
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
-            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.html';" title="Subir video"
+            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.php';" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
             </button>
@@ -84,7 +86,7 @@
                 </button>
                 <!--Menu dropdown de las configuraciones de YT-->
                 <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.html">
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.php">
                         <div class="pl-2 pr-4">
                             <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
                         </div>
@@ -202,13 +204,13 @@
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="tendencias.html" title="Tendencias">
+                        <a href="tendencias.php" title="Tendencias">
                             <i class="btn btn-ligth fas fa-fire fa-lg pt-3 pb-3 ml-2  mr-4"></i>
                             Tendencias
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="historial.html" title="Historial">
+                        <a href="historial.php" title="Historial">
                             <i class="btn btn-ligth fas fa-history fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Historial
                         </a>
@@ -220,19 +222,19 @@
                     <div class="border-bottom pt-2 pb-2">
                         <div class="string-text">
                             BIBLIOTECA
-                            <br><br>
+                            <br>
                         </div>
-                        <div class="entrada pt-2 pb-2">
+                        <div class="entrada">
                             <a href="#" class="ml-2 d-block">
                                 <i class="btn btn-ligth fab fa-youtube fa-lg pt-3 pb-3 ml-2 mr-2"></i>Suscripciones
                             </a>
                         </div>
-                        <div class="entrada pt-2 pb-2">
-                            <a href="#" class="ml-2 d-block">
+                        <div class="entrada">
+                            <a href="ver_mas_tarde.php" class="ml-2 d-block">
                                 <i class="btn btn-ligth fas fa-clock fa-lg pt-3 pb-3 ml-2 mr-2"></i>Ver más Tarde
                             </a>
                         </div>
-                        <div class="entrada pt-2 pb-2">
+                        <div class="entrada">
                             <a href="#" class="ml-2 d-block">
                                 <i class="btn btn-ligth fas fa-thumbs-up fa-lg pt-3 pb-3 ml-2 mr-2"></i>Videos que me gus...
                             </a>
@@ -305,7 +307,7 @@
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="explorar.html" title="Explorar canales">
+                        <a href="explorar.php" title="Explorar canales">
                             <i class="btn btn-ligth fas fa-plus fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Explorar canales
                         </a>
@@ -321,7 +323,7 @@
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="configuracion.html" title="Inicio">
+                        <a href="configuracion.php" title="Inicio">
                             <i class="btn btn-ligth fas fa-cog fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Configuración
                         </a>
@@ -483,7 +485,7 @@
                                         <i class="fas fa-eraser i-ayuda"></i>
                                     </span>
                                     <span class="col-lg-11">
-                                        <a class="link-negro" href="historial.html"><label class="txt-18">Borrar el historial de reproducciones</label></a>
+                                        <a class="link-negro" href="historial.php"><label class="txt-18">Borrar el historial de reproducciones</label></a>
                                     </span> 
                                 </div><hr class="hr-ayuda">
                                 <div class="row">
@@ -568,7 +570,7 @@
                         </div>
                         <div class="footer">
                             <div class="btn-group item-center mt-2" role="group" aria-label="Basic example">
-                                <button onclick="location.href='<?php echo $_GET["nombre_canal"]?>.php'" type="button" class="btn btn-light">INICIO</button>
+                                <button onclick="location.href='<?php echo "estructura-canal.php?".http_build_query($_GET); ?>'" type="button" class="btn btn-light">INICIO</button>
                                 <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'videos.php')" type="button" class="btn btn-light">VÍDEOS</button>
                                 <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'playlists.php')" type="button" class="btn btn-light">LISTA DE REPRODUCCIÓN</button>
                                 <button onclick="btnGroup('<?php echo $_GET['nombre_canal']?>', 'btn-canales.php')" type="button" class="btn btn-light">CANALES</button>
@@ -585,26 +587,6 @@
                             <div class="row border-bottom" id="yt-video-canal">
                     
                             </div>
-                            <div class="content-name">
-                                Canal # 1
-                            </div>
-                            <div class="row border-bottom" id="yt-video-canal-1">
-                                
-                            </div>
-    
-                            <div class="content-name">
-                                Canal # 2
-                            </div>
-                            <div class="row border-bottom" id="yt-video-canal-2">
-                                                        
-                            </div>
-    
-                            <div class="content-name">
-                                Canal # 3
-                            </div>
-                            <div class="row border-bottom" id="yt-video-canal-3">
-                               
-                            </div>
                         </div>
                     </div>
             </main>
@@ -615,8 +597,8 @@
             <script src="js/controlador.js"></script>
             <script src="js/bootstrap.js"></script>
             <script src="js/menu.js"></script>
-            <script src="js/v-canales.js"></script>
             <script src="js/barra.js"></script>
+            <script src ="js/videos-canal.js"></script>
 
 </body>
 

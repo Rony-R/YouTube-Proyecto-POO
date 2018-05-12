@@ -1,23 +1,21 @@
-<!DOCTYPE html>
 <?php
     session_start();
-    if(!isset($_GET["id"])){
-        header("location: ../index.php");
-    }
-    echo '<span class="d-none" id="div-codigo">'.$_GET["id"].'</span>'
 ?>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" type="image/png" href="../img/favicon-yt.png">
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title id="title-pg"></title>
+    <title>Explorar - YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/custom.css">
-    <link rel="stylesheet" href="../css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
+
 <body class="yt-background-color">
+
     <!--Barra de navegacion de YouTube -->
     <nav class="navbar navbar-light bg-light fixed-top barra">
 
@@ -25,9 +23,9 @@
             <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="nav-item nav-link active ml-4" href="../index.php" id="yt-brand">
+            <a class="nav-item nav-link active ml-4" href="index.php" id="yt-brand">
                 <div class="logo-container align-middle">
-                    <img src="../img/yt-logo-2.png" alt="" class="logo">
+                    <img src="img/yt-logo-2.png" alt="" class="logo">
                 </div>
             </a>
             <button type="button" class="btn btn-light d-none" id="btn-atras">
@@ -52,34 +50,34 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btn-apps">
                     <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
                         <div class="pl-2 pr-4">
-                            <img src="../img\assets\yt-tv.png" class=" ml-2 mr-3"> YouTube TV
+                            <img src="img\assets\yt-tv.png" class=" ml-2 mr-3"> YouTube TV
                         </div>
                     </a>
                     <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
                         <div class="pl-2 pr-4">
-                            <img src="../img\assets\yt-gaming.png" class=" ml-2 mr-3"> YouTube Gaming
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                        <div class="pl-2 pr-4">
-                            <img src="../img\assets\yt-music.png" class=" ml-2 mr-3"> YouTube Music
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                        <div class="pl-2 pr-4">
-                            <img src="../img\assets\yt-kids.png" class=" ml-2 mr-3"> YouTube Kids
+                            <img src="img\assets\yt-gaming.png" class=" ml-2 mr-3"> YouTube Gaming
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
                         <div class="pl-2 pr-4">
-                            <img src="../img\assets\yt-icon.png" class=" ml-2 mr-3"> Academia de Creadores
+                            <img src="img\assets\yt-music.png" class=" ml-2 mr-3"> YouTube Music
                         </div>
                     </a>
                     <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
                         <div class="pl-2 pr-4">
-                            <img src="../img\assets\yt-icon.png" class=" ml-2 mr-3"> Youtube para Artistas
+                            <img src="img\assets\yt-kids.png" class=" ml-2 mr-3"> YouTube Kids
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Academia de Creadores
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                        <div class="pl-2 pr-4">
+                            <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Youtube para Artistas
                         </div>
                     </a>
                 </div>
@@ -136,13 +134,14 @@
                 </button>
 
                 <a id="log-usuario" class="ml-2 display-none" data-toggle="modal" data-target="#modal-usuario">
-                    <img style="width: 27px; height: 27px" src="../img/user-icon.png" id="usuario-img" class="img-fluid">
+                    <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
                 </a>
                 
             <!--Fin contenido que desaparecera cuando el usuario haga login-->
 
         </form>
     </nav>
+
     <!--Modal del usuario-->
     <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -150,12 +149,10 @@
                 <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
                    <div class="row">
                         <div id="foto-user">
-                            <img style="width: 50px; height: 50px" src="../img/user-icon.png" id="usuario-img" class="img-fluid">
+                            <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                            <span class="ml-2"><?php echo $_SESSION["nombre"]?></span>
                         </div>
                         <div id="datos-user" style="margin-left: 25px;">
-                            <div class="row">
-                                <p class=""><?php echo $_SESSION["nombre"]?></p>
-                            </div>
                             <div class="row">
                                 <p><?php echo $_SESSION["usr"]?></p>
                                 <span class="d-none" id="txt-codigo"><?php echo $_SESSION["codigo"] ?></span>
@@ -197,27 +194,28 @@
 
         </div>
     </div>
-    
-  <!--Cuerpo de Youtube -->
-  <div class="container-fluid no-padding mt-5">
+    <!--Fin modal del usuario-->
+
+    <!--Cuerpo de Youtube -->
+    <div class="container-fluid no-padding mt-5">
         <div class="row no-gutters">
             <!--Barra lateral de YouTube-->
-            <aside class="sidebar col-xl-2 col-lg-2 col-md-2 nav flex-column  d-none navbar-fixed-left" id="barraNav">
+            <aside class="sidebar col-xl-2 col-lg-2 col-md-2 nav flex-column d-block navbar-fixed-left" id="barraNav">
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="../index.php" title="Inicio" class="d-block item-center">
-                            <i class="btn btn-ligth fas fa-home fa-lg pt-3 pb-3 ml-2 mr-4 selected"></i>
+                        <a href="index.php" title="Inicio">
+                            <i class="btn btn-ligth fas fa-home fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Inicio
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="../tendencias.php" title="Tendencias" class="d-block">
+                        <a href="tendencias.php" title="Tendencias">
                             <i class="btn btn-ligth fas fa-fire fa-lg pt-3 pb-3 ml-2  mr-4"></i>
                             Tendencias
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="../historial.php" title="Historial" class="d-block">
+                        <a href="historial.php" title="Historial">
                             <i class="btn btn-ligth fas fa-history fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Historial
                         </a>
@@ -225,72 +223,70 @@
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="string-text">
-                        LO MEJOR DE YOUTUBE
-                        <br>
-                        <br>
+                        <p>LO MEJOR DE YOUTUBE</p>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="../musica.html" title="Música" class="ml-2 d-block">
-                            <img src="../img/assets/music.jpg" class="img-size img-fluid ml-2 icon-margin"> Música
+                        <a href="musica.html" title="Música" class="ml-2">
+                            <img src="img/assets/music.jpg" class="img-size ml-2 icon-margin"> Música
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="../deportes.html" title="Deportes" class="ml-2 d-block">
-                            <img src="../img/assets/sport.jpg" class="img-size img-fluid ml-2 icon-margin"> Deportes
+                        <a href="deportes.html" title="Deportes" class="ml-2">
+                            <img src="img/assets/sport.jpg" class="img-size ml-2 icon-margin"> Deportes
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="../juegos.html" title="Juegos" class="ml-2 d-block">
-                            <img src="../img/assets/games.jpg" class="img-size img-fluid ml-2 icon-margin"> Juegos
+                        <a href="juegos.html" title="Juegos" class="ml-2">
+                            <img src="img/assets/games.jpg" class="img-size ml-2 icon-margin"> Juegos
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="../noticias.html" title="Noticias" class="ml-2 d-block">
-                            <img src="../img/assets/news.jpg" class="img-size img-fluid ml-2 icon-margin"> Noticias
+                        <a href="noticias.html" title="Noticias" class="ml-2">
+                            <img src="img/assets/news.jpg" class="img-size ml-2 icon-margin"> Noticias
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="../en-vivo.html" title="En vivo" class="ml-2 d-block">
-                            <img src="../img/assets/live.jpg" class="img-size img-fluid ml-2 icon-margin"> En vivo
+                        <a href="en-vivo.html" title="En vivo" class="ml-2">
+                            <img src="img/assets/live.jpg" class="img-size ml-2 icon-margin"> En vivo
                         </a>
                     </div>
                     <div class="entrada pt-2 pb-2">
-                        <a href="../videos-360.html" title="Videos en 360°" class="ml-2 d-block">
-                            <img src="../img/assets/explore.jpg" class="img-size img-fluid ml-2 icon-margin"> Videos en 360°
+                        <a href="videos-360.html" title="Videos en 360°" class="ml-2">
+                            <img src="img/assets/explore.jpg" class="img-size ml-2 icon-margin"> Videos en 360°
                         </a>
                     </div>
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="../explorar.php" title="Explorar canales" class="d-block">
-                            <i class="btn btn-ligth fas fa-plus fa-lg pt-3 pb-3 ml-2 mr-3 "></i>
-                            <label class="md-text"> Explorar canales </label>
+                        <a href="explorar.php" title="Explorar canales">
+                            <i class="btn btn-ligth fas fa-plus fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
+                            Explorar canales
                         </a>
                     </div>
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="ml-2 mr-2 pt-2 pb-2">
                         <p>Accede ahora para ver tus canales y recomendaciones.</p>
-                        <a href="../modal-inicio-google.html" title="" id="link-acceso">
+                        <a href="inicio-google.html" title="" id="link-acceso">
                             ACCEDER
                         </a>
                     </div>
                 </div>
                 <div class="border-bottom pt-2 pb-2">
                     <div class="entrada">
-                        <a href="../configuracion.php" title="Configuracion" class="d-block">
+                        <a href="configuracion.php" title="Inicio">
                             <i class="btn btn-ligth fas fa-cog fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Configuración
                         </a>
                     </div>
                     <div class="entrada">
-                        <a href="#" title="Ayuda" class="d-block">
+                        <a data-toggle="modal" data-target="#modal-ayuda" title="Ayuda">
                             <i class="btn btn-ligth fas fa-question-circle fa-lg pt-3 pb-3 ml-2  mr-4"></i>
                             Ayuda
                         </a>
                     </div>
                     <div class="entrada">
-                        <a title="../Enviar comentario" data-toggle="modal" data-target="#modal-comentarios" class="d-block">
+                        <a data-toggle="modal" data-target="#modal-comentarios" title="Enviar comentario">
                             <i class="btn btn-ligth fas fa-comment-alt fa-lg pt-3 pb-3 ml-2 mr-4 "></i>
                             Enviar Coment
                         </a>
@@ -335,7 +331,8 @@
                                 <a href="#" class="footer-links">Prueba nuevas funciones</a>
                             </li>
                         </ul>
-                        <p class="string-text pt-1" style="font-weight: normal;">© 2018 YouTube, LLC</p>
+
+                        <p class="string-text" style="font-weight: normal;">© 2018 YouTube, LLC</p>
                     </div>
                 </div>
 
@@ -359,7 +356,7 @@
                                 </textarea>
                             </div>
                             <div class="row">
-                                <img class="img-enviar-comentario" src="../img/banner-yt.jpg">
+                                <img class="img-enviar-comentario" src="img/banner-yt.jpg">
                             </div>
                         </div>
 
@@ -385,101 +382,156 @@
             </div>
             <!--fin modal para enviar comentarios-->
 
-            <main class="col-md-12 col-12 main ml-auto" id="yt-body">
-                <!--Seccion de Video-->
-                
-                <div class="row ml-4">
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-xs-12 col-12 p-3">
-                        <div class="row">
-                            <div class="col-12 border-bottom" id="sc-video">
-                                <video src="" style="width: inherit; height: 500px" controls controlsList="nodownload" id="video-content" autoplay>
-                                </video>
-                                <br>
-                            <h3 id="video-title"></h3>
-                            <h5 id="video-visual"></h5>
-                            <br>
-                                <div class="float-right">
-                                    <label>
-                                        <button class="btn btn-outline-light ">
-                                            <i class="fas fa-lg fa-thumbs-up"></i>
-                                        </button>
-                                        <span id="video-likes"></span>
-                                    </label>
-                                    <label>
-                                        <button class="btn btn-outline-light rounded-circle">
-                                            <i class="fas fa-lg fa-thumbs-down"></i>
-                                        </button>
-                                        <span id="video-dislikes"></span>
-                                    </label>
-                                    <label class="yt-color">
-                                        <button class="btn btn-outline-light rounded-circle">
-                                            <i class="fas fa-lg fa-share"></i>
-                                            </button>Compartir
-                                    </label>
-                                    <button class="btn btn-outline-light rounded-circle">
-                                        <i class="fas fa-lg fa-plus-square"></i>
-                                    </button>
-                                    <span class="dropdown">
-                                        <button class="btn btn-outline-light rounded-circle" type="button"
-                                        id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        title="Mas">    
-                                            <i class="fas fa-lg fa-ellipsis-h"></i>
-                                        </button>
-                                        <!--Dropdown de Menu de Mas opciones de video-->
-                                        <div class="dropdown-menu  p-2">
-                                             <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                                                <div class="pl-2 pr-4">
-                                                  Denunciar
-                                                </div>
-                                            </a>
-                                            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                                                <div class="pl-2 pr-4">
-                                                  Abrir transcripcion
-                                                </div>
-                                            </a>
-                                            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                                                <div class="pl-2 pr-4">
-                                                  Agregar traduccion
-                                                </div>
-                                            </a>
-                                        </div>
-                                    <span>
-                                </div>
-                            </div> 
-                            <div class="col-12 mt-3 mb-3">
-                                <img class="img-fluid rounded-circle" src="" id="foto-canal" style="width: 50px; height: 50px;">
-                                <button class="btn btn-danger float-right mb-4" id="btn-suscribirse">Suscribirse</button>
-                                <span class="font-weight-bold ml-2" id="div-nombre"></span><br>
-                                <span class="yt-color" id="div-fecha" style="margin-left: 60px;"></span><br>
-                                <button class="btn btn-outline-light yt-color" id="btn-mostrar" style="margin-left: 47px;">Mostrar mas</button>
-                                <div class=" d-none text-justify yt-color p-3" id="div-descripcion" >
+            <!--Modal de Ayuda-->
+            <div class="modal" id="modal-ayuda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
 
+                        <div class="modal-header">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <h5 class="modal-title">Ayuda</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        <!--&times es la x para cerrar el modal-->
+                                    </button>
+                                </div>
+                                <div class="row buscar-ayuda">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button id="serch-ayuda" class="btn btn-light btn-ayuda" type="button">
+                                                <i class="fas fa-search fa-lg"></i>
+                                            </button>
+                                        </div>
+                                        <input id="input-ayuda" type="text" class="form-control" placeholder="Buscar en la Ayuda">
+                                    </div>
                                 </div>
                             </div>
-                            <!--Seccion de Comentarios-->
-                            <div class="col-12">
-                               <textarea class="form-control" id="txt-comentario"></textarea>
-                               <br>
-                               <button class="btn btn-danger float-right" id="btn-publicar">Publicar</button>
-                               <div class="row mt-3" id="div-comentarios">
-                                   
-                               </div>
-                            </div> 
                         </div>
+
+                        <div class="modal-body">
+                            <!--Cuerpo del moodal donde ira el contenido-->
+                            <div class="seccion-ayuda-1">
+                                <label class="texto-gris txt-18">Ponte en contacto con nosotros</label>
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="fas fa-exclamation-circle i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <label class="txt-18">¿Necesitas más Ayuda?</label>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="fas fa-comment-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" data-toggle="modal" data-target="#modal-comentarios" data-dismiss="modal">
+                                            <label class="txt-18">Enviar Comentarios</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+                            </div>
+                            <div class="seccion-ayuda-2">
+                                <label class="texto-gris txt-18">Populares</label>
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="fas fa-eraser i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="historial.php">
+                                            <label class="txt-18">Borrar el historial de reproducciones</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Obtener ingresos con tus video</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Subir videos</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Iniciar y cerrar sesion de YouTube</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+                                <div class="row">
+                                    <span class="col-lg-1">
+                                        <i class="far fa-file-alt i-ayuda"></i>
+                                    </span>
+                                    <span class="col-lg-11">
+                                        <a class="link-negro" href="#">
+                                            <label class="txt-18">Quitar contenido recomendado de la página principal</label>
+                                        </a>
+                                    </span>
+                                </div>
+                                <hr class="hr-ayuda">
+
+                                <div class="row">
+                                    <span class="col-lg-11">
+                                        <a href="#">
+                                            <label class="txt-15">ELIMINAR TODOS LOS ARTICULOS</label>
+                                        </a>
+                                    </span>
+                                    <span class="col-lg-1">
+                                        <i class="far fa-share-square i-ayuda"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--<div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Enviar</button>
+                        </div>-->
                     </div>
-                    <!--Seccion de recomendados-->
-                    <div class="col-xl-3 col-lg-2 col-md-2 col-xs-12 col-12 p-1" id="div-recomendados">
-                            <label class="font-weight-bold ml-2 mt-3">Recomendados</label>
-                    </div>
+
                 </div>
-                
+            </div>
+            <!--Fin modal de Ayuda-->
+
+            <!--Seccion de Videos de YouTube-->
+            <main class="col-md-10 col-12 main ml-auto item-center" id="yt-body">
+                <div class="body-grid" id="yt-canales">
+
             </main>
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/barra.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../js/watch.js"></script>
-    <script src ="../js/controlador.js"></script>
-    <span class="d-none" id="nivel">1</span>
+
+            </div>
+
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/bootstrap.js"></script>
+            <script src="js/menu.js"></script>
+            <script src="js/canales.js"></script>
+            <script src="js/barra.js"></script>
+            <script src="js/controlador.js"></script>
+            <span class="d-none" id="nivel">0</span>
+
 </body>
+
 </html>

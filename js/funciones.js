@@ -36,17 +36,21 @@ function parseTimeElement(tiempo) {
   var diasF = Math.floor(dias);
   var tiempo_transcurrido;
   var time = "";
-  if (diasF < 30) {
-    tiempo_transcurrido = diasF;
-    time = tiempo_transcurrido + " dias";
+  if (dias < 1) {
+    time =" unos momentos";
   } else {
-    if (diasF >= 30 && diasF < 365) {
-      tiempo_transcurrido = Math.floor(diasF / 30);
-      time = tiempo_transcurrido + " meses";
+    if (diasF < 30) {
+      tiempo_transcurrido = diasF;
+      time = tiempo_transcurrido + " dias";
     } else {
-      if (diasF >= 365) {
-        tiempo_transcurrido = Math.floor(diasF / 365);
-        time = tiempo_transcurrido + " años";
+      if (diasF >= 30 && diasF < 365) {
+        tiempo_transcurrido = Math.floor(diasF / 30);
+        time = tiempo_transcurrido + " meses";
+      } else {
+        if (diasF >= 365) {
+          tiempo_transcurrido = Math.floor(diasF / 365);
+          time = tiempo_transcurrido + " años";
+        }
       }
     }
   }
@@ -114,4 +118,51 @@ function getMesCadena(mes) {
       break;
   }
   return mes_cadena;
+}
+
+/**
+ * Funcion que le permite al usuario suscribirse
+ * @param {*} codigo_canal 
+ */
+function suscribirse(codigo_canal) {
+  $.ajax({
+    url: "ajax/api.php?accion=verificarLogIn",
+    success: function (respuesta) {
+      if (respuesta == 1) {
+        var parametros = "idUsuario=" + $("#txt-codigo").html() +
+          "&idCanal=" + codigo_canal;
+        var url = "";
+        if ($("#btn-sub-" + codigo_canal).html() == "SUSCRIBIRSE") {
+          url = "ajax/api.php?accion='suscribirse'";
+        } else {
+          if ($("#btn-sub-" + codigo_canal).html() == "UNSUSCRIBE") {
+            url = "ajax/api.php?accion='unsuscribe'";
+          }
+        }
+        $.ajax({
+          url: url,
+          data: parametros,
+          method: "POST",
+          dataType: "json",
+          success: function (respuesta) {
+            if (respuesta.codigo_respuesta == 0) {
+              $("#btn-sub-" + codigo_canal).html(respuesta.estado);
+              location.reload();
+            } else {
+              alert(respuesta.mensaje);
+            }
+          },
+          error: function (e, text, error) {
+
+          }
+        });
+      } else {
+        location.href = "inicio-google.html"
+      }
+    },
+    error: function (e, text, error) {
+      console.log(e);
+      console.log(error);
+    }
+  });
 }
