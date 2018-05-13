@@ -439,6 +439,26 @@
 
 			return json_encode($videos);
 		}
+
+		/**
+		 * Funcion que obtiene los videos de las suscripciones del usuario
+		 */
+		public static function obtenerVideosSub($conexion,$id){
+			$sql =sprintf(
+							"SELECT a.codigo_video ,a.titulo ,a.num_visualizaciones, a.fecha_subida, a.url_miniatura, b.nombre_canal,c.categoria 
+							FROM tbl_videos a 
+							INNER JOIN tbl_canales b ON (a.codigo_canal = b.codigo_canal)
+							INNER JOIN tbl_categorias c ON (a.codigo_categoria = c.codigo_categoria)
+							WHERE b.codigo_canal IN (SELECT codigo_canal FROM tbl_suscripciones WHERE codigo_usuario = %s)
+							ORDER BY a.codigo_video ASC", $conexion->antiInyeccion($id));
+			$result = $conexion->ejecutarConsulta($sql);
+			$videosSub = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$videosSub [] = $fila;
+			}
+			$videosSub[]["categorias"] = self::obtenerCategorias($conexion);
+			return json_encode($videosSub);
+		}
            
 	}
 	

@@ -223,7 +223,7 @@
                             <br>
                         </div>
                         <div class="entrada">
-                            <a href="#" class="ml-2 d-block">
+                            <a href="subs.php" class="ml-2 d-block">
                                 <i class="btn btn-ligth fab fa-youtube fa-lg pt-3 pb-3 ml-2 mr-2"></i>Suscripciones
                             </a>
                         </div>
