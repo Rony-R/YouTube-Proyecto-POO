@@ -1,44 +1,47 @@
 $.getScript("js/funciones.js");
 $(document).ready(function () {
-  
-  var parametro = "id_usuario="+$("#txt-codigo").html();
-  console.log(parametro);
-  $.ajax({
-        url: "ajax/api.php?accion='obtener-canal-sub'",
-        data: parametro,
-        method: "POST",
-        dataType: "json",
-        success: function(respuesta){
-            var canales = "";
-            for (var i = 0; i < respuesta.length; i++) {
-              canales +=
-                '<div class="col-lg-3 col-md-3 mt-4">' +
-                '<div class="container-canal">' +
-                '<div class="imagen item-center">' +
-                '<img class="imagen-circular" src="' +
-                respuesta[i].foto_canal +
-                '">' +
-                "</div>" +
-                '<div class="footer descripcion mt-2">' +
-                "<h6 class='text-center'>" +
-                respuesta[i].nombre_canal +
-                "</h6>" +
-                "<p class='text-center'>" +
-                parseVisualizaciones(respuesta[i].num_suscriptores) +
-                " suscriptores </p>" +
-                '<button class="btn bnt-light btn-sm" style="margin-left: 43px;" id="btn-sub-' + respuesta[i].codigo_canal +
-                '" onclick="suscribirse(' + respuesta[i].codigo_canal + ')">UNSUSCRIBE</button>' +
-                "</div>" +
-                "</div>" +
-                "</div>";
-            }
 
-            $("#div-canal").append(canales);
-        },
-        error: function(e,text,error){
-            console.log(e);
-            console.log(error);
+  var parametro = "id_usuario=" + $("#txt-codigo").html();
+  $.ajax({
+    url: "ajax/api.php?accion='obtener-canal-sub'",
+    data: parametro,
+    method: "POST",
+    dataType: "json",
+    success: function (respuesta) {
+      if (respuesta.length > 0) {
+        var canales = "";
+        for (var i = 0; i < respuesta.length; i++) {
+          canales +=
+            '<div class="col-lg-3 col-md-3 mt-4">' +
+            '<div class="container-canal">' +
+            '<div class="imagen item-center">' +
+            '<img class="imagen-circular" src="' +
+            respuesta[i].foto_canal +
+            '">' +
+            "</div>" +
+            '<div class="footer descripcion mt-2">' +
+            "<h6 class='text-center'>" +
+            respuesta[i].nombre_canal +
+            "</h6>" +
+            "<p class='text-center'>" +
+            parseVisualizaciones(respuesta[i].num_suscriptores) +
+            " suscriptores </p>" +
+            '<button class="btn bnt-light btn-sm" style="margin-left: 43px;" id="btn-sub-' + respuesta[i].codigo_canal +
+            '" onclick="suscribirse(' + respuesta[i].codigo_canal + ')">UNSUSCRIBE</button>' +
+            "</div>" +
+            "</div>" +
+            "</div>";
         }
+
+        $("#div-canal").append(canales);
+      } else {
+        $("#div-canal").append('<p class="font-weight-bold" style="font-size: 20px">No esta suscrito a ningun canal</p>');
+      }
+    },
+    error: function (e, text, error) {
+      console.log(e);
+      console.log(error);
+    }
   });
   $.ajax({
     url: "ajax/api.php?accion=obtener-videos-sub",
@@ -46,16 +49,19 @@ $(document).ready(function () {
     method: "POST",
     dataType: "json",
     success: function (respuesta) {
-      var num = respuesta.length - 1;
-      for (var j = 0; j < respuesta[num].categorias.length; j++) {
-        $("#div-videos").append(
-          '<div class="content-name">' +
-          respuesta[num].categorias[j].categoria +
-          "</div>" +
-          '<div class="row border-bottom mt-3">' +
-          organizarVideos(respuesta[num].categorias[j].categoria, respuesta) +
-          "</div>"
-        );
+      console.log(respuesta);
+      if (respuesta.length > 1) {
+        var num = respuesta.length - 1;
+        for (var j = 0; j < respuesta[num].categorias.length; j++) {
+          $("#div-videos").append(
+            '<div class="content-name">' +
+            respuesta[num].categorias[j].categoria +
+            "</div>" +
+            '<div class="row border-bottom mt-3">' +
+            organizarVideos(respuesta[num].categorias[j].categoria, respuesta) +
+            "</div>"
+          );
+        }
       }
     },
     error: function (e, text, error) {
@@ -64,7 +70,7 @@ $(document).ready(function () {
       console.log(text);
     }
   });
-  
+
 });
 
 /**
@@ -144,8 +150,8 @@ function guardarVideo(codigo_video) {
     url: "ajax/api.php?accion=verificarLogIn",
     success: function (respuesta) {
       if (respuesta == 1) {
-        var parametros = "idUsuario=" + $("#txt-codigo").html()+
-        "&idVideo=" + codigo_video;
+        var parametros = "idUsuario=" + $("#txt-codigo").html() +
+          "&idVideo=" + codigo_video;
         $.ajax({
           url: "ajax/api.php?accion='masTarde'",
           data: parametros,
@@ -155,11 +161,11 @@ function guardarVideo(codigo_video) {
             console.log(respuesta_insert);
             if (respuesta_insert.codigo_respuesta == 0) {
               alert(respuesta_insert.mensaje);
-            }else{
+            } else {
               alert(respuesta_insert.mensaje);
             }
           },
-          error: function(e,text, error){
+          error: function (e, text, error) {
             console.log(e);
             console.log(error);
           }
