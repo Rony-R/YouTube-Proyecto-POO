@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,9 +18,9 @@
 <body class="yt-background-color">
     
     <!--Barra de navegacion de YouTube -->
-    <nav class="navbar  navbar-light bg-light fixed-top barra">
+    <nav class="navbar navbar-light bg-light fixed-top barra">
 
-        <form class="form-inline mb-1 w-100">
+        <div class="form-inline mb-1 w-100">
             <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,14 +32,22 @@
             <button type="button" class="btn btn-light d-none" id="btn-atras">
                 <i class="fas fa-arrow-left fa-lg"></i>
             </button>
-            <input type="text" placeholder="Buscar" class="form-control m-0 d-none d-lg-block ml-5" id="search-box">
+
+            <input type="text" placeholder="Buscar" class="form-control m-0 d-none  d-lg-block ml-5" id="search-box">
             <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
                 <i class="fas fa-search fa-lg"></i>
             </button>
-            <button type="button" class="btn btn-light btn-circle end-btn ml-5" onclick="location.href='form-videos.php';" title="Subir video"
+
+            <span id="div-busqueda" class="p-3 position-absolute  font-weight-bold"></span>
+            <button type="button" class="btn btn-light btn-circle end-btn ml-4" onclick="verificarLogIn()" title="Subir video"
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
             </button>
+            <button type="button" class="btn btn-light btn-circle end-btn ml-4 display-none " onclick="verificacionDoble('<?php echo $_SESSION["codigo"]?>')" title="Subir video"
+                id="btn-up2">
+                <i class="fas fa-upload fa-lg"></i>
+            </button>
+
             <div class="dropdown">
                 <button class="btn btn-light btn-circle end-btn" type="button" id="btn-apps" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" title="Apps de Youtube">
@@ -79,59 +89,63 @@
                     </a>
                 </div>
             </div>
-            <div id="drop-puntitos" class="dropdown">
-                <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    title="Configruacion">
-                    <i class="fas fa-ellipsis-v fa-lg"></i>
-                </button>
-                <!--Menu dropdown de las configuraciones de YT-->
-                <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.php">
-                        <div class="pl-2 pr-4">
-                            <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                        <div class="pl-2 pr-4">
-                            <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
-                        <div class="pl-2 pr-4">
-                            <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                        <div class="pl-2 pr-4 dropdown-toggle">
-                            Idioma: Español
-                        </div>
+
+            <!--Contenido que desaparecera cuando el usuario haga login-->
+                <div id="drop-puntitos" class="dropdown">
+                    <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        title="Configuracion">
+                        <i class="fas fa-ellipsis-v fa-lg"></i>
                     </button>
-                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                        <div class="pl-2 pr-4 dropdown-toggle">
-                            Ubicacion: Estados Unidos
-                        </div>
-                    </button>
-                    <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
-                        <div class="pl-2 pr-4 dropdown-toggle">
-                            Modo Restringido: Desactivado
-                        </div>
-                    </button>
+                    <!--Menu dropdown de las configuraciones de YT-->
+                    <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
+                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.php">
+                            <div class="pl-2 pr-4">
+                                <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
+                            </div>
+                        </a>
+                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                            <div class="pl-2 pr-4">
+                                <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
+                            </div>
+                        </a>
+                        <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                            <div class="pl-2 pr-4">
+                                <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                            <div class="pl-2 pr-4 dropdown-toggle">
+                                Idioma: Español
+                            </div>
+                        </button>
+                        <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                            <div class="pl-2 pr-4 dropdown-toggle">
+                                Ubicacion: Estados Unidos
+                            </div>
+                        </button>
+                        <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                            <div class="pl-2 pr-4 dropdown-toggle">
+                                Modo Restringido: Desactivado
+                            </div>
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <button id="campanita" type="button" class="btn btn-light btn-circle end-btn display-none" title="notificaciones">
-                <i class="fas fa-bell"></i>
-            </button>
+                <button id="campanita" type="button" class="btn btn-light btn-circle end-btn display-none" title="notificaciones">
+                    <i class="fas fa-bell"></i>
+                </button>
 
-            <button id="btn-iniciar-sesion" onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger btn-sm mt-1">
-                 INICIAR SESIÓN
-            </button>
+                <button id="btn-iniciar-sesion" onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger btn-sm mt-1">
+                    INICIAR SESIÓN
+                </button>
 
-            <a id="log-usuario" class="ml-2 display-none" data-toggle="modal" data-target="#modal-usuario">
-                 <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
-            </a>
-            
+                <a id="log-usuario" class="ml-2 display-none" data-toggle="modal" data-target="#modal-usuario">
+                    <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                </a>
+                
+            <!--Fin contenido que desaparecera cuando el usuario haga login-->
+
         </form>
     </nav>
 
@@ -143,13 +157,12 @@
                    <div class="row">
                         <div id="foto-user">
                             <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                            <span class="ml-2"><?php echo $_SESSION["nombre"]?></span>
                         </div>
                         <div id="datos-user" style="margin-left: 25px;">
                             <div class="row">
-                                <p class="no-margin">Nombre Usuario</p>
-                            </div>
-                            <div class="row">
-                                <p>Correo Usuario</p>
+                                <p><?php echo $_SESSION["usr"]?></p>
+                                <span class="d-none" id="txt-codigo"><?php echo $_SESSION["codigo"] ?></span>
                             </div>
                         </div>
                    </div>
@@ -157,11 +170,9 @@
                 <div class="modal-body">
                     <div id="div-1">
                         <i class="fas fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Mi Canal</label> <br>
-                        <i class="fas fa-cog fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Crear Studio</label> <br>
+                        <a onclick="verificarCanal('<?php echo $_SESSION["codigo"]?>')"><label class="mb-2 ml-4 fz-16">Mi Canal</label></a> <br>
                         <i class="far fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label> <br>
+                        <label class="mb-2 ml-4 fz-16">Imagen Perfil</label> <br>
                         <i class="fas fa-sign-out-alt fz-20"></i>
                         <a onclick="cerrarSesion()"><label class="mb-2 ml-4 fz-16">Cerrar Sesión</label></a>
                         <hr>
@@ -188,7 +199,6 @@
 
         </div>
     </div>
-    <!--Fin modal del usuario-->
 
 
     <!--Cuerpo de Youtube -->
@@ -225,7 +235,7 @@
                             <br>
                         </div>
                         <div class="entrada">
-                            <a href="#" class="ml-2 d-block">
+                            <a href="subs.php" class="ml-2 d-block">
                                 <i class="btn btn-ligth fab fa-youtube fa-lg pt-3 pb-3 ml-2 mr-2"></i>Suscripciones
                             </a>
                         </div>

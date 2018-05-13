@@ -48,7 +48,7 @@
                 id="btn-up">
                 <i class="fas fa-upload fa-lg"></i>
             </button>
-            <button type="button" class="btn btn-light btn-circle end-btn ml-4 display-none" onclick="verificacionDoble('<?php echo $_SESSION["cod"]?>')" title="Subir video"
+            <button type="button" class="btn btn-light btn-circle end-btn ml-4 display-none " onclick="verificacionDoble('<?php echo $_SESSION["codigo"]?>')" title="Subir video"
                 id="btn-up2">
                 <i class="fas fa-upload fa-lg"></i>
             </button>
@@ -175,7 +175,7 @@
                 <div class="modal-body">
                     <div id="div-1">
                         <i class="fas fa-user-circle fz-20"></i>
-                        <a onclick="verificarCanal('<?php echo $_SESSION["cod"]?>')"><label class="mb-2 ml-4 fz-16">Mi Canal</label></a> <br>
+                        <a onclick="verificarCanal('<?php echo $_SESSION["codigo"]?>')"><label class="mb-2 ml-4 fz-16">Mi Canal</label></a> <br>
                         <i class="far fa-user-circle fz-20"></i>
                         <label class="mb-2 ml-4 fz-16">Imagen Perfil</label> <br>
                         <i class="fas fa-sign-out-alt fz-20"></i>
@@ -248,7 +248,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                <button id="btn-crear-canal" onclick="crearCanal('<?php echo $_SESSION["cod"] ?>')" type="button" class="btn btn-primary">Crear Canal</button>
+                <button id="btn-crear-canal" onclick="crearCanal('<?php echo $_SESSION["codigo"] ?>')" type="button" class="btn btn-primary">Crear Canal</button>
             </div>
 
           </div>
@@ -290,7 +290,7 @@
                             <br>
                         </div>
                         <div class="entrada">
-                            <a href="#" class="ml-2 d-block">
+                            <a href="subs.php" class="ml-2 d-block">
                                 <i class="btn btn-ligth fab fa-youtube fa-lg pt-3 pb-3 ml-2 mr-2"></i>Suscripciones
                             </a>
                         </div>
@@ -639,8 +639,6 @@
         </div>
 
         <script src="js/jquery-3.3.1.min.js"></script>
-       <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0">
-        </script>-->
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/videos.js"></script>

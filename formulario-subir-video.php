@@ -2,13 +2,18 @@
 <?php
 
     session_start();
-
+    if(isset($_FILES)){
+        $nombreImg = $_FILES["miniatura"]["name"];
+        move_uploaded_file($_FILES["miniatura"]["tmp_name"],"img/miniaturas/".$nombreImg);
+    
+    }
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <span id="span-url" class="d-none"><?php echo $_GET["video"]?></span>
+    <span id="span-url" class="d-none"><?php echo $_GET["video"]; ?></span>
+    <span id="span-img" class="d-none"><?php echo $nombreImg; ?></span>
     <meta charset="utf-8" />
     <title>YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -157,9 +162,7 @@
             <div class="upload-box2 mt-3">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
-                        <span class="rectangulo-video">
-                            <img class="img-fluid" src="img/rectangulo-vacio.png">
-                        </span>
+                        
                         <div class="proceso-subida">
                             <label class="mt-3 txt-13p">
                                 <b>Estado de la Subida:</b>
@@ -167,7 +170,7 @@
                             <p class="txt-13p">Tu video se esta subiendo</p>
                             <span>
                                 <p class="txt-13p">Tu video se publicara en la siguiente página:
-                                    <a class="link-yt txt-13p" href="#">https://youtube/link del video</a>
+                                    <a class="link-yt txt-13p" href="#">watch/video-watch.php</a>
                                 </p>
                             </span>
                         </div>
@@ -181,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button onclick="publicarVideo('<?php echo $_SESSION["cod"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo(<?php echo $_SESSION["codigo"]?>)" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -226,21 +229,18 @@
                         <div>
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <label class="txt-13p">
-                                        <b>MINIATURAS DEL VIDEO </b>
-                                        <i class="fas fa-question-circle"></i>
-                                    </label>
-                                    <div class="miniaturas">
-                                        <img class="miniatura-subida" src="img/rectangulo-vacio.png">
-                                        <img class="miniatura-subida" src="img/rectangulo-vacio.png">
-                                        <img class="miniatura-subida" src="img/rectangulo-vacio.png">
-                                    </div>
+                                   
                                 </div>
                                 <div class="boton-miniatura col-lg-3">
-                                    <button id="miniatura-personalizada" class="btn btn-light btn-sms">
-                                        <b>Miniatura Personalizada</b>
-                                    </button>
+                                    <form action="<?php echo $_SERVER["PHP_SELF"]."?video=".$_GET["video"]?>" method="POST" enctype="multipart/form-data">
+                                        <label>
+                                            <i class="fa fa-lg fa-image"></i>
+                                            <input type="file" name="miniatura" class="form-control-file d-none">
+                                        </label>
+                                        <input type = "submit" value ="Subir miniatura" class="btn btn-sm">
+                                    </form>
                                     <p class="txt-13p">Tamaño máximo del archivo: 2MB</p>
+                                    <span class="txt-13p">Nombre archivo: <?php echo $nombreImg;?></span>
                                 </div>
                             </div>
                         </div>
@@ -258,9 +258,7 @@
             <div class="upload-box2 mt-3">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
-                        <span class="rectangulo-video">
-                            <img class="img-fluid" src="img/rectangulo-vacio.png">
-                        </span>
+                       
                         <div class="proceso-subida">
                             <label class="mt-3 txt-13p">
                                 <b>Estado de la Subida:</b>
@@ -268,7 +266,7 @@
                             <p class="txt-13p">Tu video se esta subiendo</p>
                             <span>
                                 <p class="txt-13p">Tu video se publicara en la siguiente página:
-                                    <a class="link-yt txt-13p" href="#">https://youtube/link del video</a>
+                                    <a class="link-yt txt-13p" href="#">watch/video-watch.php</a>
                                 </p>
                             </span>
                         </div>
@@ -282,7 +280,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button onclick="publicarVideo('<?php echo $_SESSION["cod"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo('<?php echo $_SESSION["codigo"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -355,9 +353,7 @@
             <div class="upload-box2 mt-3">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
-                        <span class="rectangulo-video">
-                            <img class="img-fluid" src="img/rectangulo-vacio.png">
-                        </span>
+                        
                         <div class="proceso-subida">
                             <label class="mt-3 txt-13p">
                                 <b>Estado de la Subida:</b>
@@ -365,7 +361,7 @@
                             <p class="txt-13p">Tu video se esta subiendo</p>
                             <span>
                                 <p class="txt-13p">Tu video se publicara en la siguiente página:
-                                    <a class="link-yt txt-13p" href="#">https://youtube/link del video</a>
+                                    <a class="link-yt txt-13p" href="#">watch/video-watch.php</a>
                                 </p>
                             </span>
                         </div>
@@ -379,7 +375,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <button onclick="publicarVideo('<?php echo $_SESSION["cod"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
+                                <button onclick="publicarVideo('<?php echo $_SESSION["codigo"]?>')" id="btn-publicar" class="btn btn-primary">Publicar</button>
                             </div>
                         </div>
 
@@ -399,7 +395,7 @@
                                         <b>Comentarios</b>
                                     </label>
                                     <p class="txt-14p">
-                                        <input class="custom-chk" id="chk-permitir-comentarios" type="checkbox" checked> Permitir comentarios.
+                                        <input class="custom-chk" id="chk-permitir-comentarios" type="checkbox" checked > Permitir comentarios.
                                         <a href="#">Más Informacion</a>
                                     </p>
                                 </span>
@@ -432,7 +428,7 @@
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-derechos" id="slc-derechos">
-                                            <option>Licencia de Youtube estándar</option>
+                                            <option>Licencia de Youtube estandar</option>
                                             <option>Creative Commons-Atribución</option>
                                         </select>
                                     </form>
@@ -444,13 +440,13 @@
                                     <form>
                                         <p class="txt-13p no-margin">
                                             <label>
-                                                <input type="radio" id="rd-dist1" name="distribucion"> En todas partes
+                                                <input type="radio" id="rd-dist1" name="distribucion" value=1> En todas partes
                                                 <p class="txt-11p ml-4 text-muted">Difundir este video en todas las plataformas</p>
                                             </label>
                                         </p>
                                         <p class="txt-13p no-margin">
                                             <label>
-                                                <input type="radio" id="rd-dist2" name="distribucion"> Plataformas con obtención de ingresos
+                                                <input type="radio" id="rd-dist2" name="distribucion" value=0> Plataformas con obtención de ingresos
                                                 <p class="txt-11p ml-4 text-muted">Difundir este video solo en plataformas con obtención de ingresos
                                                     <i class="fas fa-question-circle"></i>
                                                 </p>
@@ -465,10 +461,10 @@
                                     </label>
                                     <form>
                                         <select class="form-control mt-1 mb-4" name="slc-motivos" id="slc-motivos">
-                                            <option>Selecciona una opción</option>
-                                            <option>Este contenido nunca se ha emitido en televisión estadounidense</option>
-                                            <option>Este contenido solo se ha emitido en televisión estadounidense sin subtitulos</option>
-                                            <option>Este contenido no es una reproducción de video de larga duración</option>
+                                            <option value =0>Selecciona una opción</option>
+                                            <option value =1>Este contenido nunca se ha emitido en televisión estadounidense</option>
+                                            <option value =2>Este contenido solo se ha emitido en televisión estadounidense sin subtitulos</option>
+                                            <option value =3>Este contenido no es una reproducción de video de larga duración</option>
                                         </select>
                                     </form>
 
@@ -561,7 +557,7 @@
                                     </label>
                                     <p>
                                         <span class="row">
-                                            <input class="form-control ml-3" id="input-fecha-grabacion" type="text">
+                                            <input class="form-control ml-3" id="input-fecha-grabacion" type="text" placeholder="d/m/YYYY">
                                             <button id="btn-hoy" class="btn btn-light ml-1" type="button">Hoy</button>
                                         </span>
                                     </p>

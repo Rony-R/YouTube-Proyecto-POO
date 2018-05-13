@@ -1,5 +1,8 @@
-<html>
+<?php
+    session_start();
+?>
 
+<html>
 <head>
     <meta charset="utf-8" />
     <title>Subir Videos - YouTube</title>
@@ -14,118 +17,188 @@
 
     <!--Barra de navegacion de YouTube -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top barra">
-        <div class="row no-gutters">
-            <span class="col-1">
-                <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#barraNav" aria-expanded="true" aria-controls="barraNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </span>
-            <span class="col-11">
-                <span class="row">
-                    <div class="navbar-nav">
-                        <span class="col-1 no-padding pb-1">
-                            <a class="nav-item nav-link active" href="index.php">
-                                <div class="logo-container align-middle">
-                                    <img src="img/yt-logo-2.png" alt="" class="logo">
-                                </div>
-                            </a>
-                        </span>
-                        <span class="col-xl-7 col-lg-6 col-md-5 col-sm-4">
-                            <div class="container" id="busqueda">
-                                <form class="form-inline">
-                                    <input type="text" placeholder="Buscar" class="form-control collapse collapse.show" id="search-box">
-                                    <button type="button" data-toggle="collapse" data-target="#search-box" aria-expanded="false" aria-controls="search-box" class="btn btn-light col-1"
-                                        id="search-btn">
-                                        <i class="fas fa-search fa-lg"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </span>
-                        <span class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-xs-6 ml-5 mt-1">
-                            <form class="form-inline ml-auto">
-                                <button class="btn btn-light btn-circle ml-5 end-btn">
-                                    <i class="fas fa-upload fa-lg"></i>
-                                </button>
-                                <button class="btn btn-light btn-circle end-btn ml-3">
-                                    <i class="fas fa-bell fa-lg"></i>
-                                </button>
+     <nav class="navbar navbar-light bg-light fixed-top barra">
 
-                                <a id="log-usuario" class="ml-4 end-btn" data-toggle="modal" data-target="#modal-usuario">
-                                    <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
-                                </a>
-                            </form>
-                        </span>
-                    </div>
-                </span>
-            </span>
+<div class="form-inline mb-1 w-100">
+    <button class="btn btn-light mr-3 item-center" type="button" id="btn-menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="nav-item nav-link active ml-4" href="index.php" id="yt-brand">
+        <div class="logo-container align-middle">
+            <img src="img/yt-logo-2.png" alt="" class="logo">
         </div>
-    </nav>
+    </a>
+    <button type="button" class="btn btn-light d-none" id="btn-atras">
+        <i class="fas fa-arrow-left fa-lg"></i>
+    </button>
 
-    <!--Modal del usuario-->
-    <div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width: 300px">
-                <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
-                    <div class="row">
-                        <div id="foto-user">
-                            <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
-                        </div>
-                        <div id="datos-user" style="margin-left: 25px;">
-                            <div class="row">
-                                <p class="no-margin">Nombre Usuario</p>
-                            </div>
-                            <div class="row">
-                                <p>Correo Usuario</p>
-                            </div>
-                        </div>
-                    </div>
+    <input type="text" placeholder="Buscar" class="form-control m-0 d-none  d-lg-block ml-5" id="search-box">
+    <button type="button" class="btn btn-light col-1 search-btn" id="btn-search" title="Buscar">
+        <i class="fas fa-search fa-lg"></i>
+    </button>
+
+    <span id="div-busqueda" class="p-3 position-absolute  font-weight-bold"></span>
+    <button type="button" class="btn btn-light btn-circle end-btn ml-4" onclick="verificarLogIn()" title="Subir video"
+        id="btn-up">
+        <i class="fas fa-upload fa-lg"></i>
+    </button>
+    <button type="button" class="btn btn-light btn-circle end-btn ml-4 " onclick="verificacionDoble('<?php echo $_SESSION["codigo"]?>')" title="Subir video"
+        id="btn-up2">
+        <i class="fas fa-upload fa-lg"></i>
+    </button>
+
+    <div class="dropdown">
+        <button class="btn btn-light btn-circle end-btn" type="button" id="btn-apps" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" title="Apps de Youtube">
+            <i class="fas fa-th fa-lg"></i>
+        </button>
+        <!-- Menu de dropdown de las apps de YouTube-->
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btn-apps">
+            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                <div class="pl-2 pr-4">
+                    <img src="img\assets\yt-tv.png" class=" ml-2 mr-3"> YouTube TV
                 </div>
-                <div class="modal-body">
-                    <div id="div-1">
-                        <i class="fas fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Mi Canal</label>
-                        <br>
-                        <i class="fas fa-cog fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Crear Studio</label>
-                        <br>
-                        <i class="far fa-user-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Cambiar de Cuenta</label>
-                        <br>
-                        <i class="fas fa-sign-out-alt fz-20"></i>
-                        <a onclick="cerrarSesion()">
-                            <label class="mb-2 ml-4 fz-16">Cerrar Sesión</label>
-                        </a>
-                        <hr>
-                    </div>
-                    <div id="div-2">
-                        <i class="fas fa-moon fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Tema Oscuro</label>
-                        <br>
-                        <i class="fas fa-cogs fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Ajustes</label>
-                        <br>
-                        <i class="fas fa-question-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Ayuda</label>
-                        <br>
-                        <i class="fas fa-exclamation-circle fz-20"></i>
-                        <label class="mb-2 ml-4 fz-16">Enviar Sugerencias</label>
-                        <hr>
-                    </div>
-                    <div id="div-3">
-                        <label class="mb-2 text-muted">Idioma</label>
-                        <br>
-                        <label class="mb-2 text-muted">Ubicación</label>
-                        <br>
-                        <label class="mb-2 text-muted">Modo Restringido</label>
-                    </div>
+            </a>
+            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                <div class="pl-2 pr-4">
+                    <img src="img\assets\yt-gaming.png" class=" ml-2 mr-3"> YouTube Gaming
                 </div>
-
-            </div>
-
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                <div class="pl-2 pr-4">
+                    <img src="img\assets\yt-music.png" class=" ml-2 mr-3"> YouTube Music
+                </div>
+            </a>
+            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                <div class="pl-2 pr-4">
+                    <img src="img\assets\yt-kids.png" class=" ml-2 mr-3"> YouTube Kids
+                </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                <div class="pl-2 pr-4">
+                    <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Academia de Creadores
+                </div>
+            </a>
+            <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                <div class="pl-2 pr-4">
+                    <img src="img\assets\yt-icon.png" class=" ml-2 mr-3"> Youtube para Artistas
+                </div>
+            </a>
         </div>
     </div>
-    <!--Fin modal del usuario-->
+
+    <!--Contenido que desaparecera cuando el usuario haga login-->
+        <div id="drop-puntitos" class="dropdown">
+            <button class="btn btn-light btn-circle end-btn" type="button" id="btn-opc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                title="Configuracion">
+                <i class="fas fa-ellipsis-v fa-lg"></i>
+            </button>
+            <!--Menu dropdown de las configuraciones de YT-->
+            <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="btn-opc">
+                <a class="dropdown-item d-block p-0 pt-2 pb-1" href="configuracion.php">
+                    <div class="pl-2 pr-4">
+                        <i class="fas fa-cog fa-lg ml-2 mr-3"></i> Configuracion
+                    </div>
+                </a>
+                <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                    <div class="pl-2 pr-4">
+                        <i class="fas fa-question-circle fa-lg ml-2 mr-3"></i> Ayuda
+                    </div>
+                </a>
+                <a class="dropdown-item d-block p-0 pt-2 pb-1" href="#">
+                    <div class="pl-2 pr-4">
+                        <i class="fas fa-comment fa-lg ml-2 mr-3"></i> Enviar comentarios
+                    </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                    <div class="pl-2 pr-4 dropdown-toggle">
+                        Idioma: Español
+                    </div>
+                </button>
+                <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                    <div class="pl-2 pr-4 dropdown-toggle">
+                        Ubicacion: Estados Unidos
+                    </div>
+                </button>
+                <button class="dropdown-item  p-0 pt-2 pb-1 dropright" type="button">
+                    <div class="pl-2 pr-4 dropdown-toggle">
+                        Modo Restringido: Desactivado
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <button id="campanita" type="button" class="btn btn-light btn-circle end-btn display-none" title="notificaciones">
+            <i class="fas fa-bell"></i>
+        </button>
+
+        <button id="btn-iniciar-sesion" onclick="location.href='inicio-google.html'" type="button" class="btn btn-outline-danger btn-sm mt-1">
+            INICIAR SESIÓN
+        </button>
+
+        <a id="log-usuario" class="ml-2 display-none" data-toggle="modal" data-target="#modal-usuario">
+            <img style="width: 27px; height: 27px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+        </a>
+        
+    <!--Fin contenido que desaparecera cuando el usuario haga login-->
+
+</form>
+</nav>
+
+<!--Modal del usuario-->
+<div class="modal" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content" style="width: 300px">
+        <div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; background-color: #E6E6E6">
+           <div class="row">
+                <div id="foto-user">
+                    <img style="width: 50px; height: 50px" src="img/user-icon.png" id="usuario-img" class="img-fluid">
+                    <span class="ml-2"><?php echo $_SESSION["nombre"]?></span>
+                </div>
+                <div id="datos-user" style="margin-left: 25px;">
+                    <div class="row">
+                        <p><?php echo $_SESSION["usr"]?></p>
+                        <span class="d-none" id="txt-codigo"><?php echo $_SESSION["codigo"] ?></span>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div class="modal-body">
+            <div id="div-1">
+                <i class="fas fa-user-circle fz-20"></i>
+                <a onclick="verificarCanal('<?php echo $_SESSION["codigo"]?>')"><label class="mb-2 ml-4 fz-16">Mi Canal</label></a> <br>
+                <i class="far fa-user-circle fz-20"></i>
+                <label class="mb-2 ml-4 fz-16">Imagen Perfil</label> <br>
+                <i class="fas fa-sign-out-alt fz-20"></i>
+                <a onclick="cerrarSesion()"><label class="mb-2 ml-4 fz-16">Cerrar Sesión</label></a>
+                <hr>
+            </div>
+            <div id="div-2">
+                <i class="fas fa-moon fz-20"></i>
+                <label class="mb-2 ml-4 fz-16">Tema Oscuro</label> <br>
+                <i class="fas fa-cogs fz-20"></i>
+                <label class="mb-2 ml-4 fz-16">Ajustes</label> <br>
+                <i class="fas fa-question-circle fz-20"></i>
+                <label class="mb-2 ml-4 fz-16">Ayuda</label> <br>
+                <i class="fas fa-exclamation-circle fz-20"></i>
+                <label class="mb-2 ml-4 fz-16">Enviar Sugerencias</label>
+                <hr>
+            </div>
+            <div id="div-3">
+                <label class="mb-2 text-muted">Idioma</label> <br>
+                <label class="mb-2 text-muted">Ubicación</label> <br>
+                <label class="mb-2 text-muted">Modo Restringido</label>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+<!--Fin modal del usuario-->
 
     <!--Cuerpo de Youtube -->
     <div class="container-fluid no-padding mt-5">

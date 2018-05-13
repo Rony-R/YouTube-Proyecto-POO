@@ -13,6 +13,9 @@
        case "'obtener-videos'":
             echo Videos::obtenerVideos($conexion);
        break;
+       case "obtener-videos-sub":
+            echo Videos::obtenerVideosSub($conexion,$_POST["id_usuario"]);
+       break;
 
        case "'obtenerVideoID'":
             echo Videos::obtenerVideosById($conexion,$_GET["id"]);
@@ -41,17 +44,12 @@
        case "'obtenerCanales'":
             echo Canal::obtenerCanales($conexion);
        break;
+       case "'obtener-canal-sub'":
+            echo Canal::obtenerCanalesSub($conexion,$_POST["id_usuario"]);
+       break;
        case "'obtenerNoSuscrito'":
             echo Canal::obtenerNoSuscrito($conexion,$_POST["id"]);
        break;
-       case "'entrenar'":
-            echo Videos::entrenarRed($conexion,$_GET["id"]);
-       break;
-       
-       case "'redRecomendados'":
-            echo Videos::redRecomendados($conexion, $_GET["id"]);
-       break;
-
        case "formulario-google":
         $usuario = new Usuario(null, $_POST["genero"], $_POST["nombre"], $_POST["apellido"],$_POST["correo"], 
                         $_POST["contrasena"], $_POST["nacimiento"], $_POST["telefono"], $_POST["ubicacion"], null);
@@ -85,26 +83,36 @@
             session_start();
             if(session_destroy())
             {
-                sleep(3);
+               
                 echo 1;
             }
             else
             {
-                sleep(3);
+               
                 echo 0;
             }
         break;
 
         case "insertar-video":
-            $video = new Videos(null, $_POST["codCanal"], $_POST["categoria"], $_POST["titulo"], $_POST["descripcion"], "img/videos/".$_POST["url-vid"], "img/miniaturas/", null, 0, 0, 0, $_POST["mensajeUsuario"], $_POST["acceso"]);
+            $video = new Videos(null, 
+                                $_POST["codCanal"],
+                                $_POST["categoria"],
+                                $_POST["titulo"],
+                                $_POST["descripcion"],
+                                "img/videos/".$_POST["url-vid"],
+                                "img/miniaturas/".$_POST["url_miniatura"],
+                                null,0,0,0,
+                                $_POST["mensajeUsuario"],
+                                $_POST["acceso"]);
             echo $video->insertarVideo($conexion);
         break;
 
         case "config-video":
-            $config = new Configuracion(null, null, $_POST["comentarios"], $_POST["motrarComentarios"],
-                        $_POST["licencia"], $_POST["distribucion"], $_POST["subtitutlos"],
+            $config = new Configuracion(null, $_POST["codigo_video"], $_POST["comentarios"], $_POST["mostrarComentarios"],
+                        $_POST["licencia"], $_POST["distribucion"], $_POST["subtitulos"],
                         $_POST["restriccionEdad"], $_POST["fecha-grabacion"], $_POST["estadisticas"], 
-                        $_POST["contenido"], $_POST["ubicacion"]);
+                        $_POST["contenido"], $_POST["ubicacion"],$_POST["ordenaComentarios"],$_POST["valoraciones"],
+                        $_POST["insercion"],$_POST["suscripciones"],$_POST["idiomaVideo"],$_POST["contribucion"]);
             echo $config->insertarConfig($conexion); 
         break;
         case "crear-canal":
@@ -145,7 +153,7 @@
         case "'obtenerVideosCanal'":
             echo Videos::obtenerVideosCanal($conexion,$_POST["id"]);
         break;
-
+        
         }
 
 ?>

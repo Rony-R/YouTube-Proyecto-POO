@@ -264,6 +264,24 @@
 			
 			return json_encode($respuesta);
 		}
+
+		/**
+		 * Funcion que obtiene los canales que esta suscrito el usuario
+		 */
+		public static function obtenerCanalesSub($conexion, $id){
+			$sql =sprintf( 
+					"SELECT DISTINCT a.codigo_canal, a.nombre_canal, a.foto_canal, a.num_suscriptores
+					FROM tbl_canales a
+					WHERE a.codigo_canal IN
+					(SELECT codigo_canal FROM tbl_suscripciones WHERE codigo_usuario = %s)",
+					$conexion->antiInyeccion($id));
+			$result = $conexion->ejecutarConsulta($sql);
+			$canalesSub = array();
+			while($fila = $conexion->obtenerFila($result)){
+				$canalesSub[] = $fila;
+			}
+			return json_encode($canalesSub);
+		}
     }
 
 ?>
