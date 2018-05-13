@@ -316,7 +316,7 @@ function publicarVideo(codUsuario) {
     "&tituloTraducido=" + $("#nombre-video2").val() +
     "&descripcionTraducida=" + $("#txta-descripcion3").val() +
     "&categoria=" + $("#slc-categoria").val();
-  console.log(parametrosVideos);
+
 
   $.ajax({
     url: "ajax/api.php?accion=insertar-video",
@@ -415,7 +415,7 @@ function publicarVideo(codUsuario) {
     "&contenido=" + contenido ;
 
 
-  console.log(parametrosConfiguracion);
+
   $.ajax({
     url: "ajax/api.php?accion=config-video",
     data: parametrosConfiguracion,
@@ -557,8 +557,32 @@ function crearCanal(codigoUsuario) {
       obtenerInfoCanal(respuesta.nombre);
     }
   });
+}
+
+function crearCanal(codigoUsuario)
+{ 
+    var datosCanal = "nombre=" +$("#nombreCanal").val()+
+                    "&codigo=" + codigoUsuario+
+                    "&descripcion=" +$("#descripcionCanal").val()+
+                    "&banner=" +"img/youtube.png"+
+                    "&foto_canal=" +"img/user-icon.png";
+
+    console.log(datosCanal);
+
+    $.ajax({
+      url: "ajax/api.php?accion=crear-canal",
+      method: "POST",
+      data: datosCanal,
+      dataType: "json",
+      success: function(respuesta){
+        console.log(respuesta.nombre);
+        obtenerInfoCanal(respuesta.nombre);
+      }
+    });
 
 }
+
+
 
 function verificacionDoble(codigoUser) {
   var dato = "codigoUsuario=" + codigoUser;
